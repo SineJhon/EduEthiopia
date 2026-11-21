@@ -101,14 +101,15 @@ class _AuthScreenState extends State<AuthScreen>
             Positioned(
               top: -30,
               right: -30,
-              child: Container(
-                width: 160,
-                height: 160,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.gold.withValues(alpha: 0.10),
-                ),
-              ).animate().scale(
+              child:
+                  Container(
+                    width: 160,
+                    height: 160,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.gold.withValues(alpha: 0.10),
+                    ),
+                  ).animate().scale(
                     delay: 300.ms,
                     duration: 1500.ms,
                     curve: Curves.easeInOut,
@@ -119,14 +120,15 @@ class _AuthScreenState extends State<AuthScreen>
             Positioned(
               bottom: -20,
               left: -20,
-              child: Container(
-                width: 120,
-                height: 120,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.green.withValues(alpha: 0.08),
-                ),
-              ).animate().scale(
+              child:
+                  Container(
+                    width: 120,
+                    height: 120,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.green.withValues(alpha: 0.08),
+                    ),
+                  ).animate().scale(
                     delay: 500.ms,
                     duration: 1500.ms,
                     curve: Curves.easeInOut,
@@ -138,7 +140,7 @@ class _AuthScreenState extends State<AuthScreen>
               top: 10,
               left: 8,
               child: IconButton(
-                tooltip: strings.menu,
+                tooltip: 'Back',
                 onPressed: () => Navigator.of(context).maybePop(),
                 icon: const Icon(Icons.arrow_back_rounded),
               ),
@@ -161,224 +163,272 @@ class _AuthScreenState extends State<AuthScreen>
                 ],
               ),
             ),
-            Center(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 440),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(24, 10, 24, 28),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Reveal(
-                        duration: 700,
-                        delay: 100,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            ClipOval(
-                              child: Image.asset(
-                                'assets/images/edu_ethiopia_logo.jpg',
-                                height: 44,
-                                width: 44,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                            Text(
-                              'Edu Ethiopia',
-                              style: const TextStyle(
-                                color: AppColors.darkGreen,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      Reveal(
-                        duration: 700,
-                        delay: 250,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              _isSignUp ? strings.signupTitle : strings.loginTitle,
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                                    color: AppColors.darkGreen,
+            Positioned.fill(
+              top: 58,
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 440),
+                  child: SingleChildScrollView(
+                    physics: const BouncingScrollPhysics(),
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(24, 10, 24, 28),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Reveal(
+                            duration: 700,
+                            delay: 100,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                ClipOval(
+                                  child: Image.asset(
+                                    'assets/images/edu_ethiopia_logo.jpg',
+                                    height: 44,
+                                    width: 44,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                const SizedBox(width: 10),
+                                Text(
+                                  'Edu Ethiopia',
+                                  style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSurface,
+                                    fontSize: 18,
                                     fontWeight: FontWeight.w900,
                                   ),
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              _isSignUp ? strings.signupSubtitle : strings.loginSubtitle,
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                                    height: 1.4,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 24),
-                      // Login / Signup toggle with crossfade
-                      Reveal(
-                        duration: 600,
-                        delay: 400,
-                        child: FadeTransition(
-                          opacity: _modeFade,
-                          child: SegmentedButton<bool>(
-                            segments: [
-                              ButtonSegment<bool>(
-                                value: false,
-                                label: Text(strings.loginTab),
-                                icon: const Icon(Icons.login_rounded, size: 18),
-                              ),
-                              ButtonSegment<bool>(
-                                value: true,
-                                label: Text(strings.signupTab),
-                                icon: const Icon(Icons.person_add_rounded, size: 18),
-                              ),
-                            ],
-                            selected: {_isSignUp},
-                            onSelectionChanged: (selection) =>
-                                _toggleMode(selection.first),
-                            style: SegmentedButton.styleFrom(
-                              backgroundColor: Theme.of(context).colorScheme.surface,
-                              foregroundColor: AppColors.darkGreen,
-                              selectedBackgroundColor: AppColors.green,
-                              selectedForegroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(14),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 22),
-                      // Form card
-                      Reveal(
-                        duration: 700,
-                        delay: 500,
-                        child: AnimatedCard(
-                          color: Theme.of(context).colorScheme.surface,
-                          borderRadius: 22,
-                          padding: const EdgeInsets.all(20),
-                          child: Form(
-                            key: _formKey,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                if (_isSignUp) ...[
-                                  _buildTextField(
-                                    controller: _fullNameController,
-                                    label: strings.fullName,
-                                    icon: Icons.person_outline_rounded,
-                                    validator: (value) {
-                                      if (value == null || value.trim().length < 2) {
-                                        return strings.invalidName;
-                                      }
-                                      return null;
-                                    },
-                                  ),
-                                  const SizedBox(height: 14),
-                                  _buildUniversityDropdown(strings),
-                                  const SizedBox(height: 14),
-                                ],
-                                _buildTextField(
-                                  controller: _emailController,
-                                  keyboardType: TextInputType.emailAddress,
-                                  textInputAction: TextInputAction.next,
-                                  label: strings.email,
-                                  icon: Icons.email_outlined,
-                                  validator: (value) {
-                                    if (value == null || !value.contains('@')) {
-                                      return strings.invalidEmail;
-                                    }
-                                    return null;
-                                  },
-                                ),
-                                const SizedBox(height: 14),
-                                _buildTextField(
-                                  controller: _passwordController,
-                                  obscureText: _obscurePassword,
-                                  textInputAction: _isSignUp
-                                      ? TextInputAction.next
-                                      : TextInputAction.done,
-                                  onFieldSubmitted: (_) => _submit(strings),
-                                  label: strings.password,
-                                  icon: Icons.lock_outline_rounded,
-                                  suffixIcon: IconButton(
-                                    tooltip: _obscurePassword
-                                        ? 'Show password'
-                                        : 'Hide password',
-                                    onPressed: () =>
-                                        setState(() => _obscurePassword = !_obscurePassword),
-                                    icon: Icon(
-                                      _obscurePassword
-                                          ? Icons.visibility_outlined
-                                          : Icons.visibility_off_outlined,
-                                    ),
-                                  ),
-                                  validator: (value) {
-                                    if (value == null || value.length < 8) {
-                                      return strings.invalidPassword;
-                                    }
-                                    return null;
-                                  },
-                                ),
-                                if (!_isSignUp) ...[
-                                  const SizedBox(height: 12),
-                                  Align(
-                                    alignment: Alignment.centerRight,
-                                    child: MagneticTextButton(
-                                      label: strings.forgotPassword,
-                                      onPressed: () {
-                                        ScaffoldMessenger.of(context).showSnackBar(
-                                          SnackBar(
-                                            content: Text(strings.recoveryNotice),
-                                            behavior: SnackBarBehavior.floating,
-                                            backgroundColor: AppColors.green.withValues(alpha: 0.9),
-                                          ),
-                                        );
-                                      },
-                                      color: AppColors.burgundy,
-                                    ),
-                                  ),
-                                ],
-                                const SizedBox(height: 20),
-                                MagneticButton(
-                                  onPressed: _submitting ? null : () => _submit(strings),
-                                  backgroundColor: AppColors.green,
-                                  foregroundColor: Colors.white,
-                                  label: _submitting
-                                      ? 'Just a moment...'
-                                      : (_isSignUp ? strings.signupAction : strings.loginAction),
-                                  height: 54,
-                                  icon: const Icon(Icons.arrow_forward_rounded, size: 20),
-                                  duration: 500,
-                                  delay: 50,
                                 ),
                               ],
                             ),
                           ),
-                        ),
+                          const SizedBox(height: 20),
+                          Reveal(
+                            duration: 700,
+                            delay: 250,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  _isSignUp
+                                      ? strings.signupTitle
+                                      : strings.loginTitle,
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall
+                                      ?.copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onSurface,
+                                        fontWeight: FontWeight.w900,
+                                      ),
+                                ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  _isSignUp
+                                      ? strings.signupSubtitle
+                                      : strings.loginSubtitle,
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context).textTheme.bodyMedium
+                                      ?.copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onSurfaceVariant,
+                                        height: 1.4,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 24),
+                          // Login / Signup toggle with crossfade
+                          Reveal(
+                            duration: 600,
+                            delay: 400,
+                            child: FadeTransition(
+                              opacity: _modeFade,
+                              child: SegmentedButton<bool>(
+                                segments: [
+                                  ButtonSegment<bool>(
+                                    value: false,
+                                    label: Text(strings.loginTab),
+                                    icon: const Icon(
+                                      Icons.login_rounded,
+                                      size: 18,
+                                    ),
+                                  ),
+                                  ButtonSegment<bool>(
+                                    value: true,
+                                    label: Text(strings.signupTab),
+                                    icon: const Icon(
+                                      Icons.person_add_rounded,
+                                      size: 18,
+                                    ),
+                                  ),
+                                ],
+                                selected: {_isSignUp},
+                                onSelectionChanged: (selection) =>
+                                    _toggleMode(selection.first),
+                                style: SegmentedButton.styleFrom(
+                                  backgroundColor: Theme.of(context)
+                                      .colorScheme
+                                      .surface,
+                                  foregroundColor: Theme.of(context)
+                                      .colorScheme
+                                      .onSurface,
+                                  selectedBackgroundColor: AppColors.green,
+                                  selectedForegroundColor: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(14),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 22),
+                          // Form card
+                          Reveal(
+                            duration: 700,
+                            delay: 500,
+                            child: AnimatedCard(
+                              color: Theme.of(context).colorScheme.surface,
+                              borderRadius: 22,
+                              padding: const EdgeInsets.all(20),
+                              child: Form(
+                                key: _formKey,
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    if (_isSignUp) ...[
+                                      _buildTextField(
+                                        controller: _fullNameController,
+                                        label: strings.fullName,
+                                        icon: Icons.person_outline_rounded,
+                                        validator: (value) {
+                                          if (value == null ||
+                                              value.trim().length < 2) {
+                                            return strings.invalidName;
+                                          }
+                                          return null;
+                                        },
+                                      ),
+                                      const SizedBox(height: 14),
+                                      _buildUniversityDropdown(strings),
+                                      const SizedBox(height: 14),
+                                    ],
+                                    _buildTextField(
+                                      controller: _emailController,
+                                      keyboardType: TextInputType.emailAddress,
+                                      textInputAction: TextInputAction.next,
+                                      label: strings.email,
+                                      icon: Icons.email_outlined,
+                                      validator: (value) {
+                                        if (value == null ||
+                                            !value.contains('@')) {
+                                          return strings.invalidEmail;
+                                        }
+                                        return null;
+                                      },
+                                    ),
+                                    const SizedBox(height: 14),
+                                    _buildTextField(
+                                      controller: _passwordController,
+                                      obscureText: _obscurePassword,
+                                      textInputAction: _isSignUp
+                                          ? TextInputAction.next
+                                          : TextInputAction.done,
+                                      onFieldSubmitted: (_) => _submit(strings),
+                                      label: strings.password,
+                                      icon: Icons.lock_outline_rounded,
+                                      suffixIcon: IconButton(
+                                        tooltip: _obscurePassword
+                                            ? 'Show password'
+                                            : 'Hide password',
+                                        onPressed: () => setState(
+                                          () => _obscurePassword =
+                                              !_obscurePassword,
+                                        ),
+                                        icon: Icon(
+                                          _obscurePassword
+                                              ? Icons.visibility_outlined
+                                              : Icons.visibility_off_outlined,
+                                        ),
+                                      ),
+                                      validator: (value) {
+                                        if (value == null || value.length < 8) {
+                                          return strings.invalidPassword;
+                                        }
+                                        return null;
+                                      },
+                                    ),
+                                    if (!_isSignUp) ...[
+                                      const SizedBox(height: 12),
+                                      Align(
+                                        alignment: Alignment.centerRight,
+                                        child: MagneticTextButton(
+                                          label: strings.forgotPassword,
+                                          onPressed: () {
+                                            ScaffoldMessenger.of(
+                                              context,
+                                            ).showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  strings.recoveryNotice,
+                                                ),
+                                                behavior:
+                                                    SnackBarBehavior.floating,
+                                                backgroundColor: AppColors.green
+                                                    .withValues(alpha: 0.9),
+                                              ),
+                                            );
+                                          },
+                                          color: AppColors.burgundy,
+                                        ),
+                                      ),
+                                    ],
+                                    const SizedBox(height: 20),
+                                    MagneticButton(
+                                      onPressed: _submitting
+                                          ? null
+                                          : () => _submit(strings),
+                                      backgroundColor: AppColors.green,
+                                      foregroundColor: Colors.white,
+                                      label: _submitting
+                                          ? 'Just a moment...'
+                                          : (_isSignUp
+                                                ? strings.signupAction
+                                                : strings.loginAction),
+                                      height: 54,
+                                      icon: const Icon(
+                                        Icons.arrow_forward_rounded,
+                                        size: 20,
+                                      ),
+                                      duration: 500,
+                                      delay: 50,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 18),
+                          Reveal(
+                            duration: 600,
+                            delay: 900,
+                            child: MagneticTextButton(
+                              label: _isSignUp
+                                  ? strings.loginTab
+                                  : strings.signupTab,
+                              onPressed: () => _toggleMode(!_isSignUp),
+                              color: AppColors.green,
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 18),
-                      Reveal(
-                        duration: 600,
-                        delay: 900,
-                        child: MagneticTextButton(
-                          label: _isSignUp
-                              ? strings.loginTab
-                              : strings.signupTab,
-                          onPressed: () => _toggleMode(!_isSignUp),
-                          color: AppColors.green,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ),
               ),
@@ -408,7 +458,10 @@ class _AuthScreenState extends State<AuthScreen>
       obscureText: obscureText,
       decoration: InputDecoration(
         labelText: label,
-        prefixIcon: Icon(icon, color: AppColors.green.withValues(alpha: 0.7)),
+        prefixIcon: Icon(
+          icon,
+          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.8),
+        ),
         suffixIcon: suffixIcon,
       ),
       validator: validator,
@@ -421,15 +474,17 @@ class _AuthScreenState extends State<AuthScreen>
       isExpanded: true,
       decoration: InputDecoration(
         labelText: strings.university,
-        prefixIcon: Icon(Icons.account_balance_outlined,
-            color: AppColors.green.withValues(alpha: 0.7)),
+        prefixIcon: Icon(
+          Icons.account_balance_outlined,
+          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.8),
+        ),
       ),
       hint: Text(strings.universityHint),
       items: universities
-          .map((university) => DropdownMenuItem(
-                value: university,
-                child: Text(university),
-              ))
+          .map(
+            (university) =>
+                DropdownMenuItem(value: university, child: Text(university)),
+          )
           .toList(),
       onChanged: (value) => setState(() => _selectedUniversity = value),
       validator: (value) {

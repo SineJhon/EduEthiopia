@@ -12,12 +12,14 @@ import 'package:eduethiopia/app.dart';
 import 'package:eduethiopia/core/theme/app_theme.dart';
 import 'package:eduethiopia/features/auth/auth_screen.dart';
 import 'package:eduethiopia/features/dashboard/dashboard_screen.dart';
+import 'package:eduethiopia/features/modules/learning_module_screen.dart';
 
 void main() {
   testWidgets('welcome screen displays the Edu Ethiopia entry point', (
     WidgetTester tester,
   ) async {
     await tester.pumpWidget(const EduEthiopiaApp());
+    await tester.pumpAndSettle();
 
     expect(find.text('Prepare for the department you want.'), findsOneWidget);
     expect(find.text('Start learning'), findsOneWidget);
@@ -38,12 +40,15 @@ void main() {
     WidgetTester tester,
   ) async {
     await tester.pumpWidget(const MaterialApp(home: AuthScreen()));
+    await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Sign up'));
+    await tester.tap(find.text('Sign up').first);
     await tester.pump();
+    await tester.pumpAndSettle();
     await tester.ensureVisible(find.text('Create account'));
     await tester.tap(find.text('Create account'));
     await tester.pump();
+    await tester.pumpAndSettle();
 
     expect(find.text('Enter your full name'), findsOneWidget);
     expect(find.text('Choose your university'), findsWidgets);
@@ -64,6 +69,7 @@ void main() {
         },
       ),
     );
+    await tester.pumpAndSettle();
 
     await tester.tap(find.text('አማርኛ'));
     await tester.pump();
@@ -71,6 +77,7 @@ void main() {
 
     await tester.tap(find.byTooltip('Switch to dark theme'));
     await tester.pump();
+    await tester.pumpAndSettle();
     expect(find.byTooltip('Switch to light theme'), findsOneWidget);
 
     await tester.tap(find.byTooltip('Back'));
@@ -84,17 +91,51 @@ void main() {
     WidgetTester tester,
   ) async {
     await tester.pumpWidget(const MaterialApp(home: DashboardScreen()));
+    await tester.pumpAndSettle();
 
     expect(find.text('Study hub'), findsOneWidget);
     expect(find.text('Modules'), findsWidgets);
-    expect(find.text('Notes'), findsOneWidget);
-    expect(find.text('Exams'), findsOneWidget);
-    expect(find.text('Videos'), findsOneWidget);
+    expect(find.text('Notes'), findsWidgets);
+    expect(find.text('Exams'), findsWidgets);
+    expect(find.text('Videos'), findsWidgets);
     expect(find.byTooltip('AI Help'), findsOneWidget);
     expect(find.byTooltip('Menu'), findsOneWidget);
     expect(find.text('Mid, Final, and COC'), findsOneWidget);
     expect(find.text('Course notes and chapters'), findsOneWidget);
-    expect(find.text('Courses and subjects'), findsOneWidget);
+    expect(find.text('Courses and subjects'), findsWidgets);
+  });
+
+  testWidgets('learning sections render in light and dark themes', (
+    WidgetTester tester,
+  ) async {
+    for (final theme in [AppTheme.light, AppTheme.dark]) {
+      for (final module in LearningModule.values) {
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: theme,
+            home: LearningModuleScreen(module: module),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(ListView), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      }
+    }
+  });
+
+  testWidgets('dashboard fits a compact phone layout', (
+    WidgetTester tester,
+  ) async {
+    tester.view.physicalSize = const Size(360, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(const MaterialApp(home: DashboardScreen()));
+    await tester.pumpAndSettle();
+
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets('theme icon switches between dark and light actions', (
@@ -102,10 +143,12 @@ void main() {
   ) async {
     AppThemeController.isDark.value = false;
     await tester.pumpWidget(const EduEthiopiaApp());
+    await tester.pumpAndSettle();
 
     expect(find.byTooltip('Switch to dark theme'), findsOneWidget);
     await tester.tap(find.byTooltip('Switch to dark theme'));
     await tester.pump();
+    await tester.pumpAndSettle();
     expect(find.byTooltip('Switch to light theme'), findsOneWidget);
 
     AppThemeController.isDark.value = false;

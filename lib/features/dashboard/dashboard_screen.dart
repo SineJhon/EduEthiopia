@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../core/design/app_colors.dart';
+import '../../core/design/app_dimensions.dart';
+import '../../core/design/app_typography.dart';
+import '../../core/design/category_config.dart';
+import '../../core/design/reusable_widgets.dart';
 import '../../core/localization/app_strings.dart';
-import '../../core/theme/app_theme.dart';
 import '../../core/widgets/animated/animated_widgets.dart';
 import '../../core/widgets/language_toggle.dart';
 import '../../core/widgets/theme_toggle.dart';
@@ -40,58 +44,58 @@ class _DashboardScreenState extends State<DashboardScreen> {
         scale: 1.2,
         child: FloatingActionButton(
           tooltip: strings.aiAssistant,
-          backgroundColor: AppColors.burgundy,
+          backgroundColor: AppColors.primary,
           foregroundColor: Colors.white,
           onPressed: _openAiAssistant,
           child: const Icon(Icons.auto_awesome_rounded),
         ),
       ),
       bottomNavigationBar: NavigationBar(
-        height: 68,
+        height: AppDimensions.bottomNavHeight,
         selectedIndex: 0,
-        labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
         onDestinationSelected: (index) {
-          if (index > 0) {
-            _openModule(
-              [
-                LearningModule.modules,
-                LearningModule.notes,
-                LearningModule.exams,
-                LearningModule.videos,
-              ][index - 1],
-            );
-          }
+          if (index == 0) return;
+          final destinations = [
+            LearningModule.modules,
+            LearningModule.notes,
+            LearningModule.exams,
+            LearningModule.videos,
+          ];
+          _openModule(destinations[index - 1]);
         },
         destinations: [
           NavigationDestination(
-            icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home_rounded),
-            label: strings.dashboardTitle,
+            icon: const Icon(Icons.home_outlined),
+            selectedIcon: const Icon(Icons.home_rounded),
+            label: strings.home,
           ),
           NavigationDestination(
-            icon: Icon(Icons.apps_outlined),
-            selectedIcon: Icon(Icons.apps_rounded),
+            icon: const Icon(Icons.apps_outlined),
+            selectedIcon: const Icon(Icons.apps_rounded),
             label: strings.modules,
           ),
           NavigationDestination(
-            icon: Icon(Icons.menu_book_outlined),
-            selectedIcon: Icon(Icons.menu_book_rounded),
+            icon: const Icon(Icons.menu_book_outlined),
+            selectedIcon: const Icon(Icons.menu_book_rounded),
             label: strings.notes,
           ),
           NavigationDestination(
-            icon: Icon(Icons.fact_check_outlined),
-            selectedIcon: Icon(Icons.fact_check_rounded),
+            icon: const Icon(Icons.fact_check_outlined),
+            selectedIcon: const Icon(Icons.fact_check_rounded),
             label: strings.exams,
           ),
           NavigationDestination(
-            icon: Icon(Icons.play_circle_outline_rounded),
-            selectedIcon: Icon(Icons.play_circle_fill_rounded),
+            icon: const Icon(Icons.play_circle_outline_rounded),
+            selectedIcon: const Icon(Icons.play_circle_fill_rounded),
             label: strings.videos,
           ),
         ],
       ),
+
       appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        elevation: 0,
+        centerTitle: false,
         leading: Builder(
           builder: (context) => IconButton(
             tooltip: strings.menu,
@@ -99,145 +103,146 @@ class _DashboardScreenState extends State<DashboardScreen> {
             icon: const Icon(Icons.menu_rounded),
           ),
         ),
-        title: const Text(
-          'Edu Ethiopia',
-          style: TextStyle(fontWeight: FontWeight.w900),
-        ),
+        titleSpacing: AppDimensions.sm,
+        title: const DashboardHeader(),
         actions: [
           const ThemeToggle(),
-          const SizedBox(width: 10),
           LanguageToggle(
+            compact: true,
             isAmharic: _isAmharic,
             onChanged: (value) {
               setState(() => _isAmharic = value);
               widget.onLanguageChanged?.call(value);
             },
           ),
-          const SizedBox(width: 16),
+          const SizedBox(width: AppDimensions.xs),
         ],
       ),
+
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
-          padding: const EdgeInsets.fromLTRB(20, 12, 20, 100),
+          padding: const EdgeInsets.fromLTRB(
+            AppDimensions.md,
+            AppDimensions.sm,
+            AppDimensions.md,
+            AppDimensions.xl,
+          ),
           child: Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 640),
+              constraints: const BoxConstraints(
+                maxWidth: AppDimensions.maxContentWidth,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  // Study Hub introduction
                   Reveal(
                     duration: 700,
                     delay: 100,
-                    child: Row(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                strings.welcomeEyebrow,
-                                style: Theme.of(context).textTheme.labelSmall
-                                    ?.copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onSurfaceVariant,
-                                      fontWeight: FontWeight.w700,
-                                      letterSpacing: .6,
-                                    ),
-                              ),
-                              const SizedBox(height: 5),
-                              Text(
-                                strings.dashboardTitle,
-                                style: Theme.of(context).textTheme.headlineSmall
-                                    ?.copyWith(
-                                      fontWeight: FontWeight.w800,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onSurface,
-                                    ),
-                              ),
-                            ],
+                        Text(
+                          strings.welcomeEyebrow,
+                          style: AppTypography.eyebrow.copyWith(
+                            color: Theme.of(context).colorScheme.primary,
                           ),
                         ),
-                        ClipOval(
-                          child: Image.asset(
-                            'assets/images/edu_ethiopia_logo.jpg',
-                            height: 46,
-                            width: 46,
-                            fit: BoxFit.cover,
+                        const SizedBox(height: AppDimensions.xs),
+                        Text(
+                          strings.dashboardTitle,
+                          style: AppTypography.headlineLarge.copyWith(
+                            fontWeight: FontWeight.w800,
+                            color: Theme.of(context).colorScheme.onSurface,
+                          ),
+                        ),
+                        const SizedBox(height: AppDimensions.sm),
+                        Text(
+                          strings.dashboardSubtitle,
+                          style: AppTypography.bodyMedium.copyWith(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSurfaceVariant,
+                            height: 1.5,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  const SizedBox(height: 18),
-                  _StudyOverviewCard(subtitle: strings.dashboardSubtitle),
-                  const SizedBox(height: 26),
-                  Reveal(
-                    duration: 700,
-                    delay: 250,
-                    child: Text(
-                      strings.modules,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        fontWeight: FontWeight.w700,
-                        letterSpacing: 0.8,
+
+                  const SizedBox(height: AppDimensions.lg),
+
+                  // Study Space Banner
+                  StudySpaceBanner(subtitle: strings.dashboardSubtitle),
+
+                  const SizedBox(height: AppDimensions.lg),
+
+                  // Main Learning Categories
+                  SectionHeader(
+                    title: strings.modules,
+                    subtitle: 'Choose your starting point',
+                  ),
+
+                  const SizedBox(height: AppDimensions.md),
+
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: CategoryCard(
+                              category: LearningCategories.modules,
+                              onTap: () => _openModule(LearningModule.modules),
+                              delay: 100,
+                            ),
+                          ),
+                          const SizedBox(width: AppDimensions.sm),
+                          Expanded(
+                            child: CategoryCard(
+                              category: LearningCategories.notes,
+                              onTap: () => _openModule(LearningModule.notes),
+                              delay: 200,
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
+                      const SizedBox(height: AppDimensions.sm),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: CategoryCard(
+                              category: LearningCategories.videos,
+                              onTap: () => _openModule(LearningModule.videos),
+                              delay: 300,
+                            ),
+                          ),
+                          const SizedBox(width: AppDimensions.sm),
+                          Expanded(
+                            child: CategoryCard(
+                              category: LearningCategories.exams,
+                              onTap: () => _openModule(LearningModule.exams),
+                              delay: 400,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                  const SizedBox(height: 16),
+
+                  const SizedBox(height: AppDimensions.lg),
+
+                  // Continue Learning Card
                   Reveal(
                     duration: 700,
-                    delay: 350,
-                    child: GridView.count(
-                      crossAxisCount: 2,
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      crossAxisSpacing: 16,
-                      mainAxisSpacing: 16,
-                      childAspectRatio: 1.15,
-                      children: [
-                        _DashboardTile(
-                          icon: Icons.apps_rounded,
-                          label: strings.modules,
-                          description: strings.modulesDescription,
-                          color: AppColors.green,
-                          onTap: () => _openModule(LearningModule.modules),
-                          delay: 50,
-                        ),
-                        _DashboardTile(
-                          icon: Icons.menu_book_rounded,
-                          label: strings.notes,
-                          description: strings.notesDescription,
-                          color: AppColors.green,
-                          onTap: () => _openModule(LearningModule.notes),
-                          delay: 150,
-                        ),
-                        _DashboardTile(
-                          icon: Icons.fact_check_rounded,
-                          label: strings.exams,
-                          description: strings.examsDescription,
-                          color: AppColors.darkGreen,
-                          onTap: () => _openModule(LearningModule.exams),
-                          delay: 250,
-                        ),
-                        _DashboardTile(
-                          icon: Icons.play_circle_fill_rounded,
-                          label: strings.videos,
-                          description: strings.videosDescription,
-                          color: const Color(0xFF2C7A7B),
-                          onTap: () => _openModule(LearningModule.videos),
-                          delay: 350,
-                        ),
-                      ],
+                    delay: 500,
+                    child: _ContinueLearningCard(
+                      onTap: () => _openModule(LearningModule.modules),
                     ),
                   ),
-                  const SizedBox(height: 22),
-                  _ContinueLearningCard(
-                    onTap: () => _openModule(LearningModule.modules),
-                  ),
-                  const SizedBox(height: 30),
+
+                  const SizedBox(height: AppDimensions.xl),
                 ],
               ),
             ),
@@ -275,207 +280,73 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 }
 
-class _StudyOverviewCard extends StatelessWidget {
-  const _StudyOverviewCard({required this.subtitle});
-  final String subtitle;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: AppColors.green,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.green.withValues(alpha: .16),
-            blurRadius: 16,
-            offset: const Offset(0, 7),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'YOUR STUDY SPACE',
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 10,
-                    fontWeight: FontWeight.w700,
-                    letterSpacing: 1.1,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  subtitle,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                    height: 1.45,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(height: 14),
-                const Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.verified_user_outlined,
-                      color: Colors.white70,
-                      size: 16,
-                    ),
-                    SizedBox(width: 6),
-                    Text(
-                      'Learn at your own pace',
-                      style: TextStyle(color: Colors.white70, fontSize: 12),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(width: 12),
-          Container(
-            width: 52,
-            height: 52,
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: .14),
-              shape: BoxShape.circle,
-            ),
-            child: const Icon(
-              Icons.school_rounded,
-              color: Colors.white,
-              size: 27,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class _ContinueLearningCard extends StatelessWidget {
   const _ContinueLearningCard({required this.onTap});
   final VoidCallback onTap;
 
   @override
-  Widget build(BuildContext context) => Material(
-    color: Theme.of(context).colorScheme.surface,
-    borderRadius: BorderRadius.circular(16),
-    child: InkWell(
-      borderRadius: BorderRadius.circular(16),
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.all(16),
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(AppDimensions.md),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surface,
+        borderRadius: BorderRadius.circular(AppDimensions.radiusLg),
+        border: Border.all(color: Theme.of(context).colorScheme.outlineVariant),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.04),
+            blurRadius: AppDimensions.elevationSm,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(AppDimensions.radiusLg),
+        onTap: onTap,
         child: Row(
           children: [
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: AppColors.green.withValues(alpha: .09),
-                borderRadius: BorderRadius.circular(13),
+                color: Theme.of(context).colorScheme.primaryContainer,
+                borderRadius: BorderRadius.circular(AppDimensions.radiusSm),
               ),
-              child: const Icon(
+              child: Icon(
                 Icons.auto_stories_rounded,
-                color: AppColors.green,
+                color: Theme.of(context).colorScheme.primary,
+                size: 24,
               ),
             ),
-            const SizedBox(width: 14),
-            const Expanded(
+            const SizedBox(width: AppDimensions.md),
+            Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Explore study modules',
-                    style: TextStyle(fontWeight: FontWeight.w700),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ),
                   ),
                   SizedBox(height: 4),
                   Text(
                     'Courses and subjects',
-                    style: TextStyle(fontSize: 12, color: Colors.grey),
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
                   ),
                 ],
               ),
             ),
-            const Icon(Icons.arrow_forward_ios_rounded, size: 15),
+            Icon(
+              Icons.arrow_forward_ios_rounded,
+              size: 15,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
           ],
         ),
-      ),
-    ),
-  );
-}
-
-class _DashboardTile extends StatefulWidget {
-  const _DashboardTile({
-    required this.icon,
-    required this.label,
-    required this.description,
-    required this.color,
-    required this.onTap,
-    this.delay = 0,
-  });
-
-  final IconData icon;
-  final String label;
-  final String description;
-  final Color color;
-  final VoidCallback onTap;
-  final int delay;
-
-  @override
-  State<_DashboardTile> createState() => _DashboardTileState();
-}
-
-class _DashboardTileState extends State<_DashboardTile> {
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedCard(
-      color: Theme.of(context).colorScheme.surface,
-      borderRadius: 16,
-      onTap: widget.onTap,
-      delay: widget.delay,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(14),
-            decoration: BoxDecoration(
-              color: widget.color.withValues(alpha: 0.12),
-              shape: BoxShape.circle,
-            ),
-            child: Icon(widget.icon, color: widget.color, size: 32),
-          ),
-          const SizedBox(height: 14),
-          Text(
-            widget.label,
-            textAlign: TextAlign.center,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.onSurface,
-              fontWeight: FontWeight.w800,
-              fontSize: 15,
-            ),
-          ),
-          const SizedBox(height: 6),
-          Text(
-            widget.description,
-            textAlign: TextAlign.center,
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.onSurfaceVariant
-                  .withValues(alpha: 0.7),
-              fontSize: 11,
-              height: 1.3,
-            ),
-          ),
-        ],
       ),
     );
   }
@@ -496,7 +367,7 @@ class _DashboardDrawer extends StatelessWidget {
             Container(
               width: double.infinity,
               padding: const EdgeInsets.fromLTRB(20, 28, 20, 24),
-              color: AppColors.darkGreen,
+              color: AppColors.primary,
               child: Row(
                 children: [
                   ClipOval(
@@ -520,9 +391,9 @@ class _DashboardDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(
+              leading: Icon(
                 Icons.dashboard_rounded,
-                color: AppColors.green,
+                color: Theme.of(context).colorScheme.primary,
               ),
               title: Text(strings.dashboardTitle),
               onTap: () => Navigator.of(context).pop(),
@@ -535,9 +406,9 @@ class _DashboardDrawer extends StatelessWidget {
             const Spacer(),
             const Divider(height: 1),
             ListTile(
-              leading: const Icon(
+              leading: Icon(
                 Icons.logout_rounded,
-                color: AppColors.burgundy,
+                color: Theme.of(context).colorScheme.tertiary,
               ),
               title: Text(strings.signOut),
               onTap: onSignOut,
