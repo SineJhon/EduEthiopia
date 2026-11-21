@@ -162,6 +162,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 }
 
+String _localizedCategory(String category, bool isAmharic) {
+  if (!isAmharic) return category;
+  switch (category) {
+    case 'Pre-Engineering':
+      return 'ፕሪ-ኢንጂነሪንግ';
+    case 'Others':
+      return 'ሌሎች';
+    default:
+      return 'ፍሬሽማን';
+  }
+}
+
 class _ProfileBadge extends StatelessWidget {
   const _ProfileBadge({
     required this.categoryLabel,
@@ -225,43 +237,154 @@ class _ProfileBadge extends StatelessWidget {
         PopupMenuButton<String>(
           tooltip: categoryLabel,
           position: PopupMenuPosition.under,
+          constraints: const BoxConstraints(minWidth: 220, maxWidth: 220),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          elevation: 10,
+          color: colorScheme.surface,
+          onOpened: () {},
           onSelected: onCategoryChanged,
-          itemBuilder: (context) => categories
-              .map(
-                (category) => PopupMenuItem<String>(
-                  value: category,
-                  child: Text(
-                    isAmharic
-                        ? (category == 'Freshman'
-                              ? 'ፍሬሽማን'
-                              : category == 'Pre-Engineering'
-                              ? 'ፕሪ-ኢንጂነሪንግ'
-                              : 'ሌሎች')
-                        : category,
+          itemBuilder: (context) => categories.map((category) {
+            final selected =
+                categoryLabel == _localizedCategory(category, isAmharic) ||
+                (category == 'Freshman' && categoryLabel == 'Freshman');
+            final label = _localizedCategory(category, isAmharic);
+            final description = isAmharic
+                ? (category == 'Freshman'
+                      ? 'የመጀመሪያ ዓመት ኮርሶች'
+                      : category == 'Pre-Engineering'
+                      ? 'የኢንጂነሪንግ ዝግጅት'
+                      : 'ተጨማሪ የጥናት አማራጮች')
+                : (category == 'Freshman'
+                      ? 'First-year courses'
+                      : category == 'Pre-Engineering'
+                      ? 'Engineering preparation'
+                      : 'Additional study areas');
+
+            return PopupMenuItem<String>(
+              value: category,
+              height: 62,
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Row(
+                children: [
+                  Container(
+                    width: 38,
+                    height: 38,
+                    decoration: BoxDecoration(
+                      color: selected
+                          ? colorScheme.primaryContainer
+                          : colorScheme.surfaceContainerHighest,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Icon(
+                      category == 'Freshman'
+                          ? Icons.school_rounded
+                          : category == 'Pre-Engineering'
+                          ? Icons.construction_rounded
+                          : Icons.account_balance_rounded,
+                      size: 19,
+                      color: selected
+                          ? colorScheme.primary
+                          : colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          label,
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w800,
+                            color: colorScheme.onSurface,
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          description,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 10,
+                            color: colorScheme.onSurfaceVariant,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  if (selected)
+                    Icon(
+                      Icons.check_circle_rounded,
+                      size: 18,
+                      color: colorScheme.primary,
+                    ),
+                ],
+              ),
+            );
+          }).toList(),
+          child: Container(
+            constraints: const BoxConstraints(
+              minWidth: 112,
+              maxWidth: 112,
+              minHeight: 44,
+              maxHeight: 44,
+            ),
+            decoration: BoxDecoration(
+              color: colorScheme.primaryContainer,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: colorScheme.primary.withValues(alpha: 0.28),
+              ),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 9),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 28,
+                  height: 28,
+                  decoration: BoxDecoration(
+                    color: colorScheme.primary,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Icon(
+                    categoryLabel == 'Pre-Engineering' ||
+                            categoryLabel == 'ፕሪ-ኢንጂነሪንግ'
+                        ? Icons.construction_rounded
+                        : categoryLabel == 'Others' || categoryLabel == 'ሌሎች'
+                        ? Icons.account_balance_rounded
+                        : Icons.school_rounded,
+                    size: 16,
+                    color: colorScheme.onPrimary,
                   ),
                 ),
-              )
-              .toList(),
-          child: Container(
-            width: 48,
-            height: 48,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: colorScheme.primary,
-            ),
-            alignment: Alignment.center,
-            child: Text(
-              categoryLabel == 'Freshman' || categoryLabel == 'ፍሬሽማን'
-                  ? 'F'
-                  : categoryLabel == 'Pre-Engineering' ||
-                        categoryLabel == 'ፕሪ-ኢንጂነሪንግ'
-                  ? 'P'
-                  : 'O',
-              style: TextStyle(
-                color: colorScheme.onPrimary,
-                fontWeight: FontWeight.w900,
-                fontSize: 17,
-              ),
+                const SizedBox(width: 7),
+                Expanded(
+                  child: Text(
+                    categoryLabel == 'Freshman'
+                        ? (isAmharic ? 'ፍሬሽማን' : 'Freshman')
+                        : categoryLabel == 'Pre-Engineering'
+                        ? (isAmharic ? 'ፕሪ-ኢንጂነሪንግ' : 'Pre-Eng.')
+                        : (isAmharic ? 'ሌሎች' : 'Others'),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      color: colorScheme.onSurface,
+                      fontWeight: FontWeight.w900,
+                      fontSize: 11,
+                    ),
+                  ),
+                ),
+                Icon(
+                  Icons.keyboard_arrow_down_rounded,
+                  size: 17,
+                  color: colorScheme.primary,
+                ),
+              ],
             ),
           ),
         ),
