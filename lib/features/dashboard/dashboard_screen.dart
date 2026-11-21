@@ -92,23 +92,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             widget.onLanguageChanged?.call(value);
                           },
                         ),
-                        const SizedBox(height: 22),
-                        Text(
-                          _isAmharic ? 'የትምህርት ማዕከል' : 'Study Hub',
-                          style: Theme.of(context).textTheme.headlineSmall
-                              ?.copyWith(
-                                fontWeight: FontWeight.w900,
-                                color: colorScheme.onSurface,
-                              ),
-                        ),
-                        const SizedBox(height: 6),
-                        Text(
-                          _isAmharic
-                              ? '$_categoryLabel ትምህርት እና የፈተና ጥቅሞች'
-                              : '$_selectedCategory learning and exam resources',
-                          style: Theme.of(context).textTheme.bodyMedium
-                              ?.copyWith(color: colorScheme.onSurfaceVariant),
-                        ),
                         const SizedBox(height: 18),
                         _StudyPassCard(
                           isAmharic: _isAmharic,

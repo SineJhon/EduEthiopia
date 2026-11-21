@@ -175,7 +175,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             ),
                             (
                               widget.isAmharic ? 'ሚድ እና ፍጻሜ' : 'Mid and Finals',
-                              Icons.assignment_rounded,
+                              Icons.fact_check_rounded,
                               const Color(0xFF8E2437),
                             ),
                             (
@@ -185,7 +185,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             ),
                             (
                               widget.isAmharic ? 'AI እገዛ' : 'AI Assistant',
-                              Icons.smart_toy_rounded,
+                              Icons.auto_awesome_rounded,
                               const Color(0xFFE3AF16),
                             ),
                           ];

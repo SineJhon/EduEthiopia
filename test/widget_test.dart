@@ -94,7 +94,6 @@ void main() {
     await tester.pumpWidget(const MaterialApp(home: DashboardScreen()));
     await tester.pumpAndSettle();
 
-    expect(find.text('Study Hub'), findsOneWidget);
     expect(find.text('Modules'), findsWidgets);
     expect(find.text('Notes'), findsWidgets);
     expect(find.text('Videos'), findsOneWidget);
