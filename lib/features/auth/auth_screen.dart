@@ -32,10 +32,20 @@ class _AuthScreenState extends State<AuthScreen>
 
   static const universities = [
     'Addis Ababa University',
+    'Addis Ababa Science and Technology University',
+    'Adama Science and Technology University',
+    'Arba Minch University',
     'Bahir Dar University',
+    'Dilla University',
+    'Dire Dawa University',
+    'Haramaya University',
     'Hawassa University',
     'Jimma University',
+    'Kotebe Metropolitan University',
     'Mekelle University',
+    'Wollo University',
+    'Wolkite University',
+    'University of Gondar',
   ];
 
   late final AnimationController _modeController;
@@ -68,7 +78,10 @@ class _AuthScreenState extends State<AuthScreen>
   void _toggleMode(bool isSignUp) {
     if (_isSignUp == isSignUp) return;
     _modeController.reverse().then((_) {
-      setState(() => _isSignUp = isSignUp);
+      setState(() {
+        _isSignUp = isSignUp;
+        _selectedUniversity = null;
+      });
       _formKey.currentState?.reset();
       _modeController.forward();
     });
@@ -470,8 +483,11 @@ class _AuthScreenState extends State<AuthScreen>
 
   Widget _buildUniversityDropdown(AppStrings strings) {
     return DropdownButtonFormField<String>(
+      key: ValueKey(_selectedUniversity),
       initialValue: _selectedUniversity,
       isExpanded: true,
+      menuMaxHeight: 260,
+      icon: const Icon(Icons.keyboard_arrow_down_rounded),
       decoration: InputDecoration(
         labelText: strings.university,
         prefixIcon: Icon(
@@ -482,8 +498,14 @@ class _AuthScreenState extends State<AuthScreen>
       hint: Text(strings.universityHint),
       items: universities
           .map(
-            (university) =>
-                DropdownMenuItem(value: university, child: Text(university)),
+            (university) => DropdownMenuItem(
+              value: university,
+              child: Text(
+                university,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+              ),
+            ),
           )
           .toList(),
       onChanged: (value) => setState(() => _selectedUniversity = value),
