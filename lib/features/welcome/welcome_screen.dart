@@ -37,11 +37,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     final strings = AppStrings(widget.isAmharic);
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
     final width = MediaQuery.of(context).size.width;
     final horizontalPadding = width < 360 ? 16.0 : 22.0;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFBFCFA),
+      backgroundColor: colorScheme.surface,
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
@@ -64,9 +66,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         onPressed: () =>
                             widget.onLanguageChanged(!widget.isAmharic),
                         style: OutlinedButton.styleFrom(
-                          foregroundColor: const Color(0xFF123F30),
-                          side: const BorderSide(color: Color(0xFFDCE8DF)),
-                          backgroundColor: Colors.white,
+                          foregroundColor: colorScheme.onSurface,
+                          side: BorderSide(color: colorScheme.outlineVariant),
+                          backgroundColor: colorScheme.surface,
                           padding: const EdgeInsets.symmetric(
                             horizontal: 10,
                             vertical: 8,
@@ -79,10 +81,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Icon(
+                            Icon(
                               Icons.language_rounded,
                               size: 16,
-                              color: Color(0xFF176246),
+                              color: colorScheme.primary,
                             ),
                             const SizedBox(width: 6),
                             Text(
@@ -126,7 +128,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           fontSize: 9,
                           fontWeight: FontWeight.w800,
                           letterSpacing: 1.05,
-                          color: const Color(0xFF8E2437),
+                          color: colorScheme.tertiary,
                         ),
                       ),
                       const SizedBox(height: 7),
@@ -138,7 +140,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           fontWeight: FontWeight.w800,
                           height: 1.12,
                           letterSpacing: -0.45,
-                          color: const Color(0xFF123F30),
+                          color: colorScheme.onSurface,
                         ),
                       ),
                       const SizedBox(height: 9),
@@ -148,7 +150,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         style: GoogleFonts.inter(
                           fontSize: 11,
                           height: 1.45,
-                          color: const Color(0xFF777D79),
+                          color: colorScheme.onSurfaceVariant,
                         ),
                       ),
                       const SizedBox(height: 15),
@@ -198,9 +200,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                     child: OutlinedButton(
                                       onPressed: _openLearning,
                                       style: OutlinedButton.styleFrom(
-                                        foregroundColor: const Color(
-                                          0xFF123F30,
-                                        ),
+                                        foregroundColor: colorScheme.onSurface,
+                                        backgroundColor: colorScheme.surface,
                                         side: BorderSide(
                                           color: tile.$3.withValues(
                                             alpha: 0.18,
@@ -264,8 +265,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             ),
                           ),
                           style: FilledButton.styleFrom(
-                            backgroundColor: const Color(0xFF176246),
-                            foregroundColor: Colors.white,
+                            backgroundColor: colorScheme.primary,
+                            foregroundColor: colorScheme.onPrimary,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
