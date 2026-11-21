@@ -125,6 +125,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       (_) => LearningModuleScreen(
         module: module,
         isAmharic: _isAmharic,
+        category: _selectedCategory,
         onLanguageChanged: (value) {
           setState(() => _isAmharic = value);
           widget.onLanguageChanged?.call(value);

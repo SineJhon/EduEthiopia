@@ -33,9 +33,8 @@ class DashboardHeader extends StatelessWidget {
             'Edu Ethiopia',
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: Theme.of(context).textTheme.titleSmall?.copyWith(
-              fontWeight: FontWeight.w800,
-            ),
+            style: Theme.of(context).textTheme.titleSmall
+                ?.copyWith(fontWeight: FontWeight.w800),
           ),
         ),
       ],
@@ -263,6 +262,7 @@ class CourseCard extends StatelessWidget {
     this.icon,
     this.accentColor,
     this.onTap,
+    this.showIcon = true,
     super.key,
   });
 
@@ -270,6 +270,7 @@ class CourseCard extends StatelessWidget {
   final IconData? icon;
   final Color? accentColor;
   final VoidCallback? onTap;
+  final bool showIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -290,20 +291,22 @@ class CourseCard extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Container(
-                width: 42,
-                height: 42,
-                decoration: BoxDecoration(
-                  color: color.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(AppDimensions.radiusSm),
+              if (showIcon) ...[
+                Container(
+                  width: 42,
+                  height: 42,
+                  decoration: BoxDecoration(
+                    color: color.withValues(alpha: 0.1),
+                    borderRadius: BorderRadius.circular(AppDimensions.radiusSm),
+                  ),
+                  child: Icon(
+                    icon ?? Icons.school_rounded,
+                    color: color,
+                    size: 22,
+                  ),
                 ),
-                child: Icon(
-                  icon ?? Icons.school_rounded,
-                  color: color,
-                  size: 22,
-                ),
-              ),
-              const SizedBox(width: AppDimensions.md),
+                const SizedBox(width: AppDimensions.md),
+              ],
               Expanded(
                 child: Text(
                   title,

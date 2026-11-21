@@ -14,12 +14,14 @@ class LearningModuleScreen extends StatefulWidget {
   const LearningModuleScreen({
     required this.module,
     this.isAmharic = false,
+    this.category = 'Freshman',
     this.onLanguageChanged,
     super.key,
   });
 
   final LearningModule module;
   final bool isAmharic;
+  final String category;
   final ValueChanged<bool>? onLanguageChanged;
 
   @override
@@ -28,6 +30,9 @@ class LearningModuleScreen extends StatefulWidget {
 
 class _LearningModuleScreenState extends State<LearningModuleScreen> {
   late bool _isAmharic = widget.isAmharic;
+  late String _categoryName = widget.category;
+
+  static const _categories = ['Freshman', 'Pre-Engineering', 'Others'];
 
   LearningCategory get _category {
     switch (widget.module) {
@@ -58,12 +63,29 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
   List<String> _items(AppStrings strings) {
     switch (widget.module) {
       case LearningModule.modules:
-        return [
-          'Freshman Mathematics',
-          'General Physics',
-          'Communicative English',
-          'Introduction to Computing',
-        ];
+        switch (_categoryName) {
+          case 'Pre-Engineering':
+            return [
+              'Engineering Mathematics',
+              'Engineering Physics',
+              'Technical Drawing',
+              'Applied Computing',
+            ];
+          case 'Others':
+            return [
+              'Civics and Ethics',
+              'Communication Skills',
+              'Entrepreneurship',
+              'General Studies',
+            ];
+          default:
+            return [
+              'Freshman Mathematics',
+              'General Physics',
+              'Communicative English',
+              'Introduction to Computing',
+            ];
+        }
       case LearningModule.notes:
         return [
           'Freshman Mathematics',
@@ -88,19 +110,6 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
     }
   }
 
-  String _subtitle(AppStrings strings) {
-    switch (widget.module) {
-      case LearningModule.modules:
-        return strings.modulesDescription;
-      case LearningModule.notes:
-        return strings.notesDescription;
-      case LearningModule.videos:
-        return strings.videosDescription;
-      case LearningModule.exams:
-        return strings.examsDescription;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final strings = AppStrings(_isAmharic);
@@ -112,19 +121,6 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
         backgroundColor: Theme.of(context).colorScheme.surface,
         title: Row(
           children: [
-            Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: category.backgroundFor(context),
-                borderRadius: BorderRadius.circular(AppDimensions.radiusSm),
-              ),
-              child: Icon(
-                category.icon,
-                color: category.accentFor(context),
-                size: 20,
-              ),
-            ),
-            const SizedBox(width: AppDimensions.sm),
             Text(
               _title(strings),
               style: AppTypography.headlineMedium.copyWith(
@@ -144,6 +140,106 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
               widget.onLanguageChanged?.call(value);
             },
           ),
+          const SizedBox(width: 4),
+          PopupMenuButton<String>(
+            tooltip: _categoryName,
+            position: PopupMenuPosition.under,
+            constraints: const BoxConstraints(minWidth: 210, maxWidth: 210),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            onSelected: (category) => setState(() => _categoryName = category),
+            itemBuilder: (context) => _categories.map((category) {
+              final label = _isAmharic
+                  ? (category == 'Freshman'
+                        ? 'ፍሬሽማን'
+                        : category == 'Pre-Engineering'
+                        ? 'ፕሪ-ኢንጂነሪንግ'
+                        : 'ሌሎች')
+                  : category;
+              final selected = _categoryName == category;
+              return PopupMenuItem<String>(
+                value: category,
+                height: 54,
+                child: Row(
+                  children: [
+                    Icon(
+                      category == 'Freshman'
+                          ? Icons.school_rounded
+                          : category == 'Pre-Engineering'
+                          ? Icons.construction_rounded
+                          : Icons.account_balance_rounded,
+                      size: 19,
+                      color: selected
+                          ? Theme.of(context).colorScheme.primary
+                          : Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        label,
+                        style: TextStyle(
+                          fontWeight: selected
+                              ? FontWeight.w900
+                              : FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    if (selected)
+                      Icon(
+                        Icons.check_circle_rounded,
+                        size: 18,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                  ],
+                ),
+              );
+            }).toList(),
+            child: Container(
+              height: 40,
+              constraints: const BoxConstraints(minWidth: 104, maxWidth: 104),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primaryContainer,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Row(
+                children: [
+                  Icon(
+                    _categoryName == 'Pre-Engineering'
+                        ? Icons.construction_rounded
+                        : _categoryName == 'Others'
+                        ? Icons.account_balance_rounded
+                        : Icons.school_rounded,
+                    size: 16,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                  const SizedBox(width: 6),
+                  Expanded(
+                    child: Text(
+                      _categoryName == 'Freshman'
+                          ? (_isAmharic ? 'ፍሬሽማን' : 'Freshman')
+                          : _categoryName == 'Pre-Engineering'
+                          ? (_isAmharic ? 'ፕሪ-ኢንጂነሪንግ' : 'Pre-Eng.')
+                          : (_isAmharic ? 'ሌሎች' : 'Others'),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w900,
+                        color: Theme.of(context).colorScheme.onSurface,
+                      ),
+                    ),
+                  ),
+                  Icon(
+                    Icons.keyboard_arrow_down_rounded,
+                    size: 16,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                ],
+              ),
+            ),
+          ),
           const SizedBox(width: AppDimensions.sm),
         ],
       ),
@@ -152,39 +248,6 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Section header
-            Padding(
-              padding: const EdgeInsets.fromLTRB(
-                AppDimensions.md,
-                AppDimensions.sm,
-                AppDimensions.md,
-                AppDimensions.xs,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    _subtitle(strings),
-                    style: AppTypography.caption.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: category.accentFor(context),
-                      letterSpacing: 0.8,
-                    ),
-                  ),
-                  const SizedBox(height: AppDimensions.xs),
-                  Text(
-                    _title(strings),
-                    style: AppTypography.headlineMedium.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: Theme.of(context).colorScheme.onSurface,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            const Divider(height: 1),
-
             // Content list
             Expanded(
               child: items.isEmpty
@@ -229,6 +292,7 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                           title: item,
                           icon: category.icon,
                           accentColor: category.accentFor(context),
+                          showIcon: true,
                           onTap: () {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
