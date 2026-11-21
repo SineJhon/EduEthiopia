@@ -97,6 +97,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           isAmharic: _isAmharic,
                           category: _selectedCategory,
                           categoryLabel: _categoryLabel,
+                          userName: widget.userName,
+                          university: widget.university,
                         ),
                         const SizedBox(height: 18),
                         _CategoryGrid(
@@ -381,11 +383,15 @@ class _StudyPassCard extends StatelessWidget {
     required this.isAmharic,
     required this.category,
     required this.categoryLabel,
+    this.userName,
+    this.university,
   });
 
   final bool isAmharic;
   final String category;
   final String categoryLabel;
+  final String? userName;
+  final String? university;
 
   @override
   Widget build(BuildContext context) {
@@ -393,7 +399,7 @@ class _StudyPassCard extends StatelessWidget {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Container(
-      height: 178,
+      height: 150,
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: isDark ? const Color(0xFF173B2C) : const Color(0xFF176246),
@@ -451,21 +457,20 @@ class _StudyPassCard extends StatelessWidget {
                 Row(
                   children: [
                     Container(
-                      width: 38,
-                      height: 38,
-                      padding: const EdgeInsets.all(2),
+                      width: 46,
+                      height: 46,
+                      padding: const EdgeInsets.all(3),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.white,
+                        color: Colors.white.withValues(alpha: 0.96),
                         border: Border.all(
-                          color: Colors.white.withValues(alpha: 0.80),
+                          color: Colors.white.withValues(alpha: 0.90),
                         ),
                       ),
-                      child: ClipOval(
-                        child: Image.asset(
-                          'assets/images/edu_ethiopia_logo.jpg',
-                          fit: BoxFit.cover,
-                        ),
+                      child: const Icon(
+                        Icons.person_rounded,
+                        color: Color(0xFF176246),
+                        size: 30,
                       ),
                     ),
                     const SizedBox(width: 10),
@@ -474,23 +479,22 @@ class _StudyPassCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            isAmharic
-                                ? 'የEdu Ethiopia ትምህርት ዕቅድ'
-                                : 'Edu Ethiopia Study Pass',
+                            (userName?.trim().isNotEmpty ?? false)
+                                ? userName!.trim()
+                                : (isAmharic ? 'ተማሪ' : 'Student'),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                               color: Colors.white,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w800,
-                              letterSpacing: 0.2,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w900,
                             ),
                           ),
                           const SizedBox(height: 2),
                           Text(
-                            isAmharic
-                                ? '$categoryLabel መካከለኛ እና ፍጻሜ ዝግጅት'
-                                : '$category Learning Program',
+                            (university?.trim().isNotEmpty ?? false)
+                                ? university!.trim()
+                                : (isAmharic ? 'ዩኒቨርሲቲ' : 'University'),
                             style: TextStyle(
                               color: Colors.white.withValues(alpha: 0.72),
                               fontSize: 10,
@@ -500,36 +504,23 @@ class _StudyPassCard extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 7,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: 0.13),
-                        borderRadius: BorderRadius.circular(18),
-                        border: Border.all(
-                          color: Colors.white.withValues(alpha: 0.16),
-                        ),
-                      ),
-                      child: Text(
-                        isAmharic ? 'ቀን' : 'Active',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 9,
-                          fontWeight: FontWeight.w800,
-                        ),
+                    const SizedBox(width: 8),
+                    Text(
+                      categoryLabel,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: Colors.white.withValues(alpha: 0.82),
+                        fontSize: 10,
+                        fontWeight: FontWeight.w800,
                       ),
                     ),
                   ],
                 ),
                 const Spacer(),
                 Container(
-                  height: 70,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 14,
-                    vertical: 11,
-                  ),
+                  height: 48,
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
                   decoration: BoxDecoration(
                     color: Colors.white.withValues(alpha: 0.11),
                     borderRadius: BorderRadius.circular(14),
@@ -540,37 +531,23 @@ class _StudyPassCard extends StatelessWidget {
                   child: Row(
                     children: [
                       Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              isAmharic ? 'የጥናት እድገት' : 'Study progress',
-                              style: TextStyle(
-                                color: Colors.white.withValues(alpha: 0.68),
-                                fontSize: 10,
-                              ),
-                            ),
-                            const SizedBox(height: 5),
-                            Text(
-                              isAmharic
-                                  ? 'አዲስ ጥናት ይጀምሩ'
-                                  : 'Continue where you left off',
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                          ],
+                        child: Text(
+                          isAmharic
+                              ? 'ከቆመበት ይቀጥሉ'
+                              : 'Continue where you left off',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w800,
+                          ),
                         ),
                       ),
                       const SizedBox(width: 12),
                       Container(
-                        width: 42,
-                        height: 42,
+                        width: 34,
+                        height: 34,
                         decoration: const BoxDecoration(
                           color: Color(0xFFE3AF16),
                           shape: BoxShape.circle,

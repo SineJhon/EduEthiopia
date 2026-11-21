@@ -102,7 +102,8 @@ void main() {
     expect(find.text('COC Exams'), findsOneWidget);
     expect(find.text('AI Assistant'), findsOneWidget);
     expect(find.byTooltip('Menu'), findsOneWidget);
-    expect(find.text('Edu Ethiopia Study Pass'), findsOneWidget);
+    expect(find.text('Student'), findsOneWidget);
+    expect(find.text('University'), findsOneWidget);
   });
 
   testWidgets('learning sections render in light and dark themes', (
