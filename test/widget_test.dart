@@ -99,6 +99,7 @@ void main() {
     expect(find.text('Videos'), findsOneWidget);
     expect(find.text('Mid Exams'), findsOneWidget);
     expect(find.text('Final Exams'), findsOneWidget);
+    expect(find.text('Practice Questions'), findsOneWidget);
     expect(find.text('COC Exams'), findsOneWidget);
     expect(find.text('AI Assistant'), findsOneWidget);
     expect(find.byTooltip('Menu'), findsOneWidget);

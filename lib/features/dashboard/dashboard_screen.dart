@@ -606,6 +606,13 @@ class _CategoryGrid extends StatelessWidget {
         onTap: () => onModuleTap(LearningModule.videos),
       ),
       _StudyCardData(
+        title: isAmharic ? 'ልምምድ ጥያቄዎች' : 'Practice Questions',
+        subtitle: isAmharic ? 'የተለማመዱ ጥያቄዎች' : 'Practice and review',
+        icon: Icons.quiz_rounded,
+        color: const Color(0xFF79508E),
+        onTap: () => onModuleTap(LearningModule.exams),
+      ),
+      _StudyCardData(
         title: isAmharic ? 'ሚድ ፈተናዎች' : 'Mid Exams',
         subtitle: isAmharic ? 'ጊዜያዊ ፈተናዎች' : 'Midterm exams',
         icon: Icons.assignment_rounded,
@@ -619,13 +626,14 @@ class _CategoryGrid extends StatelessWidget {
         color: const Color(0xFF176246),
         onTap: () => onModuleTap(LearningModule.exams),
       ),
-      _StudyCardData(
-        title: isAmharic ? 'የCOC ፈተናዎች' : 'COC Exams',
-        subtitle: isAmharic ? 'ሙያ ብቃት ፈተና' : 'Competency exams',
-        icon: Icons.assignment_turned_in_rounded,
-        color: const Color(0xFFE3AF16),
-        onTap: () => onModuleTap(LearningModule.exams),
-      ),
+      if (category == 'Freshman')
+        _StudyCardData(
+          title: isAmharic ? 'የCOC ፈተናዎች' : 'COC Exams',
+          subtitle: isAmharic ? 'ሙያ ብቃት ፈተና' : 'Competency exams',
+          icon: Icons.assignment_turned_in_rounded,
+          color: const Color(0xFFE3AF16),
+          onTap: () => onModuleTap(LearningModule.exams),
+        ),
     ];
 
     return LayoutBuilder(
