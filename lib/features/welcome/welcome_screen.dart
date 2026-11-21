@@ -157,34 +157,34 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           final tileWidth = (constraints.maxWidth - 12) / 3;
                           final tiles = <(String, IconData, Color)>[
                             (
-                              strings.notes,
-                              Icons.menu_book_rounded,
+                              strings.modules,
+                              Icons.apps_rounded,
                               const Color(0xFF176246),
                             ),
                             (
-                              strings.midExams,
+                              strings.notes,
+                              Icons.menu_book_rounded,
+                              const Color(0xFF8E2437),
+                            ),
+                            (
+                              strings.videos,
+                              Icons.play_circle_rounded,
+                              const Color(0xFF176246),
+                            ),
+                            (
+                              widget.isAmharic ? 'ሚድ እና ፍጻሜ' : 'Mid and Finals',
                               Icons.assignment_rounded,
                               const Color(0xFF8E2437),
                             ),
                             (
-                              strings.finalExams,
-                              Icons.fact_check_rounded,
-                              const Color(0xFF176246),
-                            ),
-                            (
-                              strings.cocExams,
+                              widget.isAmharic ? 'የCOC ፈተናዎች' : 'COC',
                               Icons.assignment_turned_in_rounded,
-                              const Color(0xFF8E2437),
+                              const Color(0xFF176246),
                             ),
                             (
                               widget.isAmharic ? 'AI እገዛ' : 'AI Assistant',
                               Icons.smart_toy_rounded,
                               const Color(0xFFE3AF16),
-                            ),
-                            (
-                              strings.freshmanPrep,
-                              Icons.school_rounded,
-                              const Color(0xFF176246),
                             ),
                           ];
                           return Wrap(

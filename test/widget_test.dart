@@ -23,12 +23,13 @@ void main() {
 
     expect(find.text('Prepare for the department you want.'), findsOneWidget);
     expect(find.text('Start learning'), findsOneWidget);
-    expect(find.text('Freshman + Pre-Eng. + Others'), findsOneWidget);
-    expect(find.text('COC exams'), findsOneWidget);
-    expect(find.text('AI Assistant'), findsOneWidget);
+    expect(find.text('FRESHMAN • PRE-ENGINEERING • OTHERS'), findsOneWidget);
+    expect(find.text('Modules'), findsOneWidget);
     expect(find.text('Notes'), findsOneWidget);
-    expect(find.text('Mid Exams'), findsOneWidget);
-    expect(find.text('Finals'), findsOneWidget);
+    expect(find.text('Videos'), findsOneWidget);
+    expect(find.text('Mid and Finals'), findsOneWidget);
+    expect(find.text('COC'), findsOneWidget);
+    expect(find.text('AI Assistant'), findsOneWidget);
 
     await tester.tap(find.text('አማርኛ'));
     await tester.pump();

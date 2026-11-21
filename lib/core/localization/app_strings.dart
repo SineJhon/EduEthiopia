@@ -7,8 +7,9 @@ class AppStrings {
   String get home => isAmharic ? 'መነሻ' : 'Home';
   String get languageLabel => isAmharic ? 'English' : 'አማርኛ';
   String get languageTooltip => isAmharic ? 'Switch to English' : 'ወደ አማርኛ ቀይር';
-  String get welcomeEyebrow =>
-      isAmharic ? 'ለአዲስ ተማሪዎች እና ፕሪ-ኢንጂነሪንግ' : 'FRESHMAN • PRE-ENGINEERING';
+  String get welcomeEyebrow => isAmharic
+      ? 'ፍሬሽማን • ፕሪ-ኢንጂነሪንግ • ሌሎች'
+      : 'FRESHMAN • PRE-ENGINEERING • OTHERS';
   String get welcomeTitle => isAmharic
       ? 'የሚፈልጉትን ዲፓርትመንት ለማግኘት ይዘጋጁ።'
       : 'Prepare for the department you want.';
