@@ -48,12 +48,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     final strings = AppStrings(_isAmharic);
     final colorScheme = Theme.of(context).colorScheme;
-    final displayName = (widget.userName?.trim().isNotEmpty ?? false)
-        ? widget.userName!.trim()
-        : (_isAmharic ? 'ተማሪ' : 'Student');
-    final displayUniversity = (widget.university?.trim().isNotEmpty ?? false)
-        ? widget.university!.trim()
-        : (_isAmharic ? 'የኢትዮጵያ ተማሪ' : 'Edu Ethiopia Student');
 
     return Scaffold(
       drawer: _DashboardDrawer(
@@ -86,8 +80,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         _ProfileBadge(
-                          name: displayName,
-                          university: displayUniversity,
                           categoryLabel: _categoryLabel,
                           categories: _categories,
                           isAmharic: _isAmharic,
@@ -172,8 +164,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
 class _ProfileBadge extends StatelessWidget {
   const _ProfileBadge({
-    required this.name,
-    required this.university,
     required this.categoryLabel,
     required this.categories,
     required this.isAmharic,
@@ -182,8 +172,6 @@ class _ProfileBadge extends StatelessWidget {
     required this.onLanguageChanged,
   });
 
-  final String name;
-  final String university;
   final String categoryLabel;
   final List<String> categories;
   final bool isAmharic;
@@ -195,120 +183,89 @@ class _ProfileBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    return Container(
-      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-      decoration: BoxDecoration(
-        color: colorScheme.surface,
-        borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: colorScheme.outlineVariant),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
-            blurRadius: 14,
-            offset: const Offset(0, 5),
+    return Row(
+      children: [
+        IconButton(
+          tooltip: isAmharic ? 'ምናሌ' : 'Menu',
+          onPressed: onMenuTap,
+          icon: const Icon(Icons.menu_rounded),
+        ),
+        CircleAvatar(
+          radius: 22,
+          backgroundColor: colorScheme.primaryContainer,
+          child: ClipOval(
+            child: Image.asset(
+              'assets/images/edu_ethiopia_logo.jpg',
+              width: 44,
+              height: 44,
+              fit: BoxFit.cover,
+            ),
           ),
-        ],
-      ),
-      child: Row(
-        children: [
-          IconButton(
-            tooltip: isAmharic ? 'ምናሌ' : 'Menu',
-            onPressed: onMenuTap,
-            icon: const Icon(Icons.menu_rounded),
+        ),
+        const SizedBox(width: 10),
+        Expanded(
+          child: Text(
+            'Edu Ethiopia',
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w900,
+              color: colorScheme.onSurface,
+            ),
           ),
-          CircleAvatar(
-            radius: 22,
-            backgroundColor: colorScheme.primaryContainer,
-            child: ClipOval(
-              child: Image.asset(
-                'assets/images/edu_ethiopia_logo.jpg',
-                width: 44,
-                height: 44,
-                fit: BoxFit.cover,
+        ),
+        const ThemeToggle(),
+        LanguageToggle(
+          compact: true,
+          isAmharic: isAmharic,
+          onChanged: onLanguageChanged,
+        ),
+        const SizedBox(width: 4),
+        PopupMenuButton<String>(
+          tooltip: categoryLabel,
+          position: PopupMenuPosition.under,
+          onSelected: onCategoryChanged,
+          itemBuilder: (context) => categories
+              .map(
+                (category) => PopupMenuItem<String>(
+                  value: category,
+                  child: Text(
+                    isAmharic
+                        ? (category == 'Freshman'
+                              ? 'ፍሬሽማን'
+                              : category == 'Pre-Engineering'
+                              ? 'ፕሪ-ኢንጂነሪንግ'
+                              : 'ሌሎች')
+                        : category,
+                  ),
+                ),
+              )
+              .toList(),
+          child: Container(
+            width: 48,
+            height: 48,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: colorScheme.primary,
+            ),
+            alignment: Alignment.center,
+            child: Text(
+              categoryLabel == 'Freshman' || categoryLabel == 'ፍሬሽማን'
+                  ? 'F'
+                  : categoryLabel == 'Pre-Engineering' ||
+                        categoryLabel == 'ፕሪ-ኢንጂነሪንግ'
+                  ? 'P'
+                  : 'O',
+              style: TextStyle(
+                color: colorScheme.onPrimary,
+                fontWeight: FontWeight.w900,
+                fontSize: 17,
               ),
             ),
           ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  name,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w900,
-                    color: colorScheme.onSurface,
-                  ),
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  university,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 11,
-                    color: colorScheme.onSurfaceVariant,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const ThemeToggle(),
-          LanguageToggle(
-            compact: true,
-            isAmharic: isAmharic,
-            onChanged: onLanguageChanged,
-          ),
-          const SizedBox(width: 4),
-          PopupMenuButton<String>(
-            tooltip: categoryLabel,
-            position: PopupMenuPosition.under,
-            onSelected: onCategoryChanged,
-            itemBuilder: (context) => categories
-                .map(
-                  (category) => PopupMenuItem<String>(
-                    value: category,
-                    child: Text(
-                      isAmharic
-                          ? (category == 'Freshman'
-                                ? 'ፍሬሽማን'
-                                : category == 'Pre-Engineering'
-                                ? 'ፕሪ-ኢንጂነሪንግ'
-                                : 'ሌሎች')
-                          : category,
-                    ),
-                  ),
-                )
-                .toList(),
-            child: Container(
-              width: 48,
-              height: 48,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: colorScheme.primary,
-              ),
-              alignment: Alignment.center,
-              child: Text(
-                categoryLabel == 'Freshman' || categoryLabel == 'ፍሬሽማን'
-                    ? 'F'
-                    : categoryLabel == 'Pre-Engineering' ||
-                          categoryLabel == 'ፕሪ-ኢንጂነሪንግ'
-                    ? 'P'
-                    : 'O',
-                style: TextStyle(
-                  color: colorScheme.onPrimary,
-                  fontWeight: FontWeight.w900,
-                  fontSize: 17,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
