@@ -80,10 +80,13 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
             ];
           default:
             return [
-              'Freshman Mathematics',
-              'General Physics',
-              'Communicative English',
-              'Introduction to Computing',
+              'Communicative English Language Skills',
+              'General Psychology',
+              'Geography',
+              'Logic and Critical Thinking',
+              'Mathematics for Natural Science',
+              'Physics',
+              'Physical Fitness',
             ];
         }
       case LearningModule.notes:
