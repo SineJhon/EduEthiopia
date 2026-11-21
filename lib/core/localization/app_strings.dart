@@ -8,7 +8,7 @@ class AppStrings {
   String get languageLabel => isAmharic ? 'English' : 'አማርኛ';
   String get languageTooltip => isAmharic ? 'Switch to English' : 'ወደ አማርኛ ቀይር';
   String get welcomeEyebrow =>
-      isAmharic ? 'ለአዲስ ተማሪዎች እና ፕሪ-ኢንጂነሪንግ' : 'FRESHMAN + PRE-ENGINEERING';
+      isAmharic ? 'ለአዲስ ተማሪዎች እና ፕሪ-ኢንጂነሪንግ' : 'FRESHMAN • PRE-ENGINEERING';
   String get welcomeTitle => isAmharic
       ? 'የሚፈልጉትን ዲፓርትመንት ለማግኘት ይዘጋጁ።'
       : 'Prepare for the department you want.';
@@ -16,7 +16,7 @@ class AppStrings {
       ? 'በእውነተኛ ማስታወሻዎች፣ በCOC ፈተናዎች እና በግልጽ የጥናት መንገድ።'
       : 'Real materials, COC exams, and a clear study path to help you move forward.';
   String get freshmanPrep =>
-      isAmharic ? 'ፍሬሽማን + ፕሪ-ኢንጂነሪንግ' : 'Freshman + Pre-Eng.';
+      isAmharic ? 'ፍሬሽማን + ፕሪ-ኢንጂነሪንግ + ሌሎች' : 'Freshman + Pre-Eng. + Others';
   String get cocExams => isAmharic ? 'የCOC ፈተናዎች' : 'COC exams';
   String get realMaterials => isAmharic ? 'እውነተኛ ማስታወሻዎች' : 'Real materials';
   String get notes => isAmharic ? 'ማስታወሻዎች' : 'Notes';

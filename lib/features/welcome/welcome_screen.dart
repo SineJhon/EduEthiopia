@@ -37,157 +37,248 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     final strings = AppStrings(widget.isAmharic);
-    final isDark = Theme.of(context).brightness == Brightness.dark;
     final width = MediaQuery.of(context).size.width;
-    final horizontalPadding = width < 360 ? 16.0 : 20.0;
+    final horizontalPadding = width < 360 ? 16.0 : 22.0;
 
     return Scaffold(
+      backgroundColor: const Color(0xFFFBFCFA),
       body: SafeArea(
-        child: CustomScrollView(
-          physics: const BouncingScrollPhysics(),
-          slivers: [
-            SliverToBoxAdapter(
-              child: Center(
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 560),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 420),
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(
+                    horizontalPadding,
+                    18,
+                    horizontalPadding,
+                    0,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(
-                          horizontalPadding,
-                          8,
-                          horizontalPadding,
-                          8,
+                      const ThemeToggle(),
+                      const SizedBox(width: 4),
+                      OutlinedButton(
+                        onPressed: () =>
+                            widget.onLanguageChanged(!widget.isAmharic),
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: const Color(0xFF123F30),
+                          side: const BorderSide(color: Color(0xFFDCE8DF)),
+                          backgroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 8,
+                          ),
+                          minimumSize: const Size(92, 40),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
                         ),
-                        child: _WelcomeHeader(
-                          isAmharic: widget.isAmharic,
-                          onLanguageChanged: widget.onLanguageChanged,
-                          onMenuTap: _openLearning,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Icon(
+                              Icons.language_rounded,
+                              size: 16,
+                              color: Color(0xFF176246),
+                            ),
+                            const SizedBox(width: 6),
+                            Text(
+                              strings.languageLabel,
+                              style: GoogleFonts.inter(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: horizontalPadding,
+                    ],
+                  ),
+                ),
+                const Spacer(flex: 5),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 96,
+                        height: 96,
+                        padding: const EdgeInsets.all(4),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
                         ),
-                        child: _HeroSection(
-                          strings: strings,
-                          onStart: _openLearning,
-                          isDark: isDark,
-                        ),
-                      ),
-                      const SizedBox(height: 28),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: horizontalPadding,
-                        ),
-                        child: Text(
-                          widget.isAmharic
-                              ? 'ማዕከላዊ ተግባራት'
-                              : 'Everything you need',
-                          style: GoogleFonts.plusJakartaSans(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w800,
-                            height: 1.3,
-                            color: Theme.of(context).colorScheme.onSurface,
+                        child: ClipOval(
+                          child: Image.asset(
+                            'assets/images/edu_ethiopia_logo.jpg',
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
-                      const SizedBox(height: 14),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: horizontalPadding,
-                        ),
-                        child: LayoutBuilder(
-                          builder: (context, constraints) {
-                            final cardWidth = (constraints.maxWidth - 12) / 2;
-                            final features = [
-                              _FeatureData(
-                                title: strings.modules,
-                                description: strings.modulesDescription,
-                                icon: Icons.apps_rounded,
-                                accent: const Color(0xFF087B50),
-                                tint: const Color(0xFFE6F2EC),
-                              ),
-                              _FeatureData(
-                                title: strings.notes,
-                                description: strings.notesDescription,
-                                icon: Icons.menu_book_rounded,
-                                accent: const Color(0xFF356B9A),
-                                tint: const Color(0xFFE8F0FA),
-                              ),
-                              _FeatureData(
-                                title: strings.videos,
-                                description: strings.videosDescription,
-                                icon: Icons.play_circle_fill_rounded,
-                                accent: const Color(0xFFA46B26),
-                                tint: const Color(0xFFF8EFE2),
-                              ),
-                              _FeatureData(
-                                title: strings.exams,
-                                description: strings.examsDescription,
-                                icon: Icons.fact_check_rounded,
-                                accent: const Color(0xFF79508E),
-                                tint: const Color(0xFFF2EAF5),
-                              ),
-                              _FeatureData(
-                                title: widget.isAmharic
-                                    ? 'AI ጥናት እርዳታ'
-                                    : 'AI Study Assistant',
-                                description: strings.aiDescription,
-                                icon: Icons.auto_awesome_rounded,
-                                accent: const Color(0xFF167D75),
-                                tint: const Color(0xFFE3F3F0),
-                                prominent: true,
-                              ),
-                            ];
-
-                            return Wrap(
-                              spacing: 12,
-                              runSpacing: 12,
-                              children: features
-                                  .map(
-                                    (feature) => SizedBox(
-                                      width: cardWidth,
-                                      child: _FeatureCard(
-                                        data: feature,
-                                        onTap: _openLearning,
-                                      ),
-                                    ),
-                                  )
-                                  .toList(),
-                            );
-                          },
+                      const SizedBox(height: 16),
+                      Text(
+                        strings.welcomeEyebrow,
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.inter(
+                          fontSize: 9,
+                          fontWeight: FontWeight.w800,
+                          letterSpacing: 1.05,
+                          color: const Color(0xFF8E2437),
                         ),
                       ),
-                      const SizedBox(height: 30),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(
-                          horizontalPadding,
-                          0,
-                          horizontalPadding,
-                          24,
+                      const SizedBox(height: 7),
+                      Text(
+                        strings.welcomeTitle,
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.plusJakartaSans(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w800,
+                          height: 1.12,
+                          letterSpacing: -0.45,
+                          color: const Color(0xFF123F30),
                         ),
-                        child: Text(
-                          widget.isAmharic
-                              ? 'ኤዱ ኢትዮጵያ — የእርስዎ የጥናት ጓደኛ'
-                              : 'Edu Ethiopia — learn with purpose',
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.inter(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600,
-                            color: Theme.of(context)
-                                .colorScheme
-                                .onSurfaceVariant,
+                      ),
+                      const SizedBox(height: 9),
+                      Text(
+                        strings.welcomeSubtitle,
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.inter(
+                          fontSize: 11,
+                          height: 1.45,
+                          color: const Color(0xFF777D79),
+                        ),
+                      ),
+                      const SizedBox(height: 15),
+                      LayoutBuilder(
+                        builder: (context, constraints) {
+                          final tileWidth = (constraints.maxWidth - 12) / 3;
+                          final tiles = <(String, IconData, Color)>[
+                            (
+                              strings.notes,
+                              Icons.menu_book_rounded,
+                              const Color(0xFF176246),
+                            ),
+                            (
+                              strings.midExams,
+                              Icons.assignment_rounded,
+                              const Color(0xFF8E2437),
+                            ),
+                            (
+                              strings.finalExams,
+                              Icons.fact_check_rounded,
+                              const Color(0xFF176246),
+                            ),
+                            (
+                              strings.cocExams,
+                              Icons.assignment_turned_in_rounded,
+                              const Color(0xFF8E2437),
+                            ),
+                            (
+                              widget.isAmharic ? 'AI እገዛ' : 'AI Assistant',
+                              Icons.smart_toy_rounded,
+                              const Color(0xFFE3AF16),
+                            ),
+                            (
+                              strings.freshmanPrep,
+                              Icons.school_rounded,
+                              const Color(0xFF176246),
+                            ),
+                          ];
+                          return Wrap(
+                            spacing: 6,
+                            runSpacing: 6,
+                            children: tiles
+                                .map(
+                                  (tile) => SizedBox(
+                                    width: tileWidth,
+                                    height: 56,
+                                    child: OutlinedButton(
+                                      onPressed: _openLearning,
+                                      style: OutlinedButton.styleFrom(
+                                        foregroundColor: const Color(
+                                          0xFF123F30,
+                                        ),
+                                        side: BorderSide(
+                                          color: tile.$3.withValues(
+                                            alpha: 0.18,
+                                          ),
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            14,
+                                          ),
+                                        ),
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 4,
+                                          vertical: 5,
+                                        ),
+                                      ),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            tile.$2,
+                                            size: 16,
+                                            color: tile.$3,
+                                          ),
+                                          const SizedBox(height: 2),
+                                          Text(
+                                            tile.$1,
+                                            maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.inter(
+                                              fontSize: 9,
+                                              height: 1.1,
+                                              fontWeight: FontWeight.w700,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                )
+                                .toList(),
+                          );
+                        },
+                      ),
+                      const SizedBox(height: 16),
+                      SizedBox(
+                        width: double.infinity,
+                        height: 48,
+                        child: FilledButton.icon(
+                          onPressed: _openLearning,
+                          icon: const Icon(
+                            Icons.arrow_forward_rounded,
+                            size: 17,
+                          ),
+                          label: Text(
+                            strings.continueLabel,
+                            style: GoogleFonts.inter(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          style: FilledButton.styleFrom(
+                            backgroundColor: const Color(0xFF176246),
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
                           ),
                         ),
                       ),
                     ],
                   ),
                 ),
-              ),
+                const Spacer(flex: 7),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
