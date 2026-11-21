@@ -98,6 +98,10 @@ class _AuthScreenState extends State<AuthScreen>
         (_) => DashboardScreen(
           isAmharic: _isAmharic,
           onLanguageChanged: widget.onLanguageChanged,
+          userName: _isSignUp
+              ? _fullNameController.text.trim()
+              : (_emailController.text.trim().split('@').first),
+          university: _isSignUp ? _selectedUniversity : null,
         ),
       );
     });

@@ -94,16 +94,15 @@ void main() {
     await tester.pumpWidget(const MaterialApp(home: DashboardScreen()));
     await tester.pumpAndSettle();
 
-    expect(find.text('Study hub'), findsOneWidget);
+    expect(find.text('Study Hub'), findsOneWidget);
     expect(find.text('Modules'), findsWidgets);
     expect(find.text('Notes'), findsWidgets);
-    expect(find.text('Exams'), findsWidgets);
-    expect(find.text('Videos'), findsWidgets);
-    expect(find.byTooltip('AI Help'), findsOneWidget);
+    expect(find.text('Videos'), findsOneWidget);
+    expect(find.text('Mid Exams'), findsOneWidget);
+    expect(find.text('Final Exams'), findsOneWidget);
+    expect(find.text('COC Exams'), findsOneWidget);
+    expect(find.text('AI Assistant'), findsOneWidget);
     expect(find.byTooltip('Menu'), findsOneWidget);
-    expect(find.text('Mid, Final, and COC'), findsOneWidget);
-    expect(find.text('Course notes and chapters'), findsOneWidget);
-    expect(find.text('Courses and subjects'), findsWidgets);
   });
 
   testWidgets('learning sections render in light and dark themes', (

@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../core/design/app_colors.dart';
-import '../../core/design/app_dimensions.dart';
-import '../../core/design/app_typography.dart';
-import '../../core/design/category_config.dart';
-import '../../core/design/reusable_widgets.dart';
 import '../../core/localization/app_strings.dart';
-import '../../core/widgets/animated/animated_widgets.dart';
 import '../../core/widgets/language_toggle.dart';
 import '../../core/widgets/theme_toggle.dart';
+import '../../core/widgets/animated/page_transition.dart';
 import '../ai/ai_assistant_screen.dart';
 import '../modules/learning_module_screen.dart';
 
@@ -16,11 +12,15 @@ class DashboardScreen extends StatefulWidget {
   const DashboardScreen({
     this.isAmharic = false,
     this.onLanguageChanged,
+    this.userName,
+    this.university,
     super.key,
   });
 
   final bool isAmharic;
   final ValueChanged<bool>? onLanguageChanged;
+  final String? userName;
+  final String? university;
 
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();
@@ -28,10 +28,32 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   late bool _isAmharic = widget.isAmharic;
+  String _selectedCategory = 'Freshman';
+
+  static const _categories = ['Freshman', 'Pre-Engineering', 'Others'];
+
+  String get _categoryLabel {
+    if (!_isAmharic) return _selectedCategory;
+    switch (_selectedCategory) {
+      case 'Pre-Engineering':
+        return 'ፕሪ-ኢንጂነሪንግ';
+      case 'Others':
+        return 'ሌሎች';
+      default:
+        return 'ፍሬሽማን';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final strings = AppStrings(_isAmharic);
+    final colorScheme = Theme.of(context).colorScheme;
+    final displayName = (widget.userName?.trim().isNotEmpty ?? false)
+        ? widget.userName!.trim()
+        : (_isAmharic ? 'ተማሪ' : 'Student');
+    final displayUniversity = (widget.university?.trim().isNotEmpty ?? false)
+        ? widget.university!.trim()
+        : (_isAmharic ? 'የኢትዮጵያ ተማሪ' : 'Edu Ethiopia Student');
 
     return Scaffold(
       drawer: _DashboardDrawer(
@@ -39,214 +61,76 @@ class _DashboardScreenState extends State<DashboardScreen> {
         onSignOut: () =>
             Navigator.of(context).popUntil((route) => route.isFirst),
       ),
-      floatingActionButton: PulseWidget(
-        duration: 2500,
-        scale: 1.2,
-        child: FloatingActionButton(
-          tooltip: strings.aiAssistant,
-          backgroundColor: AppColors.primary,
-          foregroundColor: Colors.white,
-          onPressed: _openAiAssistant,
-          child: const Icon(Icons.auto_awesome_rounded),
+      floatingActionButton: FloatingActionButton.extended(
+        tooltip: _isAmharic ? 'AI እገዛ' : 'AI Assistant',
+        onPressed: _openAiAssistant,
+        backgroundColor: colorScheme.primary,
+        foregroundColor: colorScheme.onPrimary,
+        icon: const Icon(Icons.auto_awesome_rounded),
+        label: Text(
+          _isAmharic ? 'AI እገዛ' : 'AI Assistant',
+          style: const TextStyle(fontWeight: FontWeight.w800),
         ),
       ),
-      bottomNavigationBar: NavigationBar(
-        height: AppDimensions.bottomNavHeight,
-        selectedIndex: 0,
-        onDestinationSelected: (index) {
-          if (index == 0) return;
-          final destinations = [
-            LearningModule.modules,
-            LearningModule.notes,
-            LearningModule.exams,
-            LearningModule.videos,
-          ];
-          _openModule(destinations[index - 1]);
-        },
-        destinations: [
-          NavigationDestination(
-            icon: const Icon(Icons.home_outlined),
-            selectedIcon: const Icon(Icons.home_rounded),
-            label: strings.home,
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.apps_outlined),
-            selectedIcon: const Icon(Icons.apps_rounded),
-            label: strings.modules,
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.menu_book_outlined),
-            selectedIcon: const Icon(Icons.menu_book_rounded),
-            label: strings.notes,
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.fact_check_outlined),
-            selectedIcon: const Icon(Icons.fact_check_rounded),
-            label: strings.exams,
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.play_circle_outline_rounded),
-            selectedIcon: const Icon(Icons.play_circle_fill_rounded),
-            label: strings.videos,
-          ),
-        ],
-      ),
-
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.surface,
-        elevation: 0,
-        centerTitle: false,
-        leading: Builder(
-          builder: (context) => IconButton(
-            tooltip: strings.menu,
-            onPressed: () => Scaffold.of(context).openDrawer(),
-            icon: const Icon(Icons.menu_rounded),
-          ),
-        ),
-        titleSpacing: AppDimensions.sm,
-        title: const DashboardHeader(),
-        actions: [
-          const ThemeToggle(),
-          LanguageToggle(
-            compact: true,
-            isAmharic: _isAmharic,
-            onChanged: (value) {
-              setState(() => _isAmharic = value);
-              widget.onLanguageChanged?.call(value);
-            },
-          ),
-          const SizedBox(width: AppDimensions.xs),
-        ],
-      ),
-
       body: SafeArea(
-        child: SingleChildScrollView(
+        child: CustomScrollView(
           physics: const BouncingScrollPhysics(),
-          padding: const EdgeInsets.fromLTRB(
-            AppDimensions.md,
-            AppDimensions.sm,
-            AppDimensions.md,
-            AppDimensions.xl,
-          ),
-          child: Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(
-                maxWidth: AppDimensions.maxContentWidth,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  // Study Hub introduction
-                  Reveal(
-                    duration: 700,
-                    delay: 100,
+          slivers: [
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 560),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Text(
-                          strings.welcomeEyebrow,
-                          style: AppTypography.eyebrow.copyWith(
-                            color: Theme.of(context).colorScheme.primary,
-                          ),
+                        _ProfileBadge(
+                          name: displayName,
+                          university: displayUniversity,
+                          categoryLabel: _categoryLabel,
+                          categories: _categories,
+                          isAmharic: _isAmharic,
+                          onMenuTap: () => Scaffold.of(context).openDrawer(),
+                          onCategoryChanged: (category) {
+                            setState(() => _selectedCategory = category);
+                          },
+                          onLanguageChanged: (value) {
+                            setState(() => _isAmharic = value);
+                            widget.onLanguageChanged?.call(value);
+                          },
                         ),
-                        const SizedBox(height: AppDimensions.xs),
+                        const SizedBox(height: 22),
                         Text(
-                          strings.dashboardTitle,
-                          style: AppTypography.headlineLarge.copyWith(
-                            fontWeight: FontWeight.w800,
-                            color: Theme.of(context).colorScheme.onSurface,
-                          ),
+                          _isAmharic ? 'የትምህርት ማዕከል' : 'Study Hub',
+                          style: Theme.of(context).textTheme.headlineSmall
+                              ?.copyWith(
+                                fontWeight: FontWeight.w900,
+                                color: colorScheme.onSurface,
+                              ),
                         ),
-                        const SizedBox(height: AppDimensions.sm),
+                        const SizedBox(height: 6),
                         Text(
-                          strings.dashboardSubtitle,
-                          style: AppTypography.bodyMedium.copyWith(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .onSurfaceVariant,
-                            height: 1.5,
-                          ),
+                          _isAmharic
+                              ? '$_categoryLabel ትምህርት እና የፈተና ጥቅሞች'
+                              : '$_selectedCategory learning and exam resources',
+                          style: Theme.of(context).textTheme.bodyMedium
+                              ?.copyWith(color: colorScheme.onSurfaceVariant),
                         ),
+                        const SizedBox(height: 18),
+                        _CategoryGrid(
+                          isAmharic: _isAmharic,
+                          category: _selectedCategory,
+                          onModuleTap: _openModule,
+                        ),
+                        const SizedBox(height: 100),
                       ],
                     ),
                   ),
-
-                  const SizedBox(height: AppDimensions.lg),
-
-                  // Study Space Banner
-                  StudySpaceBanner(subtitle: strings.dashboardSubtitle),
-
-                  const SizedBox(height: AppDimensions.lg),
-
-                  // Main Learning Categories
-                  SectionHeader(
-                    title: strings.modules,
-                    subtitle: 'Choose your starting point',
-                  ),
-
-                  const SizedBox(height: AppDimensions.md),
-
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: CategoryCard(
-                              category: LearningCategories.modules,
-                              onTap: () => _openModule(LearningModule.modules),
-                              delay: 100,
-                            ),
-                          ),
-                          const SizedBox(width: AppDimensions.sm),
-                          Expanded(
-                            child: CategoryCard(
-                              category: LearningCategories.notes,
-                              onTap: () => _openModule(LearningModule.notes),
-                              delay: 200,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: AppDimensions.sm),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: CategoryCard(
-                              category: LearningCategories.videos,
-                              onTap: () => _openModule(LearningModule.videos),
-                              delay: 300,
-                            ),
-                          ),
-                          const SizedBox(width: AppDimensions.sm),
-                          Expanded(
-                            child: CategoryCard(
-                              category: LearningCategories.exams,
-                              onTap: () => _openModule(LearningModule.exams),
-                              delay: 400,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-
-                  const SizedBox(height: AppDimensions.lg),
-
-                  // Continue Learning Card
-                  Reveal(
-                    duration: 700,
-                    delay: 500,
-                    child: _ContinueLearningCard(
-                      onTap: () => _openModule(LearningModule.modules),
-                    ),
-                  ),
-
-                  const SizedBox(height: AppDimensions.xl),
-                ],
+                ),
               ),
             ),
-          ),
+          ],
         ),
       ),
     );
@@ -280,72 +164,303 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 }
 
-class _ContinueLearningCard extends StatelessWidget {
-  const _ContinueLearningCard({required this.onTap});
-  final VoidCallback onTap;
+class _ProfileBadge extends StatelessWidget {
+  const _ProfileBadge({
+    required this.name,
+    required this.university,
+    required this.categoryLabel,
+    required this.categories,
+    required this.isAmharic,
+    required this.onMenuTap,
+    required this.onCategoryChanged,
+    required this.onLanguageChanged,
+  });
+
+  final String name;
+  final String university;
+  final String categoryLabel;
+  final List<String> categories;
+  final bool isAmharic;
+  final VoidCallback onMenuTap;
+  final ValueChanged<String> onCategoryChanged;
+  final ValueChanged<bool> onLanguageChanged;
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Container(
-      padding: const EdgeInsets.all(AppDimensions.md),
+      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
-        borderRadius: BorderRadius.circular(AppDimensions.radiusLg),
-        border: Border.all(color: Theme.of(context).colorScheme.outlineVariant),
+        color: colorScheme.surface,
+        borderRadius: BorderRadius.circular(22),
+        border: Border.all(color: colorScheme.outlineVariant),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
-            blurRadius: AppDimensions.elevationSm,
-            offset: const Offset(0, 2),
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 14,
+            offset: const Offset(0, 5),
           ),
         ],
       ),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(AppDimensions.radiusLg),
-        onTap: onTap,
-        child: Row(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(12),
+      child: Row(
+        children: [
+          IconButton(
+            tooltip: isAmharic ? 'ምናሌ' : 'Menu',
+            onPressed: onMenuTap,
+            icon: const Icon(Icons.menu_rounded),
+          ),
+          CircleAvatar(
+            radius: 22,
+            backgroundColor: colorScheme.primaryContainer,
+            child: ClipOval(
+              child: Image.asset(
+                'assets/images/edu_ethiopia_logo.jpg',
+                width: 44,
+                height: 44,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  name,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w900,
+                    color: colorScheme.onSurface,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  university,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 11,
+                    color: colorScheme.onSurfaceVariant,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const ThemeToggle(),
+          LanguageToggle(
+            compact: true,
+            isAmharic: isAmharic,
+            onChanged: onLanguageChanged,
+          ),
+          const SizedBox(width: 4),
+          PopupMenuButton<String>(
+            tooltip: categoryLabel,
+            position: PopupMenuPosition.under,
+            onSelected: onCategoryChanged,
+            itemBuilder: (context) => categories
+                .map(
+                  (category) => PopupMenuItem<String>(
+                    value: category,
+                    child: Text(
+                      isAmharic
+                          ? (category == 'Freshman'
+                                ? 'ፍሬሽማን'
+                                : category == 'Pre-Engineering'
+                                ? 'ፕሪ-ኢንጂነሪንግ'
+                                : 'ሌሎች')
+                          : category,
+                    ),
+                  ),
+                )
+                .toList(),
+            child: Container(
+              width: 48,
+              height: 48,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primaryContainer,
-                borderRadius: BorderRadius.circular(AppDimensions.radiusSm),
+                shape: BoxShape.circle,
+                color: colorScheme.primary,
               ),
-              child: Icon(
-                Icons.auto_stories_rounded,
-                color: Theme.of(context).colorScheme.primary,
-                size: 24,
+              alignment: Alignment.center,
+              child: Text(
+                categoryLabel == 'Freshman' || categoryLabel == 'ፍሬሽማን'
+                    ? 'F'
+                    : categoryLabel == 'Pre-Engineering' ||
+                          categoryLabel == 'ፕሪ-ኢንጂነሪንግ'
+                    ? 'P'
+                    : 'O',
+                style: TextStyle(
+                  color: colorScheme.onPrimary,
+                  fontWeight: FontWeight.w900,
+                  fontSize: 17,
+                ),
               ),
             ),
-            const SizedBox(width: AppDimensions.md),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Explore study modules',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      color: Theme.of(context).colorScheme.onSurface,
-                    ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _CategoryGrid extends StatelessWidget {
+  const _CategoryGrid({
+    required this.isAmharic,
+    required this.category,
+    required this.onModuleTap,
+  });
+
+  final bool isAmharic;
+  final String category;
+  final void Function(LearningModule module) onModuleTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final cards = [
+      _StudyCardData(
+        title: isAmharic ? 'ሞጁሎች' : 'Modules',
+        subtitle: isAmharic ? '$category ኮርሶች' : '$category courses',
+        icon: Icons.apps_rounded,
+        color: const Color(0xFF176246),
+        onTap: () => onModuleTap(LearningModule.modules),
+      ),
+      _StudyCardData(
+        title: isAmharic ? 'ማስታወሻዎች' : 'Notes',
+        subtitle: isAmharic ? 'ኮርስ ማስታወሻዎች' : 'Course notes',
+        icon: Icons.menu_book_rounded,
+        color: const Color(0xFF8E2437),
+        onTap: () => onModuleTap(LearningModule.notes),
+      ),
+      _StudyCardData(
+        title: isAmharic ? 'ቪዲዮዎች' : 'Videos',
+        subtitle: isAmharic ? 'የትምህርት ቪዲዮዎች' : 'Study videos',
+        icon: Icons.play_circle_rounded,
+        color: const Color(0xFF176246),
+        onTap: () => onModuleTap(LearningModule.videos),
+      ),
+      _StudyCardData(
+        title: isAmharic ? 'ሚድ ፈተናዎች' : 'Mid Exams',
+        subtitle: isAmharic ? 'ጊዜያዊ ፈተናዎች' : 'Midterm exams',
+        icon: Icons.assignment_rounded,
+        color: const Color(0xFF8E2437),
+        onTap: () => onModuleTap(LearningModule.exams),
+      ),
+      _StudyCardData(
+        title: isAmharic ? 'ፍጻሜ ፈተናዎች' : 'Final Exams',
+        subtitle: isAmharic ? 'የመጨረሻ ፈተናዎች' : 'Final exams',
+        icon: Icons.fact_check_rounded,
+        color: const Color(0xFF176246),
+        onTap: () => onModuleTap(LearningModule.exams),
+      ),
+      _StudyCardData(
+        title: isAmharic ? 'የCOC ፈተናዎች' : 'COC Exams',
+        subtitle: isAmharic ? 'ሙያ ብቃት ፈተና' : 'Competency exams',
+        icon: Icons.assignment_turned_in_rounded,
+        color: const Color(0xFFE3AF16),
+        onTap: () => onModuleTap(LearningModule.exams),
+      ),
+    ];
+
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final cardWidth = (constraints.maxWidth - 24) / 3;
+        return Wrap(
+          spacing: 12,
+          runSpacing: 12,
+          children: cards
+              .map(
+                (card) => SizedBox(
+                  width: cardWidth,
+                  height: 156,
+                  child: _StudyCard(data: card),
+                ),
+              )
+              .toList(),
+        );
+      },
+    );
+  }
+}
+
+class _StudyCardData {
+  const _StudyCardData({
+    required this.title,
+    required this.subtitle,
+    required this.icon,
+    required this.color,
+    required this.onTap,
+  });
+
+  final String title;
+  final String subtitle;
+  final IconData icon;
+  final Color color;
+  final VoidCallback onTap;
+}
+
+class _StudyCard extends StatelessWidget {
+  const _StudyCard({required this.data});
+
+  final _StudyCardData data;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return Material(
+      color: colorScheme.surface,
+      borderRadius: BorderRadius.circular(18),
+      child: InkWell(
+        onTap: data.onTap,
+        borderRadius: BorderRadius.circular(18),
+        child: Ink(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(18),
+            border: Border.all(color: data.color.withValues(alpha: 0.22)),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(14),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: data.color.withValues(alpha: 0.11),
+                    shape: BoxShape.circle,
                   ),
-                  SizedBox(height: 4),
-                  Text(
-                    'Courses and subjects',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    ),
+                  child: Icon(data.icon, color: data.color, size: 26),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  data.title,
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: colorScheme.onSurface,
+                    fontWeight: FontWeight.w900,
+                    fontSize: 14,
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  data.subtitle,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: colorScheme.onSurfaceVariant,
+                    fontSize: 11,
+                  ),
+                ),
+              ],
             ),
-            Icon(
-              Icons.arrow_forward_ios_rounded,
-              size: 15,
-              color: Theme.of(context).colorScheme.onSurfaceVariant,
-            ),
-          ],
+          ),
         ),
       ),
     );
@@ -370,12 +485,10 @@ class _DashboardDrawer extends StatelessWidget {
               color: AppColors.primary,
               child: Row(
                 children: [
-                  ClipOval(
-                    child: Image.asset(
+                  const CircleAvatar(
+                    radius: 25,
+                    backgroundImage: AssetImage(
                       'assets/images/edu_ethiopia_logo.jpg',
-                      height: 50,
-                      width: 50,
-                      fit: BoxFit.cover,
                     ),
                   ),
                   const SizedBox(width: 14),
@@ -391,10 +504,7 @@ class _DashboardDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(
-                Icons.dashboard_rounded,
-                color: Theme.of(context).colorScheme.primary,
-              ),
+              leading: const Icon(Icons.dashboard_rounded),
               title: Text(strings.dashboardTitle),
               onTap: () => Navigator.of(context).pop(),
             ),
