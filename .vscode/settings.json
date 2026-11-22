@@ -1,0 +1,7 @@
+{
+    "dart.flutterHotReloadOnSave": true,
+    "dart.openDevTools": "default",
+    "dart.flutterDaemonOnLaunch": true,
+    "dart.flutterOutlineOnDemand": true,
+    "editor.formatOnSave": true
+}
