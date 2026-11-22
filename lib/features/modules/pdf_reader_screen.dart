@@ -25,10 +25,7 @@ class _PdfReaderScreenState extends State<PdfReaderScreen> {
     'com.example.eduethiopia/download',
   );
 
-  MethodChannel? _readerChannel;
   String? _filePath;
-  int _pageCount = 0;
-  int _currentPage = 1;
   bool _downloading = false;
   bool _preparing = true;
 
@@ -102,30 +99,11 @@ class _PdfReaderScreenState extends State<PdfReaderScreen> {
   }
 
   void _onPlatformViewCreated(int viewId) {
-    _readerChannel = MethodChannel(
-      'com.example.eduethiopia/pdf_viewer/$viewId',
-    );
-    _readerChannel?.setMethodCallHandler((call) async {
-      if (!mounted) return;
-      if (call.method == 'documentLoaded') {
-        setState(() => _pageCount = call.arguments['pageCount'] as int);
-      } else if (call.method == 'pageChanged') {
-        setState(() => _currentPage = call.arguments['pageNumber'] as int);
-      }
-    });
-  }
-
-  Future<void> _previousPage() async {
-    await _readerChannel?.invokeMethod('previousPage');
-  }
-
-  Future<void> _nextPage() async {
-    await _readerChannel?.invokeMethod('nextPage');
+    // Native PDF scrolling and page navigation are handled by the platform view.
   }
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
     final nativeSupported = Platform.isAndroid || Platform.isIOS;
 
     return Scaffold(
@@ -170,56 +148,6 @@ class _PdfReaderScreenState extends State<PdfReaderScreen> {
                     creationParams: {'filePath': _filePath},
                     creationParamsCodec: const StandardMessageCodec(),
                   ),
-          if (_pageCount > 0)
-            Positioned(
-              bottom: 16,
-              left: 0,
-              right: 0,
-              child: Center(
-                child: Container(
-                  height: 44,
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  decoration: BoxDecoration(
-                    color: colorScheme.surface.withValues(alpha: 0.96),
-                    borderRadius: BorderRadius.circular(22),
-                    border: Border.all(color: colorScheme.outlineVariant),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.10),
-                        blurRadius: 12,
-                        offset: const Offset(0, 4),
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        tooltip: 'Previous page',
-                        onPressed: _currentPage > 1 ? _previousPage : null,
-                        icon: const Icon(Icons.chevron_left_rounded),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: Text(
-                          '$_currentPage / $_pageCount',
-                          style: TextStyle(
-                            color: colorScheme.onSurface,
-                            fontWeight: FontWeight.w800,
-                            fontSize: 12,
-                          ),
-                        ),
-                      ),
-                      IconButton(
-                        tooltip: 'Next page',
-                        onPressed: _currentPage < _pageCount ? _nextPage : null,
-                        icon: const Icon(Icons.chevron_right_rounded),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
         ],
       ),
     );
