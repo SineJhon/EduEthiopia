@@ -611,21 +611,21 @@ class _CategoryGrid extends StatelessWidget {
         subtitle: isAmharic ? 'የተለማመዱ ጥያቄዎች' : 'Practice and review',
         icon: Icons.quiz_rounded,
         color: const Color(0xFF79508E),
-        onTap: () => onModuleTap(LearningModule.exams),
+        onTap: () => onModuleTap(LearningModule.practice),
       ),
       _StudyCardData(
         title: isAmharic ? 'ሚድ ፈተናዎች' : 'Mid Exams',
         subtitle: isAmharic ? 'ጊዜያዊ ፈተናዎች' : 'Midterm exams',
         icon: Icons.assignment_rounded,
         color: const Color(0xFF8E2437),
-        onTap: () => onModuleTap(LearningModule.exams),
+        onTap: () => onModuleTap(LearningModule.midExams),
       ),
       _StudyCardData(
         title: isAmharic ? 'ፍጻሜ ፈተናዎች' : 'Final Exams',
         subtitle: isAmharic ? 'የመጨረሻ ፈተናዎች' : 'Final exams',
         icon: Icons.fact_check_rounded,
         color: const Color(0xFF176246),
-        onTap: () => onModuleTap(LearningModule.exams),
+        onTap: () => onModuleTap(LearningModule.finalExams),
       ),
       if (category == 'Freshman')
         _StudyCardData(

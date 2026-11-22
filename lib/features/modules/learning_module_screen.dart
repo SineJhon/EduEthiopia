@@ -10,7 +10,15 @@ import '../../core/widgets/language_toggle.dart';
 import '../../core/widgets/theme_toggle.dart';
 import 'pdf_reader_screen.dart';
 
-enum LearningModule { modules, notes, videos, exams, coc }
+enum LearningModule {
+  modules,
+  notes,
+  videos,
+  practice,
+  midExams,
+  finalExams,
+  coc,
+}
 
 class LearningModuleScreen extends StatefulWidget {
   const LearningModuleScreen({
@@ -44,8 +52,9 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
         return LearningCategories.notes;
       case LearningModule.videos:
         return LearningCategories.videos;
-      case LearningModule.exams:
-        return LearningCategories.exams;
+      case LearningModule.practice:
+      case LearningModule.midExams:
+      case LearningModule.finalExams:
       case LearningModule.coc:
         return LearningCategories.exams;
     }
@@ -59,8 +68,12 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
         return strings.notes;
       case LearningModule.videos:
         return strings.videos;
-      case LearningModule.exams:
-        return strings.exams;
+      case LearningModule.practice:
+        return _isAmharic ? 'ልምምድ ጥያቄዎች' : 'Practice Questions';
+      case LearningModule.midExams:
+        return _isAmharic ? 'ሚድ ፈተናዎች' : 'Mid Exams';
+      case LearningModule.finalExams:
+        return _isAmharic ? 'ፍጻሜ ፈተናዎች' : 'Final Exams';
       case LearningModule.coc:
         return strings.cocExams;
     }
@@ -68,6 +81,7 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
 
   List<String> _items(AppStrings strings) {
     if (widget.module == LearningModule.coc) return [];
+
     switch (_categoryName) {
       case 'Pre-Engineering':
         return [
@@ -265,7 +279,8 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                           showIcon: true,
                           onTap: () {
                             final pdfAsset = _modulePdfAsset(item);
-                            if (pdfAsset != null) {
+                            if (widget.module == LearningModule.modules &&
+                                pdfAsset != null) {
                               slideFadePush<void>(
                                 context,
                                 (_) => PdfReaderScreen(
