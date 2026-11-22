@@ -266,13 +266,13 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                       physics: const BouncingScrollPhysics(),
                       padding: const EdgeInsets.fromLTRB(
                         AppDimensions.md,
-                        AppDimensions.xs,
+                        AppDimensions.sm,
                         AppDimensions.md,
                         AppDimensions.lg,
                       ),
                       itemCount: items.length,
                       separatorBuilder: (context, index) =>
-                          const SizedBox(height: AppDimensions.xs),
+                          const SizedBox(height: AppDimensions.sm),
                       itemBuilder: (context, index) {
                         final item = items[index];
 

@@ -287,7 +287,7 @@ class CourseCard extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: AppDimensions.md,
-            vertical: AppDimensions.sm,
+            vertical: AppDimensions.md,
           ),
           child: Row(
             children: [

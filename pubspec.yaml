@@ -36,9 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_animate: ^4.5.2
   google_fonts: ^6.2.1
-  pdfx: ^2.11.0
   path_provider: ^2.1.6
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -63,7 +61,13 @@ flutter:
 
   assets:
     - assets/images/edu_ethiopia_logo.jpg
-    - assets/modules/freshman/
+    - assets/modules/freshman/Communicative English Language Skills.pdf
+    - assets/modules/freshman/General Psychology.pdf
+    - assets/modules/freshman/Geography.pdf
+    - assets/modules/freshman/Logic and Critical Thinking.pdf
+    - assets/modules/freshman/Mathematics for Natural Science.pdf
+    - assets/modules/freshman/Physical Fitness.pdf
+    - assets/modules/freshman/Physics.pdf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
