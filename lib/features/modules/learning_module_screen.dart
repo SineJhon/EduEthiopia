@@ -345,6 +345,7 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                   (_) => PdfReaderScreen(
                                     title: item,
                                     assetPath: noteAsset,
+                                    showDownload: false,
                                   ),
                                 );
                               }

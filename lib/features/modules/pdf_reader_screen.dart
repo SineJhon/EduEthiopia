@@ -10,11 +10,13 @@ class PdfReaderScreen extends StatefulWidget {
   const PdfReaderScreen({
     required this.title,
     required this.assetPath,
+    this.showDownload = true,
     super.key,
   });
 
   final String title;
   final String assetPath;
+  final bool showDownload;
 
   @override
   State<PdfReaderScreen> createState() => _PdfReaderScreenState();
@@ -116,11 +118,12 @@ class _PdfReaderScreenState extends State<PdfReaderScreen> {
         ),
         actions: [
           const ThemeToggle(),
-          IconButton(
-            tooltip: 'Download PDF',
-            onPressed: _downloading ? null : _downloadPdf,
-            icon: _downloadingIcon,
-          ),
+          if (widget.showDownload)
+            IconButton(
+              tooltip: 'Download PDF',
+              onPressed: _downloading ? null : _downloadPdf,
+              icon: _downloadingIcon,
+            ),
           const SizedBox(width: 8),
         ],
       ),
