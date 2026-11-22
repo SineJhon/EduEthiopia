@@ -10,7 +10,7 @@ import '../../core/widgets/language_toggle.dart';
 import '../../core/widgets/theme_toggle.dart';
 import 'pdf_reader_screen.dart';
 
-enum LearningModule { modules, notes, videos, exams }
+enum LearningModule { modules, notes, videos, exams, coc }
 
 class LearningModuleScreen extends StatefulWidget {
   const LearningModuleScreen({
@@ -46,6 +46,8 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
         return LearningCategories.videos;
       case LearningModule.exams:
         return LearningCategories.exams;
+      case LearningModule.coc:
+        return LearningCategories.exams;
     }
   }
 
@@ -59,62 +61,36 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
         return strings.videos;
       case LearningModule.exams:
         return strings.exams;
+      case LearningModule.coc:
+        return strings.cocExams;
     }
   }
 
   List<String> _items(AppStrings strings) {
-    switch (widget.module) {
-      case LearningModule.modules:
-        switch (_categoryName) {
-          case 'Pre-Engineering':
-            return [
-              'Anthropology',
-              'Applied Mathematics I',
-              'C++ Programming',
-              'Communicative English II',
-              'Entrepreneurship',
-              'History of Ethiopia',
-              'Introduction to Emerging Technologies',
-              'Moral and Civics',
-            ];
-          case 'Others':
-            return [
-              'Civics and Ethics',
-              'Communication Skills',
-              'Entrepreneurship',
-              'General Studies',
-            ];
-          default:
-            return [
-              'Communicative English Language Skills',
-              'General Psychology',
-              'Geography',
-              'Logic and Critical Thinking',
-              'Mathematics for Natural Science',
-              'Physics',
-              'Physical Fitness',
-            ];
-        }
-      case LearningModule.notes:
+    if (widget.module == LearningModule.coc) return [];
+    switch (_categoryName) {
+      case 'Pre-Engineering':
         return [
-          'Freshman Mathematics',
-          'General Physics',
-          'Communicative English',
-          'Introduction to Computing',
+          'Anthropology',
+          'Applied Mathematics I',
+          'C++ Programming',
+          'Communicative English II',
+          'Entrepreneurship',
+          'History of Ethiopia',
+          'Introduction to Emerging Technologies',
+          'Moral and Civics',
         ];
-      case LearningModule.videos:
+      case 'Others':
+        return [];
+      default:
         return [
-          'Calculus foundations',
-          'Physics problem solving',
-          'Study skills for freshmen',
-          'Department preparation guide',
-        ];
-      case LearningModule.exams:
-        return [
-          'COC exam preparation',
-          strings.midExams,
-          strings.finalExams,
-          strings.quizzes,
+          'Communicative English Language Skills',
+          'General Psychology',
+          'Geography',
+          'Logic and Critical Thinking',
+          'Mathematics for Natural Science',
+          'Physics',
+          'Physical Fitness',
         ];
     }
   }
@@ -150,105 +126,107 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
             },
           ),
           const SizedBox(width: 4),
-          PopupMenuButton<String>(
-            tooltip: _categoryName,
-            position: PopupMenuPosition.under,
-            constraints: const BoxConstraints(minWidth: 210, maxWidth: 210),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
-            onSelected: (category) => setState(() => _categoryName = category),
-            itemBuilder: (context) => _categories.map((category) {
-              final label = _isAmharic
-                  ? (category == 'Freshman'
-                        ? 'ፍሬሽማን'
-                        : category == 'Pre-Engineering'
-                        ? 'ፕሪ-ኢንጂነሪንግ'
-                        : 'ሌሎች')
-                  : category;
-              final selected = _categoryName == category;
-              return PopupMenuItem<String>(
-                value: category,
-                height: 54,
+          if (widget.module != LearningModule.coc)
+            PopupMenuButton<String>(
+              tooltip: _categoryName,
+              position: PopupMenuPosition.under,
+              constraints: const BoxConstraints(minWidth: 210, maxWidth: 210),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              onSelected: (category) =>
+                  setState(() => _categoryName = category),
+              itemBuilder: (context) => _categories.map((category) {
+                final label = _isAmharic
+                    ? (category == 'Freshman'
+                          ? 'ፍሬሽማን'
+                          : category == 'Pre-Engineering'
+                          ? 'ፕሪ-ኢንጂነሪንግ'
+                          : 'ሌሎች')
+                    : category;
+                final selected = _categoryName == category;
+                return PopupMenuItem<String>(
+                  value: category,
+                  height: 54,
+                  child: Row(
+                    children: [
+                      Icon(
+                        category == 'Freshman'
+                            ? Icons.school_rounded
+                            : category == 'Pre-Engineering'
+                            ? Icons.construction_rounded
+                            : Icons.account_balance_rounded,
+                        size: 19,
+                        color: selected
+                            ? Theme.of(context).colorScheme.primary
+                            : Theme.of(context).colorScheme.onSurfaceVariant,
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          label,
+                          style: TextStyle(
+                            fontWeight: selected
+                                ? FontWeight.w900
+                                : FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      if (selected)
+                        Icon(
+                          Icons.check_circle_rounded,
+                          size: 18,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                    ],
+                  ),
+                );
+              }).toList(),
+              child: Container(
+                height: 40,
+                constraints: const BoxConstraints(minWidth: 104, maxWidth: 104),
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primaryContainer,
+                  borderRadius: BorderRadius.circular(12),
+                ),
                 child: Row(
                   children: [
                     Icon(
-                      category == 'Freshman'
-                          ? Icons.school_rounded
-                          : category == 'Pre-Engineering'
+                      _categoryName == 'Pre-Engineering'
                           ? Icons.construction_rounded
-                          : Icons.account_balance_rounded,
-                      size: 19,
-                      color: selected
-                          ? Theme.of(context).colorScheme.primary
-                          : Theme.of(context).colorScheme.onSurfaceVariant,
+                          : _categoryName == 'Others'
+                          ? Icons.account_balance_rounded
+                          : Icons.school_rounded,
+                      size: 16,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 6),
                     Expanded(
                       child: Text(
-                        label,
+                        _categoryName == 'Freshman'
+                            ? (_isAmharic ? 'ፍሬሽማን' : 'Freshman')
+                            : _categoryName == 'Pre-Engineering'
+                            ? (_isAmharic ? 'ፕሪ-ኢንጂነሪንግ' : 'Pre-Eng.')
+                            : (_isAmharic ? 'ሌሎች' : 'Others'),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontWeight: selected
-                              ? FontWeight.w900
-                              : FontWeight.w600,
+                          fontSize: 11,
+                          fontWeight: FontWeight.w900,
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                     ),
-                    if (selected)
-                      Icon(
-                        Icons.check_circle_rounded,
-                        size: 18,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
+                    Icon(
+                      Icons.keyboard_arrow_down_rounded,
+                      size: 16,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
                   ],
                 ),
-              );
-            }).toList(),
-            child: Container(
-              height: 40,
-              constraints: const BoxConstraints(minWidth: 104, maxWidth: 104),
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primaryContainer,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                children: [
-                  Icon(
-                    _categoryName == 'Pre-Engineering'
-                        ? Icons.construction_rounded
-                        : _categoryName == 'Others'
-                        ? Icons.account_balance_rounded
-                        : Icons.school_rounded,
-                    size: 16,
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
-                  const SizedBox(width: 6),
-                  Expanded(
-                    child: Text(
-                      _categoryName == 'Freshman'
-                          ? (_isAmharic ? 'ፍሬሽማን' : 'Freshman')
-                          : _categoryName == 'Pre-Engineering'
-                          ? (_isAmharic ? 'ፕሪ-ኢንጂነሪንግ' : 'Pre-Eng.')
-                          : (_isAmharic ? 'ሌሎች' : 'Others'),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w900,
-                        color: Theme.of(context).colorScheme.onSurface,
-                      ),
-                    ),
-                  ),
-                  Icon(
-                    Icons.keyboard_arrow_down_rounded,
-                    size: 16,
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
-                ],
               ),
             ),
-          ),
           const SizedBox(width: AppDimensions.sm),
         ],
       ),
@@ -280,23 +258,6 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                       itemBuilder: (context, index) {
                         final item = items[index];
 
-                        if (widget.module == LearningModule.videos) {
-                          return VideoCard(
-                            title: item,
-                            course: _courseForVideo(item),
-                            onTap: () {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    '$item is ready for content integration.',
-                                  ),
-                                  behavior: SnackBarBehavior.floating,
-                                ),
-                              );
-                            },
-                          );
-                        }
-
                         return CourseCard(
                           title: item,
                           icon: category.icon,
@@ -304,8 +265,7 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                           showIcon: true,
                           onTap: () {
                             final pdfAsset = _modulePdfAsset(item);
-                            if (widget.module == LearningModule.modules &&
-                                pdfAsset != null) {
+                            if (pdfAsset != null) {
                               slideFadePush<void>(
                                 context,
                                 (_) => PdfReaderScreen(
@@ -359,20 +319,5 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
       'Moral and Civics': 'assets/modules/preengineering/Moral and Civics.pdf',
     };
     return assets[course];
-  }
-
-  String _courseForVideo(String video) {
-    switch (video) {
-      case 'Calculus foundations':
-        return 'Mathematics';
-      case 'Physics problem solving':
-        return 'Physics';
-      case 'Study skills for freshmen':
-        return 'Study Skills';
-      case 'Department preparation guide':
-        return 'Preparation';
-      default:
-        return 'General';
-    }
   }
 }

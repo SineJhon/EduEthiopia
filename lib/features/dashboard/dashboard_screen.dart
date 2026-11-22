@@ -633,7 +633,7 @@ class _CategoryGrid extends StatelessWidget {
           subtitle: isAmharic ? 'ሙያ ብቃት ፈተና' : 'Competency exams',
           icon: Icons.assignment_turned_in_rounded,
           color: const Color(0xFFE3AF16),
-          onTap: () => onModuleTap(LearningModule.exams),
+          onTap: () => onModuleTap(LearningModule.coc),
         ),
     ];
 

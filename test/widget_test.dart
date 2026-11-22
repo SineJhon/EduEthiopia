@@ -120,7 +120,11 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        expect(find.byType(ListView), findsOneWidget);
+        if (module == LearningModule.coc) {
+          expect(find.text('No content available'), findsOneWidget);
+        } else {
+          expect(find.byType(ListView), findsOneWidget);
+        }
         expect(tester.takeException(), isNull);
       }
     }
