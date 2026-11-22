@@ -76,6 +76,14 @@ flutter:
     - assets/modules/preengineering/History of Ethiopia.pdf
     - assets/modules/preengineering/Introduction to Emerging Technologies.pdf
     - assets/modules/preengineering/Moral and Civics.pdf
+    - assets/modules/others/Anthropology.pdf
+    - assets/modules/others/Communicative English II.pdf
+    - assets/modules/others/Entrepreneurship.pdf
+    - assets/modules/others/General Biology.pdf
+    - assets/modules/others/General Chemistry.pdf
+    - assets/modules/others/History of Ethiopia.pdf
+    - assets/modules/others/Introduction to Emerging Technologies.pdf
+    - assets/modules/others/Moral and Civics.pdf
 
   # To add assets to your application, add an assets section, like this:
   # assets:

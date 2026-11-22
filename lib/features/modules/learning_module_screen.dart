@@ -95,7 +95,16 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
           'Moral and Civics',
         ];
       case 'Others':
-        return [];
+        return [
+          'Anthropology',
+          'Communicative English II',
+          'Entrepreneurship',
+          'General Biology',
+          'General Chemistry',
+          'History of Ethiopia',
+          'Introduction to Emerging Technologies',
+          'Moral and Civics',
+        ];
       default:
         return [
           'Communicative English Language Skills',
@@ -310,6 +319,22 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
   }
 
   String? _modulePdfAsset(String course) {
+    if (_categoryName == 'Others') {
+      const othersAssets = {
+        'Anthropology': 'assets/modules/others/Anthropology.pdf',
+        'Communicative English II':
+            'assets/modules/others/Communicative English II.pdf',
+        'Entrepreneurship': 'assets/modules/others/Entrepreneurship.pdf',
+        'General Biology': 'assets/modules/others/General Biology.pdf',
+        'General Chemistry': 'assets/modules/others/General Chemistry.pdf',
+        'History of Ethiopia': 'assets/modules/others/History of Ethiopia.pdf',
+        'Introduction to Emerging Technologies':
+            'assets/modules/others/Introduction to Emerging Technologies.pdf',
+        'Moral and Civics': 'assets/modules/others/Moral and Civics.pdf',
+      };
+      return othersAssets[course];
+    }
+
     const assets = {
       'Communicative English Language Skills':
           'assets/modules/freshman/Communicative English Language Skills.pdf',
