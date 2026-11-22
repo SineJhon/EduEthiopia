@@ -41,6 +41,7 @@ class LearningModuleScreen extends StatefulWidget {
 class _LearningModuleScreenState extends State<LearningModuleScreen> {
   late bool _isAmharic = widget.isAmharic;
   late String _categoryName = widget.category;
+  String? _selectedNoteSubject;
 
   static const _categories = ['Freshman', 'Pre-Engineering', 'Others'];
 
@@ -118,22 +119,57 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
     }
   }
 
+  List<String> _noteFiles() {
+    if (_categoryName != 'Freshman') return [];
+    switch (_selectedNoteSubject) {
+      case 'Communicative English Language Skills':
+        return [
+          'Active and Passive Voice',
+          'Brief Notes for First Year Students',
+          'English Tenses In Context',
+          'Passive Voice Excercise and Grammar Drills',
+        ];
+      default:
+        return [];
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final strings = AppStrings(_isAmharic);
-    final items = _items(strings);
+    final title =
+        widget.module == LearningModule.notes && _selectedNoteSubject != null
+        ? _selectedNoteSubject!
+        : _title(strings);
+    final items = widget.module == LearningModule.notes
+        ? (_selectedNoteSubject == null ? _items(strings) : _noteFiles())
+        : _items(strings);
     final category = _category;
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.surface,
+        leading:
+            widget.module == LearningModule.notes &&
+                _selectedNoteSubject != null
+            ? IconButton(
+                tooltip: 'Back',
+                onPressed: () => setState(() => _selectedNoteSubject = null),
+                icon: const Icon(Icons.arrow_back_rounded),
+              )
+            : null,
         title: Row(
           children: [
-            Text(
-              _title(strings),
-              style: AppTypography.headlineMedium.copyWith(
-                fontWeight: FontWeight.w700,
-                color: Theme.of(context).colorScheme.onSurface,
+            Expanded(
+              child: Text(
+                title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: AppTypography.headlineSmall.copyWith(
+                  fontSize: _selectedNoteSubject == null ? 18 : 15,
+                  fontWeight: FontWeight.w700,
+                  color: Theme.of(context).colorScheme.onSurface,
+                ),
               ),
             ),
           ],
@@ -157,8 +193,10 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
-              onSelected: (category) =>
-                  setState(() => _categoryName = category),
+              onSelected: (category) => setState(() {
+                _categoryName = category;
+                _selectedNoteSubject = null;
+              }),
               itemBuilder: (context) => _categories.map((category) {
                 final label = _isAmharic
                     ? (category == 'Freshman'
@@ -250,7 +288,13 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                 ),
               ),
             ),
-          const SizedBox(width: AppDimensions.sm),
+          SizedBox(
+            width:
+                widget.module == LearningModule.notes &&
+                    _selectedNoteSubject != null
+                ? 4
+                : AppDimensions.sm,
+          ),
         ],
       ),
 
@@ -287,6 +331,25 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                           accentColor: category.accentFor(context),
                           showIcon: true,
                           onTap: () {
+                            if (widget.module == LearningModule.notes &&
+                                _selectedNoteSubject == null) {
+                              setState(() => _selectedNoteSubject = item);
+                              return;
+                            }
+                            if (widget.module == LearningModule.notes &&
+                                _selectedNoteSubject != null) {
+                              final noteAsset = _noteAsset(item);
+                              if (noteAsset != null) {
+                                slideFadePush<void>(
+                                  context,
+                                  (_) => PdfReaderScreen(
+                                    title: item,
+                                    assetPath: noteAsset,
+                                  ),
+                                );
+                              }
+                              return;
+                            }
                             final pdfAsset = _modulePdfAsset(item);
                             if (widget.module == LearningModule.modules &&
                                 pdfAsset != null) {
@@ -316,6 +379,21 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
         ),
       ),
     );
+  }
+
+  String? _noteAsset(String note) {
+    if (_categoryName != 'Freshman') return null;
+    if (_selectedNoteSubject != 'Communicative English Language Skills') {
+      return null;
+    }
+
+    const assets = {
+      'Active and Passive Voice': 'assets/notes/Freshman/Communicative English Language Skills/Active and Passive Voice.pdf',
+      'Brief Notes for First Year Students': 'assets/notes/Freshman/Communicative English Language Skills/Brief Notes for First Year Students.pdf',
+      'English Tenses In Context': 'assets/notes/Freshman/Communicative English Language Skills/English Tenses In Context.pdf',
+      'Passive Voice Excercise and Grammar Drills': 'assets/notes/Freshman/Communicative English Language Skills/Passive Voice Excercise and Grammar Drills.pdf',
+    };
+    return assets[note];
   }
 
   String? _modulePdfAsset(String course) {
