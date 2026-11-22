@@ -12,6 +12,7 @@ import 'package:eduethiopia/app.dart';
 import 'package:eduethiopia/core/theme/app_theme.dart';
 import 'package:eduethiopia/features/auth/auth_screen.dart';
 import 'package:eduethiopia/features/dashboard/dashboard_screen.dart';
+import 'package:eduethiopia/features/modules/communicative_english_notes_screen.dart';
 import 'package:eduethiopia/features/modules/learning_module_screen.dart';
 
 void main() {
@@ -128,6 +129,27 @@ void main() {
         expect(tester.takeException(), isNull);
       }
     }
+  });
+
+  testWidgets('Communicative English integrated notes load offline', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(
+      const MaterialApp(home: CommunicativeEnglishNotesScreen()),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Communicative English Language Skills I'), findsOneWidget);
+    expect(find.text('Unit 1 - Study Skills'), findsOneWidget);
+    expect(find.text('Unit 5 - Population'), findsOneWidget);
+
+    await tester.tap(find.text('Unit 1 - Study Skills'));
+    await tester.pumpAndSettle();
+
+    expect(
+      find.text('1.1 Listening: What is a lecture? and effective note-taking'),
+      findsOneWidget,
+    );
   });
 
   testWidgets('dashboard fits a compact phone layout', (

@@ -61,6 +61,7 @@ flutter:
 
   assets:
     - assets/images/edu_ethiopia_logo.jpg
+    - assets/content/communicative_english_1/notes.json
     - assets/modules/freshman/Communicative English Language Skills.pdf
     - assets/modules/freshman/General Psychology.pdf
     - assets/modules/freshman/Geography.pdf

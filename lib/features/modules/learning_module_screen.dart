@@ -8,6 +8,7 @@ import '../../core/localization/app_strings.dart';
 import '../../core/widgets/animated/page_transition.dart';
 import '../../core/widgets/language_toggle.dart';
 import '../../core/widgets/theme_toggle.dart';
+import 'communicative_english_notes_screen.dart';
 import 'pdf_reader_screen.dart';
 
 enum LearningModule {
@@ -124,6 +125,7 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
     switch (_selectedNoteSubject) {
       case 'Communicative English Language Skills':
         return [
+          'Integrated Study Notes',
           'Active and Passive Voice',
           'Brief Notes for First Year Students',
           'English Tenses In Context',
@@ -338,6 +340,16 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                             }
                             if (widget.module == LearningModule.notes &&
                                 _selectedNoteSubject != null) {
+                              if (_selectedNoteSubject ==
+                                      'Communicative English Language Skills' &&
+                                  item == 'Integrated Study Notes') {
+                                slideFadePush<void>(
+                                  context,
+                                  (_) =>
+                                      const CommunicativeEnglishNotesScreen(),
+                                );
+                                return;
+                              }
                               final noteAsset = _noteAsset(item);
                               if (noteAsset != null) {
                                 slideFadePush<void>(

@@ -1,0 +1,415 @@
+{
+  "subjectId": "FLEn1011",
+  "subjectTitle": "Communicative English Language Skills I",
+  "units": [
+    {
+      "id": "unit-1-study-skills",
+      "title": "Unit 1 - Study Skills",
+      "topics": [
+        {
+          "id": "1-1-listening-note-taking",
+          "title": "1.1 Listening: What is a lecture? and effective note-taking",
+          "sections": [
+            {
+              "paragraphs": [
+                "A lecture is an organized talk in which a lecturer presents information about a subject to students. Lectures are an important source of academic information, but students cannot be expected to remember everything they hear.",
+                "Note-taking is the selective recording of important information, not verbatim transcription."
+              ],
+              "heading": "Why note-taking matters",
+              "bullets": [
+                "Record important information for later revision.",
+                "Prepare for assignments and examinations.",
+                "Identify main ideas and supporting details.",
+                "Review notes soon after a lecture to fill gaps while the information is fresh."
+              ]
+            },
+            {
+              "heading": "Before, during and after a lecture",
+              "bullets": [
+                "Before: read about the subject, arrive early, prepare materials and listen to the introduction.",
+                "During: listen for main points, verbal and visual cues, topics and supporting details.",
+                "Use short phrases, keywords, abbreviations and symbols rather than complete sentences.",
+                "After: review immediately, add missing points, organize headings and clarify unclear abbreviations."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1-2-modals-advice",
+          "title": "1.2 Grammar: Modals and infinitives for giving advice",
+          "sections": [
+            {
+              "heading": "Advice forms",
+              "paragraphs": ["Advice can be expressed using should, ought to, had better, or an imperative or infinitive form."],
+              "table": {
+                "headers": ["Form", "Use", "Example"],
+                "rows": [
+                  ["should + base verb", "ordinary advice", "You should revise your notes."],
+                  ["ought to + base verb", "advice similar to should", "You ought to read before class."],
+                  ["had better + base verb", "strong advice with an implied consequence", "You had better leave now."],
+                  ["imperative / infinitive", "direct instruction or suggestion", "Try to prepare in advance."]
+                ]
+              }
+            },
+            {
+              "heading": "Important points",
+              "bullets": [
+                "Use the base form after should: should study.",
+                "Use ought to: ought to study.",
+                "Use had better + base verb: had better go.",
+                "The negative form is should not or had better not."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1-3-reading-for-study",
+          "title": "1.3 Reading: Reading for study",
+          "sections": [
+            {
+              "heading": "Purposes and approaches",
+              "bullets": [
+                "Reading for study: understand and remember important information.",
+                "Reading for pleasure/escapism: read mainly for enjoyment.",
+                "Reading instructions: read to perform a task.",
+                "Skimming: obtain the general idea or overview quickly.",
+                "Scanning: locate a particular piece of information quickly.",
+                "Detailed reading: understand ideas and supporting details carefully."
+              ]
+            },
+            {
+              "heading": "Good academic reading",
+              "bullets": [
+                "Identify why you are reading.",
+                "Preview headings and the organization of the text.",
+                "Select an approach that matches the purpose.",
+                "Identify main ideas and supporting details.",
+                "Make notes in your own words.",
+                "Evaluate what the author communicates.",
+                "Review and use the information."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1-4-present-perfect",
+          "title": "1.4 Grammar: Present perfect tense",
+          "sections": [
+            {
+              "heading": "Form",
+              "paragraphs": ["The present perfect uses subject + have/has + past participle.", "Examples: I have studied; He has studied; Have they studied?"],
+              "bullets": [
+                "An action at an unspecified time before now.",
+                "A past action with a present result.",
+                "An action that has recently stopped.",
+                "An experience that happened once, never or several times.",
+                "An action or situation that began in the past and continues to the present."
+              ]
+            },
+            {
+              "heading": "Present perfect and simple past",
+              "paragraphs": ["The present perfect focuses on experience or a result up to now and does not normally state a definite finished past time. The simple past describes a completed action at a definite time."],
+              "bullets": ["Common signals: already, ever, never, just, not yet, so far, up to now, till now."],
+              "table": {
+                "headers": ["Present perfect", "Simple past"],
+                "rows": [
+                  ["I have read this novel before.", "I read it two years ago."],
+                  ["They have constructed a road.", "They finished it last year."]
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-2-health-and-fitness",
+      "title": "Unit 2 - Health and Fitness",
+      "topics": [
+        {
+          "id": "2-1-zinedine-zidane",
+          "title": "2.1 Listening: Zinedine Zidane",
+          "sections": [
+            {
+              "paragraphs": ["This section develops listening for specific biographical information and taking notes from a spoken story about a sportsperson."],
+              "heading": "Information to listen for",
+              "bullets": ["Full name", "Date and place of birth", "What the person is known for", "Playing position", "Clubs or teams", "Record transfer fee to Real Madrid", "Games won", "Special achievements"]
+            },
+            {
+              "heading": "Listening strategy",
+              "bullets": ["Preview headings or questions.", "Listen for names, dates, places, numbers and key facts.", "Write short notes.", "Listen again to check missing information.", "Use notes to form WH-questions and answers."],
+              "paragraphs": ["The module instructs the teacher to read the listening text. The full script and its factual answers are not printed in the supplied module, so missing biography details must not be invented."]
+            }
+          ]
+        },
+        {
+          "id": "2-2-conditionals",
+          "title": "2.2 Grammar: Conditionals",
+          "sections": [
+            {
+              "heading": "Conditional types",
+              "table": {
+                "headers": ["Type", "Form", "Meaning", "Example"],
+                "rows": [
+                  ["I", "If + present simple, will + base verb", "real or possible future", "If I meet her, I will ask a question."],
+                  ["II", "If + past simple, would + base verb", "imagined or unlikely present/future", "If I met him, I would talk to him."],
+                  ["III", "If + past perfect, would have + past participle", "imagined past condition", "If I had studied, I would have passed."]
+                ]
+              }
+            },
+            {
+              "heading": "Key points",
+              "bullets": ["The if-clause states the condition; the main clause states the result.", "The clauses can change position.", "Do not normally use will in the if-clause.", "Provided (that), as long as and on condition that can introduce conditions."]
+            }
+          ]
+        },
+        {
+          "id": "2-3-health-and-fitness-reading",
+          "title": "2.3 Reading: Health and fitness",
+          "sections": [
+            {
+              "heading": "Main ideas",
+              "bullets": ["Team sports are an effective way to exercise.", "Regular practice and games help maintain a routine.", "Team sports encourage healthy competition and sportsmanship.", "Players should show respect whether they win or lose.", "Team sports offer opportunities to make friends and learn about games and people.", "Choices include action, ball, accuracy and water sports."]
+            },
+            {
+              "heading": "Reading skills",
+              "paragraphs": ["Sportsmanship means behaving fairly and respectfully toward other players and teams, whether winning or losing."],
+              "bullets": ["Find the main idea and supporting details.", "Identify pronoun references.", "Decide whether statements are true, false or not given.", "Use evidence from the passage."]
+            }
+          ]
+        },
+        {
+          "id": "2-4-context-vocabulary",
+          "title": "2.4 Vocabulary: Guessing meaning from context",
+          "sections": [
+            {
+              "heading": "What context means",
+              "paragraphs": ["Context is the surrounding words, sentences and ideas that help readers understand an unfamiliar word."]
+            },
+            {
+              "heading": "How to guess meaning",
+              "bullets": ["Read the sentence containing the unfamiliar word.", "Read the surrounding sentences.", "Look for examples, explanations or contrasts.", "Consider the word's grammatical role.", "Substitute a possible meaning and check sense.", "Confirm with a dictionary when available."]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-3-cultural-values",
+      "title": "Unit 3 - Cultural Values",
+      "topics": [
+        {
+          "id": "3-1-cultural-tourism",
+          "title": "3.1 Listening: Cultural tourism",
+          "sections": [
+            {
+              "heading": "Cultural tourism",
+              "paragraphs": ["Cultural tourism involves travel motivated by interest in culture, traditions, heritage and ways of life."]
+            },
+            {
+              "heading": "Benefits and risks",
+              "bullets": ["Potential benefits include income, employment, markets for local products and appreciation of heritage.", "Poor management may disrupt local customs, change practices for visitors, distribute benefits unfairly or pressure resources."]
+            },
+            {
+              "heading": "Responsible management",
+              "bullets": ["Involve local communities.", "Respect local values and practices.", "Protect cultural heritage.", "Ensure benefits reach affected communities."],
+              "paragraphs": ["The supplied PDF does not provide the complete teacher-read listening script, so script-specific factual answers must not be invented."]
+            }
+          ]
+        },
+        {
+          "id": "3-2-tense-contrast",
+          "title": "3.2 Grammar: Tense contrast",
+          "sections": [
+            {
+              "heading": "Four tenses",
+              "table": {
+                "headers": ["Tense", "Form", "Main uses", "Example"],
+                "rows": [
+                  ["Present simple", "base verb / -s or -es", "habits, facts and repeated actions", "She works at a university."],
+                  ["Past simple", "past form", "completed past action or situation", "We visited the village last year."],
+                  ["Present perfect", "have/has + past participle", "experience, present result or continuing situation", "They have visited the village."],
+                  ["Past perfect", "had + past participle", "action completed before another past event", "They had left before we arrived."]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "3-3-grammar-strategies",
+          "title": "3.3 Strategies for improving English grammar knowledge",
+          "sections": [
+            {
+              "heading": "Practical strategies",
+              "bullets": ["Read extensively.", "Notice grammar in English texts.", "Write examples and repeat structures.", "Reread writing to find and correct mistakes.", "Review structures learned in class.", "Use a grammar reference.", "Complete exercises."]
+            },
+            {
+              "heading": "Effective learning cycle",
+              "paragraphs": ["Notice a structure, understand its form and use, study examples, create your own sentences, use it in speaking or writing, and review and correct mistakes."]
+            }
+          ]
+        },
+        {
+          "id": "3-4-awramba-community",
+          "title": "3.4 Reading: The Awramba community",
+          "sections": [
+            {
+              "heading": "Main facts",
+              "bullets": ["Awramba is in Fogera woreda, Debub Gondar Zone, about 73 kilometres east of Bahir Dar.", "Zumra Nuru and 19 others founded it in 1980.", "The community aimed to address socio-economic problems through mutual help and egalitarianism.", "It promotes equal rights for women and men and no gender-based division of labour.", "It values hard work, helping others, cleanliness and discipline.", "Members faced social exclusion and difficulty obtaining fertile land.", "Weaving and milling provide income.", "The community provides education and social support."]
+            },
+            {
+              "heading": "Reading themes",
+              "bullets": ["Intentional community and shared goals", "Egalitarianism and gender equality", "Economic adaptation", "Mutual support", "Cultural difference and resilience"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-4-wildlife",
+      "title": "Unit 4 - Wildlife",
+      "topics": [
+        {
+          "id": "4-1-human-wildlife-interaction",
+          "title": "4.1 Listening: Human-wildlife interaction",
+          "sections": [
+            {
+              "heading": "Positive and negative interaction",
+              "paragraphs": ["Positive interaction includes coexistence and situations where people and wildlife benefit or live without harmful conflict.", "Negative interaction occurs when people and animals compete over resources or wildlife affects safety, crops or livelihoods."]
+            },
+            {
+              "paragraphs": ["The listening passage is read by the teacher and is not fully printed in the PDF. Exact causes, effects and research areas must not be invented."],
+              "heading": "Listening areas",
+              "bullets": ["Types of interaction", "Reasons for competition", "Approaches to reducing conflict", "Effects of conflict", "Benefits of improved understanding", "Possible future research"]
+            }
+          ]
+        },
+        {
+          "id": "4-2-africas-wild-animals",
+          "title": "4.2 Reading: Africa's wild animals",
+          "sections": [
+            {
+              "heading": "Geography",
+              "paragraphs": ["The passage describes African rainforests extending from the west coast toward Kenya and Tanzania. More than 80 percent of the rainforest area discussed is in the Congo Basin. Madagascar is off Africa's southeast coast in the Indian Ocean."]
+            },
+            {
+              "heading": "Animals",
+              "bullets": ["Lemurs: found in Madagascar, endangered and vegetarian; examples include the indri and mouse lemur.", "Mountain gorillas: live in Rwanda, DR Congo and Uganda in small groups led by a dominant male.", "Forest elephants: live in the Congo Basin and are smaller than African elephants.", "Chimpanzees: use twigs and stones or branches to obtain food.", "Baboons: mentioned as other forest animals."]
+            }
+          ]
+        },
+        {
+          "id": "4-3-denotation-connotation",
+          "title": "4.3 Vocabulary: Denotative and connotative meanings",
+          "sections": [
+            {
+              "heading": "Meaning",
+              "bullets": ["Denotation is the literal or dictionary meaning.", "Connotation is the feeling, association or emotional meaning.", "A connotation may be positive, negative or neutral."]
+            },
+            {
+              "heading": "Example",
+              "paragraphs": ["Group, clique and club can refer to a set of people, but carry different associations. Clique can suggest a closed group that excludes others, while group is more neutral."]
+            }
+          ]
+        },
+        {
+          "id": "4-4-conditionals-revised",
+          "title": "4.4 Grammar: Conditionals revised",
+          "sections": [
+            {
+              "heading": "Types",
+              "table": {
+                "headers": ["Type", "If-clause", "Main clause", "Use"],
+                "rows": [
+                  ["I", "present simple", "will + base verb", "real or possible future"],
+                  ["II", "past simple", "would + base verb", "unlikely or unreal present/future"],
+                  ["III", "past perfect", "would have + past participle", "unreal past result"]
+                ]
+              }
+            },
+            {
+              "heading": "Examples",
+              "bullets": ["If tourists visit the park, they will see wildlife.", "If I lived near the park, I would visit it.", "If we had protected the habitat, fewer animals would have been affected."]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-5-population",
+      "title": "Unit 5 - Population",
+      "topics": [
+        {
+          "id": "5-1-population-density",
+          "title": "5.1 Listening: Population density",
+          "sections": [
+            {
+              "heading": "Key terms",
+              "paragraphs": ["Population is the number of people living in a country or region.", "Dense means crowded or closely packed.", "Density describes how closely something is packed into a given space.", "Population density is the number of people living in a unit of area."]
+            },
+            {
+              "heading": "Calculation",
+              "paragraphs": ["Population density = total population divided by land area.", "It is commonly expressed as people per square kilometre."]
+            },
+            {
+              "paragraphs": ["The exact teacher-read listening script is not printed in the supplied PDF. Script-specific answers must not be invented."],
+              "heading": "Listening and interpretation",
+              "bullets": ["High density means many people live within a relatively small area.", "Low density means relatively few people live within a larger area.", "Density can vary with available population and area data."]
+            }
+          ]
+        },
+        {
+          "id": "5-2-population-pyramid",
+          "title": "5.2 Reading: Population pyramid",
+          "sections": [
+            {
+              "heading": "How to read",
+              "paragraphs": ["A population pyramid, or age-sex pyramid, is a bar graph showing a population divided by age and sex."],
+              "bullets": ["The vertical axis shows age groups.", "Each horizontal bar represents an age group.", "The left side represents males and the right side females.", "Percentages are read outward from the centre.", "Add male and female percentages for an age group to obtain the total."]
+            },
+            {
+              "heading": "Planning and factors",
+              "bullets": ["Birth rates and death rates affect shape.", "Age structure and sex ratio are important.", "Migration affects population structure.", "Interpret only the actual graph and its labels."]
+            }
+          ]
+        },
+        {
+          "id": "5-3-collocation",
+          "title": "5.3 Vocabulary: Collocation",
+          "sections": [
+            {
+              "heading": "Definition",
+              "paragraphs": ["A collocation is a sequence or combination of words that commonly occur together in conventional usage."]
+            },
+            {
+              "heading": "Examples",
+              "bullets": ["crystal clear", "middle management", "nuclear family", "pay attention", "fast food", "make an effort", "cosmetic surgery", "break a habit", "catch a disease", "keep a promise"]
+            },
+            {
+              "heading": "Learning strategy",
+              "paragraphs": ["Record words together with the words they commonly accompany. Read and listen to authentic English, notice repeated combinations and learn phrases rather than isolated words."]
+            }
+          ]
+        },
+        {
+          "id": "5-4-active-passive",
+          "title": "5.4 Grammar: Voice - active and passive",
+          "sections": [
+            {
+              "heading": "Active and passive voice",
+              "paragraphs": ["Active voice: the subject performs the action. People developed a bar graph.", "Passive voice: the subject receives or is affected by the action. A bar graph was developed.", "The basic passive structure uses the correct form of be + past participle."]
+            },
+            {
+              "heading": "Changing active to passive",
+              "bullets": ["Move the active object to the subject position.", "Choose the correct tense of be.", "Use the past participle of the main verb.", "Add by + agent only when the doer is important."]
+            },
+            {
+              "heading": "Changing passive to active",
+              "bullets": ["Identify the agent, if stated.", "Make the agent the subject.", "Use the correct tense.", "Change the passive verb to its active form."]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
