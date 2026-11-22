@@ -68,10 +68,14 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
         switch (_categoryName) {
           case 'Pre-Engineering':
             return [
-              'Engineering Mathematics',
-              'Engineering Physics',
-              'Technical Drawing',
-              'Applied Computing',
+              'Anthropology',
+              'Applied Mathematics I',
+              'C++ Programming',
+              'Communicative English II',
+              'Entrepreneurship',
+              'History of Ethiopia',
+              'Introduction to Emerging Technologies',
+              'Moral and Civics',
             ];
           case 'Others':
             return [
@@ -299,9 +303,8 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                           accentColor: category.accentFor(context),
                           showIcon: true,
                           onTap: () {
-                            final pdfAsset = _freshmanPdfAsset(item);
+                            final pdfAsset = _modulePdfAsset(item);
                             if (widget.module == LearningModule.modules &&
-                                _categoryName == 'Freshman' &&
                                 pdfAsset != null) {
                               slideFadePush<void>(
                                 context,
@@ -331,7 +334,7 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
     );
   }
 
-  String? _freshmanPdfAsset(String course) {
+  String? _modulePdfAsset(String course) {
     const assets = {
       'Communicative English Language Skills':
           'assets/modules/freshman/Communicative English Language Skills.pdf',
@@ -343,6 +346,17 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
           'assets/modules/freshman/Mathematics for Natural Science.pdf',
       'Physics': 'assets/modules/freshman/Physics.pdf',
       'Physical Fitness': 'assets/modules/freshman/Physical Fitness.pdf',
+      'Anthropology': 'assets/modules/preengineering/Anthropology.pdf',
+      'Applied Mathematics I':
+          'assets/modules/preengineering/Applied Mathematics I.pdf',
+      'C++ Programming': 'assets/modules/preengineering/C++ Programming.pdf',
+      'Communicative English II':
+          'assets/modules/preengineering/Communicative English II.pdf',
+      'Entrepreneurship': 'assets/modules/preengineering/Entrepreneurship.pdf',
+      'History of Ethiopia':
+          'assets/modules/preengineering/History of Ethiopia.pdf',
+      'Introduction to Emerging Technologies': 'assets/modules/preengineering/Introduction to Emerging Technologies.pdf',
+      'Moral and Civics': 'assets/modules/preengineering/Moral and Civics.pdf',
     };
     return assets[course];
   }

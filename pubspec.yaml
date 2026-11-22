@@ -68,6 +68,14 @@ flutter:
     - assets/modules/freshman/Mathematics for Natural Science.pdf
     - assets/modules/freshman/Physical Fitness.pdf
     - assets/modules/freshman/Physics.pdf
+    - assets/modules/preengineering/Anthropology.pdf
+    - assets/modules/preengineering/Applied Mathematics I.pdf
+    - assets/modules/preengineering/C++ Programming.pdf
+    - assets/modules/preengineering/Communicative English II.pdf
+    - assets/modules/preengineering/Entrepreneurship.pdf
+    - assets/modules/preengineering/History of Ethiopia.pdf
+    - assets/modules/preengineering/Introduction to Emerging Technologies.pdf
+    - assets/modules/preengineering/Moral and Civics.pdf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
