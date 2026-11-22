@@ -156,7 +156,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       const SizedBox(height: 15),
                       LayoutBuilder(
                         builder: (context, constraints) {
-                          final tileWidth = (constraints.maxWidth - 12) / 3;
+                          final availableWidth = constraints.maxWidth.isFinite
+                              ? constraints.maxWidth
+                              : 0.0;
+                          final tileWidth = ((availableWidth - 12) / 3)
+                              .clamp(0.0, double.infinity)
+                              .toDouble();
                           final tiles = <(String, IconData, Color)>[
                             (
                               strings.modules,
@@ -470,8 +475,7 @@ class _FeatureData {
     required this.icon,
     required this.accent,
     required this.tint,
-    this.prominent = false,
-  });
+  }) : prominent = false;
 
   final String title;
   final String description;

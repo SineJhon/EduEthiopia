@@ -36,6 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_animate: ^4.5.2
   google_fonts: ^6.2.1
+  pdfx: ^2.11.0
+  path_provider: ^2.1.6
 
 dev_dependencies:
   flutter_test:
@@ -61,6 +63,7 @@ flutter:
 
   assets:
     - assets/images/edu_ethiopia_logo.jpg
+    - assets/modules/freshman/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

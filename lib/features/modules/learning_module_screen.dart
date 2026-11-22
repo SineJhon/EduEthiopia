@@ -5,8 +5,10 @@ import '../../core/design/app_typography.dart';
 import '../../core/design/category_config.dart';
 import '../../core/design/reusable_widgets.dart';
 import '../../core/localization/app_strings.dart';
+import '../../core/widgets/animated/page_transition.dart';
 import '../../core/widgets/language_toggle.dart';
 import '../../core/widgets/theme_toggle.dart';
+import 'pdf_reader_screen.dart';
 
 enum LearningModule { modules, notes, videos, exams }
 
@@ -297,6 +299,19 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                           accentColor: category.accentFor(context),
                           showIcon: true,
                           onTap: () {
+                            final pdfAsset = _freshmanPdfAsset(item);
+                            if (widget.module == LearningModule.modules &&
+                                _categoryName == 'Freshman' &&
+                                pdfAsset != null) {
+                              slideFadePush<void>(
+                                context,
+                                (_) => PdfReaderScreen(
+                                  title: item,
+                                  assetPath: pdfAsset,
+                                ),
+                              );
+                              return;
+                            }
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
@@ -314,6 +329,22 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
         ),
       ),
     );
+  }
+
+  String? _freshmanPdfAsset(String course) {
+    const assets = {
+      'Communicative English Language Skills':
+          'assets/modules/freshman/Communicative English Language Skills.pdf',
+      'General Psychology': 'assets/modules/freshman/General Psychology.pdf',
+      'Geography': 'assets/modules/freshman/Geography.pdf',
+      'Logic and Critical Thinking':
+          'assets/modules/freshman/Logic and Critical Thinking.pdf',
+      'Mathematics for Natural Science':
+          'assets/modules/freshman/Mathematics for Natural Science.pdf',
+      'Physics': 'assets/modules/freshman/Physics.pdf',
+      'Physical Fitness': 'assets/modules/freshman/Physical Fitness.pdf',
+    };
+    return assets[course];
   }
 
   String _courseForVideo(String video) {
