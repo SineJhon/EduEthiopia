@@ -72,6 +72,7 @@ flutter:
     - assets/content/applied_mathematics_i/notes.json
     - assets/content/cpp_programming/notes.json
     - assets/content/communicative_english_ii/notes.json
+    - assets/content/entrepreneurship_preengineering/notes.json
     - assets/modules/freshman/Communicative English Language Skills.pdf
     - assets/modules/freshman/General Psychology.pdf
     - assets/modules/freshman/Geography.pdf
