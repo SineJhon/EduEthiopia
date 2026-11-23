@@ -123,7 +123,8 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
 
   List<String> _noteFiles() {
     if (_categoryName == 'Pre-Engineering' &&
-        _selectedNoteSubject == 'Anthropology') {
+        (_selectedNoteSubject == 'Anthropology' ||
+            _selectedNoteSubject == 'Applied Mathematics I')) {
       return ['Integrated Study Notes'];
     }
     if (_categoryName != 'Freshman') return [];
@@ -368,50 +369,68 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                       _selectedNoteSubject ==
                                           'Mathematics for Natural Science' ||
                                       _selectedNoteSubject == 'Physics' ||
-                                      _selectedNoteSubject == 'Physical Fitness' ||
+                                      _selectedNoteSubject ==
+                                          'Physical Fitness' ||
                                       (_categoryName == 'Pre-Engineering' &&
-                                          _selectedNoteSubject == 'Anthropology'))) {
+                                          (_selectedNoteSubject ==
+                                                  'Anthropology' ||
+                                              _selectedNoteSubject ==
+                                                  'Applied Mathematics I')))) {
                                 slideFadePush<void>(
                                   context,
                                   (_) => CommunicativeEnglishNotesScreen(
-                                    assetPath: _selectedNoteSubject ==
+                                    assetPath:
+                                        _selectedNoteSubject ==
                                             'General Psychology'
                                         ? 'assets/content/general_psychology/notes.json'
                                         : _selectedNoteSubject == 'Geography'
                                         ? 'assets/content/geography/notes.json'
                                         : _selectedNoteSubject ==
-                                                'Logic and Critical Thinking'
+                                              'Logic and Critical Thinking'
                                         ? 'assets/content/logic_critical_thinking/notes.json'
                                         : _selectedNoteSubject ==
-                                                'Mathematics for Natural Science'
+                                              'Mathematics for Natural Science'
                                         ? 'assets/content/mathematics_natural_science/notes.json'
                                         : _selectedNoteSubject == 'Physics'
                                         ? 'assets/content/physics/notes.json'
-                                        : _selectedNoteSubject == 'Physical Fitness'
+                                        : _selectedNoteSubject ==
+                                              'Physical Fitness'
                                         ? 'assets/content/physical_fitness/notes.json'
                                         : _categoryName == 'Pre-Engineering' &&
-                                                _selectedNoteSubject == 'Anthropology'
+                                              _selectedNoteSubject ==
+                                                  'Anthropology'
                                         ? 'assets/content/anthropology_preengineering/notes.json'
+                                        : _categoryName == 'Pre-Engineering' &&
+                                              _selectedNoteSubject ==
+                                                  'Applied Mathematics I'
+                                        ? 'assets/content/applied_mathematics_i/notes.json'
                                         : 'assets/content/communicative_english_1/notes.json',
                                     appBarTitle: _selectedNoteSubject!,
-                                    courseCode: _selectedNoteSubject ==
+                                    courseCode:
+                                        _selectedNoteSubject ==
                                             'General Psychology'
                                         ? 'PsyL 1011'
                                         : _selectedNoteSubject == 'Geography'
                                         ? 'GeES 1011'
                                         : _selectedNoteSubject ==
-                                                'Logic and Critical Thinking'
+                                              'Logic and Critical Thinking'
                                         ? 'PHIL 1011'
                                         : _selectedNoteSubject ==
-                                                'Mathematics for Natural Science'
+                                              'Mathematics for Natural Science'
                                         ? 'Mathematics'
                                         : _selectedNoteSubject == 'Physics'
                                         ? 'Physics'
-                                        : _selectedNoteSubject == 'Physical Fitness'
+                                        : _selectedNoteSubject ==
+                                              'Physical Fitness'
                                         ? 'SpSc 1011'
                                         : _categoryName == 'Pre-Engineering' &&
-                                                _selectedNoteSubject == 'Anthropology'
+                                              _selectedNoteSubject ==
+                                                  'Anthropology'
                                         ? 'Anth 1012'
+                                        : _categoryName == 'Pre-Engineering' &&
+                                              _selectedNoteSubject ==
+                                                  'Applied Mathematics I'
+                                        ? 'Math-1051'
                                         : 'FLEn 1011',
                                   ),
                                 );
