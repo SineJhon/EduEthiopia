@@ -1,0 +1,205 @@
+{
+  "subjectId": "GeES1011",
+  "subjectTitle": "Geography of Ethiopia and the Horn",
+  "units": [
+    {
+      "id": "gees-ch1-introduction",
+      "title": "Chapter 1 - Introduction to Geography",
+      "topics": [
+        {
+          "id": "gees-ch1-foundations",
+          "title": "1.1 Geography: meaning, scope and themes",
+          "sections": [
+            { "heading": "Working definition", "paragraphs": ["Geography is the scientific study of the Earth that describes and analyzes the spatial and temporal variation of physical, biological and human phenomena and the relationships among them."] },
+            { "heading": "Scope and approaches", "bullets": ["Geography studies the Earth's habitable surface, where the atmosphere, lithosphere, hydrosphere and biosphere interact.", "Systematic (topical) geography studies a particular type of phenomenon across places; regional geography studies how different features and processes are associated within a region.", "Physical and human geography are connected: people depend on, adapt to and modify environments."] },
+            { "heading": "Five themes of geography", "table": { "headers": ["Theme", "What to ask"], "rows": [["Location", "Where is it? Absolute location uses coordinates; relative location describes position in relation to other places."], ["Place", "What is it like? Consider physical and human characteristics, including name (toponym), site and situation."], ["Human–environment interaction", "How do people depend on, adapt to and modify the environment?"], ["Movement", "How do people, goods and ideas move between places?"], ["Region", "What area shares distinctive characteristics or functional connections?"]] } }
+          ]
+        },
+        {
+          "id": "gees-ch1-ethiopia-maps",
+          "title": "1.2 Ethiopia's location and map-reading skills",
+          "sections": [
+            { "heading": "Location, size and shape", "bullets": ["The module places Ethiopia between about 3°N and 15°N latitude and 33°E and 48°E longitude. It is landlocked and located in the Horn of Africa.", "The module gives Ethiopia's area as approximately 1.106 million km². Its large size supports environmental and cultural diversity but increases the cost of infrastructure, administration and integration.", "The module compares country shapes as compact, fragmented, elongated, perforated and protruded. Shape and compactness can affect defense, access, administration and integration.", "Ethiopia's tropical latitude and varied altitude influence climate; its position near the Middle East and Red Sea routes has also influenced historical, cultural and political connections."] },
+            { "heading": "Map essentials", "table": { "headers": ["Map element", "How to use it"], "rows": [["Title", "Identifies what the map represents."], ["Legend / key", "Explains symbols and colors."], ["Scale", "Relates map distance to ground distance; may be a representative fraction, verbal statement or graphic scale."], ["North arrow", "Establishes direction and helps orient the map."], ["Grid reference", "Uses numbered grid lines to identify a location precisely."], ["Date and margin", "Show when the map was compiled and define its frame."]] } },
+            { "heading": "Exam quick check", "bullets": ["Be ready to distinguish absolute from relative location and systematic from regional geography.", "When interpreting a map, read the title, legend, scale, direction and date before describing the pattern.", "Use the map and figures in Chapter 1 to practice location and scale questions."] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gees-ch2-geology",
+      "title": "Chapter 2 - The Geology of Ethiopia and the Horn",
+      "topics": [
+        {
+          "id": "gees-ch2-processes-time",
+          "title": "2.1 Geological processes and geological time",
+          "sections": [
+            { "heading": "Endogenic and exogenic forces", "table": { "headers": ["Process", "Examples", "Main effect"], "rows": [["Endogenic (internal)", "Tectonic movement, folding, faulting, uplift and volcanism", "Builds or deforms landforms such as plateaus, rift valleys and volcanic mountains."], ["Exogenic (external)", "Weathering, mass movement, erosion and deposition", "Breaks down, transports and reshapes existing landforms."]] } },
+            { "heading": "Time scale and dating", "bullets": ["The geological time hierarchy is eon → era → period → epoch; boundaries reflect major geological or biological events and are not equal in duration.", "Relative dating orders rocks or fossils as older or younger, using relationships such as rock layers (younger layers generally overlie older layers) and fossil evidence.", "Absolute (radiometric) dating estimates age from radioactive decay and half-life. Carbon-14 has a half-life of 5,730 years and dates once-living material; potassium-argon is used to date rocks.", "The module explains continental drift through evidence such as the fit of continents, matching rock and mountain belts, fossil distributions and paleoclimate evidence."] }
+          ]
+        },
+        {
+          "id": "gees-ch2-ethiopian-history",
+          "title": "2.2 Geological history and resources",
+          "sections": [
+            { "heading": "Eras and resulting features", "table": { "headers": ["Era", "Main process in Ethiopia and the Horn", "Result"], "rows": [["Precambrian", "Orogenesis, folding, intrusion and long denudation", "Metamorphic crystalline basement rocks; many mineral occurrences."], ["Paleozoic", "Prolonged denudation of older mountain systems", "Peneplained surfaces with residual features; few rocks from this era remain in Ethiopia."], ["Mesozoic", "Land subsidence and marine transgression followed by uplift and regression", "Sedimentary sequences including Adigrat sandstone, Hintalo limestone and Upper sandstone."], ["Cenozoic", "Broad uplift, extensive basaltic lava flows, faulting and volcanism", "Ethiopian plateau, volcanic features and the Rift Valley system."]] } },
+            { "heading": "Mesozoic sequence and Cenozoic uplift", "bullets": ["During Mesozoic subsidence, a shallow sea advanced from the southeast. Sand was deposited first, followed by shale, gypsum and limestone as the sea deepened; later regression left upper sandstone deposits.", "The named sedimentary units are Adigrat (lower) sandstone, Hintalo limestone and Upper sandstone. Their thickness and exposure vary across the country because of the direction of marine advance and retreat.", "Cenozoic uplift and major basalt outpourings built much of the high plateau. Later faulting and volcanism formed the Rift Valley, Afar depression and younger volcanic cones and lava fields."] },
+            { "heading": "Rift Valley formation", "paragraphs": ["Tensional forces associated with crustal movement produced roughly parallel faults. The central block subsided between them, forming a structural depression. The Ethiopian Rift is part of the larger East African Rift system; the Afar Triangle is where the Red Sea, Gulf of Aden and East African rift systems meet."] , "bullets": ["Rifting divided the Ethiopian Plateau and formed basins and fault depressions that host lakes.", "The Afar region has active tectonic and volcanic features, including faults, volcanoes, hot springs and geothermal potential.", "The module links Ethiopia's geological history with mineral and hydrocarbon potential; distinguish resource potential from proven reserves."] },
+            { "heading": "Mineral examples and locations", "table": { "headers": ["Resource", "Examples from the module"], "rows": [["Gold", "Adola–Lega Dembi and parts of Benishangul-Gumuz, western and southwestern Ethiopia."], ["Platinum", "Yubdo area of Wellega."], ["Tantalum / niobium", "Kenticha in the southern Adola belt."], ["Potash and salt", "Danakil / Dallol Depression in Afar."], ["Gemstones", "Including opal, aquamarine and tourmaline; the module notes occurrences in Amhara and Oromia."], ["Gypsum and construction minerals", "Sedimentary formations in Afar, Ogaden, Tigray, Hararghe and other regions; basalt, limestone and sandstone are also used as construction materials."]] } },
+            { "heading": "Exam quick check", "bullets": ["Compare endogenic and exogenic processes using an Ethiopian landform as an example.", "Be able to order the four eras and associate each with its major geological process.", "Explain how the Rift Valley formed by describing tension, faulting and subsidence.", "Revisit the geological time scale and geological map."] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gees-ch3-topography",
+      "title": "Chapter 3 - The Topography of Ethiopia and the Horn",
+      "topics": [
+        {
+          "id": "gees-ch3-regions",
+          "title": "3.1 Physiographic divisions",
+          "sections": [
+            { "heading": "Three broad divisions", "bullets": ["The Ethiopian landmass is commonly grouped into the Western Highlands and Lowlands, Southeastern Highlands and Lowlands, and the Rift Valley.", "The highlands are elevated and dissected by rivers and gorges; lowlands include broad plains and drier pastoral areas. Altitude and relief vary considerably within each division.", "The Western Highlands contain extensive plateaus and deep river gorges. The westward-sloping highlands feed major western drainage basins.", "The Southeastern Highlands rise beside the Rift and descend toward the arid southeastern lowlands. The Wabi Shebelle and Genale-Dawa systems drain much of this region."] },
+            { "heading": "Relief facts to remember", "bullets": ["The module gives Ethiopia's elevation range as about 125 m below sea level at the Kobar Sink to 4,620 m above sea level at Mount Ras Dashen.", "Using the 1,000 m contour as the highland–lowland boundary, the module describes about 56% of Ethiopia as highland and 44% as lowland.", "More than half the country's landmass is above 1,000 m; the elevated plateau is a major source region for rivers and is often called the Roof of East Africa."] },
+            { "heading": "Highlands and lowlands compared", "table": { "headers": ["Feature", "Highlands", "Lowlands"], "rows": [["Climate", "Generally cooler and often wetter", "Generally hotter and drier, with more irregular rainfall"], ["Settlement", "Denser, more permanent settlement in many areas", "Sparser settlement; pastoral and semi-pastoral livelihoods are common"], ["Agriculture", "Rain-fed cultivation and mixed farming are widespread", "Irrigation and livestock are important where water and pasture allow"], ["Relief and access", "Plateaus are cut by steep gorges; infrastructure can be costly", "Broad plains in places, but heat, water scarcity and disease can limit settlement"]] } },
+            { "heading": "Physiographic subdivisions", "table": { "headers": ["Region", "Subdivisions and distinguishing features"], "rows": [["Western Highlands", "Tigray, Gonder–Gojjam, Shewa and Southwestern Highlands; high plateaus dissected by major river gorges. The southwestern highlands are among the wettest and most rugged."], ["Western Lowlands", "Tekeze, Abay–Dinder, Baro and Ghibe lowlands; generally lower, with pastoral and semi-pastoral livelihoods and irrigation potential along rivers."], ["Southeastern Highlands", "Arsi–Bale–Sidama highlands and Hararghe Plateau; highland areas are dissected by Wabi Shebelle and Genale-Dawa tributaries."], ["Southeastern Lowlands", "Wabi Shebelle and Genale plains, including Ogaden, Elkere and Borena; extensive, dry and sparsely settled, with pastoral and irrigation potential."], ["Rift Valley", "Afar Triangle, Main Ethiopian Rift and Chew Bahir Rift; faulted depression with volcanic features, lakes and strong variation in altitude and climate."]] } },
+            { "heading": "The Rift Valley", "paragraphs": ["The Ethiopian Rift is an elongated tectonic depression running northeast–southwest, from the Afar Triangle toward the Chew Bahir area. Its subdivisions are the Afar Triangle, Main Ethiopian Rift and Chew Bahir Rift."] , "bullets": ["Afar is the broad, hot, low-lying northern section, with faulted basins and volcanic and salt features.", "The Main Ethiopian Rift is narrower and higher, with volcanic cones and a chain of lakes in fault depressions.", "Chew Bahir is the southernmost, broad and shallow depression receiving streams from surrounding highlands."] }
+          ]
+        },
+        {
+          "id": "gees-ch3-relief-effects",
+          "title": "3.2 How relief shapes life and the environment",
+          "sections": [
+            { "heading": "Relief impacts", "bullets": ["Agriculture: steep slopes limit mechanization and create small, irregular plots; altitude and climate influence crop and livestock suitability.", "Settlement: temperate highland conditions have supported denser permanent settlement, while dry lowlands support more dispersed and often pastoral settlement.", "Transport and communication: gorges, steep slopes and rugged terrain raise construction and maintenance costs and can isolate communities.", "Water and climate: elevation and rainfall create strong local differences in temperature, runoff and moisture availability; steep gradients also create hydropower potential.", "Soil, vegetation and culture: slope influences erosion and soil depth; environmental variation supports diverse vegetation and ways of life."] },
+            { "heading": "Exam quick check", "bullets": ["Describe the three physiographic divisions and locate the Rift Valley subdivisions.", "For a question on impacts of relief, link each physical feature to a specific social or economic consequence.", "Use the physiographic map to practice comparing regions."] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gees-ch4-drainage",
+      "title": "Chapter 4 - Drainage Systems and Water Resources",
+      "topics": [
+        {
+          "id": "gees-ch4-drainage-systems",
+          "title": "4.1 Drainage basins and river systems",
+          "sections": [
+            { "heading": "Key terms", "bullets": ["A drainage system is a main river and its tributaries. A drainage basin is the area drained by a river system; a watershed or divide separates it from neighboring basins.", "A river begins at its source or headwater and ends at its mouth. Relief, rock structure, slope, rainfall and geological processes influence drainage patterns."] },
+            { "heading": "Ethiopia's three drainage systems", "table": { "headers": ["System", "Main basins / direction", "Key point"], "rows": [["Western", "Abay, Tekeze, Baro-Akobo and Omo-Ghibe; mostly flow west, while Omo flows south", "Largest system; Abay, Tekeze and Baro waters eventually join the Nile system."], ["Southeastern", "Wabi Shebelle and Genale-Dawa flow southeast toward Somalia", "Drains broad, relatively water-deficient southeastern plains."], ["Rift Valley", "Awash and smaller closed basins and lake catchments", "Many waters end inland; Awash terminates in lakes and marshes near Lake Abe."]] } },
+            { "heading": "Important basins to locate", "bullets": ["Abay rises at Lake Tana, cuts a deep gorge through the western highlands and flows into Sudan, where it joins the Nile system. Major tributaries include Dabus, Dedessa, Fincha, Guder and Muger.", "Tekeze becomes the Atbara in Sudan and joins the Nile system. Baro-Akobo drains the wet southwest; Baro and Akobo form the Sobat in South Sudan.", "Omo-Ghibe flows south into the Turkana basin. Wabi Shebelle crosses into Somalia but its waters generally dissipate before reaching the Indian Ocean; Genale-Dawa continues as the Juba in Somalia.", "Awash rises in the central highlands and flows northeast through the Rift Valley, ending in inland lakes and marshes. It is the country's most intensively used river system."] },
+            { "heading": "River characteristics", "bullets": ["Most major rivers rise in the highlands and many cross national borders.", "Rainfall seasonality produces high wet-season flows and low or intermittent dry-season flows.", "Steep gradients produce rapids, waterfalls, deep valleys and gorges, limiting navigation.", "The module identifies the lower Baro as the main navigable river; lakes such as Tana and Abaya are more suitable for local water transport."] }
+          ]
+        },
+        {
+          "id": "gees-ch4-water-use",
+          "title": "4.2 Rivers, lakes, groundwater and development",
+          "sections": [
+            { "heading": "Water resources and uses", "bullets": ["Ethiopian lakes have varied origins; many Rift Valley lakes occupy tectonic depressions. Lake Tana is the largest lake in the country, while some lakes are crater or human-made reservoirs.", "Groundwater supplements surface water, but its location and availability depend on geology and climate; estimates in the module are presented as ranges because knowledge is incomplete.", "Water supports hydropower, irrigation, fishing, transport, recreation and ecosystems. The module gives high hydropower and irrigation potential but notes that much remains underused.", "Constraints include seasonal river flow, rugged terrain, sedimentation, limited infrastructure, water-quality and ecosystem pressures."] },
+            { "heading": "Why water potential is underused", "bullets": ["High relief creates hydropower potential but also makes dam, road and irrigation construction costly; steep gradients, waterfalls and gorges limit river navigation.", "Seasonal rainfall causes large changes in discharge. Erosion transports sediment from highlands and reduces reservoir capacity.", "The module estimates 124.4 billion cubic meters of surface-water potential and about 45,000 MW of hydropower potential; treat these as the module's estimates, not current operating output.", "Lake fisheries and recreation are valuable, but sedimentation, water hyacinth, overfishing and development around lake shores threaten them."] },
+            { "heading": "Exam quick check", "bullets": ["Compare the western, southeastern and Rift Valley drainage systems by basin, direction and terminus.", "Explain why a country can have substantial water resources yet still face irrigation and access challenges.", "Practice reading the basin and lake maps and the river data table."] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gees-ch5-climate",
+      "title": "Chapter 5 - The Climate of Ethiopia and the Horn",
+      "topics": [
+        {
+          "id": "gees-ch5-elements-controls",
+          "title": "5.1 Weather, climate and climate controls",
+          "sections": [
+            { "heading": "Weather and climate", "table": { "headers": ["Term", "Meaning"], "rows": [["Weather", "Short-term state of the atmosphere, described by temperature, pressure, humidity, wind, cloud and precipitation."], ["Climate", "Long-term pattern and variability of weather, usually assessed over decades."]] } },
+            { "heading": "Elements and controls", "bullets": ["Elements include temperature, precipitation, humidity, wind and air pressure.", "Climate controls include latitude, elevation, distance from water, ocean and atmospheric circulation, topography, mountain barriers and vegetation.", "Ethiopia's tropical latitude favors warm conditions, while its large elevation range strongly modifies temperature and local climate.", "Seasonal movement of the Intertropical Convergence Zone (ITCZ) and associated air circulation is a major influence on rainfall seasons."] }
+          ]
+        },
+        {
+          "id": "gees-ch5-patterns-change",
+          "title": "5.2 Ethiopian climate patterns and climate change",
+          "sections": [
+            { "heading": "Temperature and rainfall patterns", "bullets": ["Temperature is mainly controlled by altitude and latitude. The module reports mean annual temperatures above 30°C in some lowlands and below 10°C at very high elevations; daily temperature range is greater than annual range in much of tropical Ethiopia.", "Rainfall depends strongly on the seasonal movement of the ITCZ and the arrival of moisture-bearing winds. The southwest is generally wetter; northeastern and southeastern lowlands are drier and more variable.", "Summer (Kiremt) brings the main rains to much of the country; Belg (spring) provides a second rainy period in some areas. The southeast receives important spring and autumn rains, while parts of Afar and the Red Sea escarpment receive winter rain.", "Rainfall regions in the module: summer rainfall, year-round rainfall in the southwest, autumn-and-spring rainfall in the southeast, and winter rainfall in parts of Afar and the Red Sea escarpment."] },
+            { "heading": "Agro-ecological zones", "table": { "headers": ["Zone", "Altitude", "Temperature / growing conditions"], "rows": [["Wurch", "Above 3,200 m", "Below 10°C; cold high mountains, short growing season."], ["Dega", "2,300–3,200 m", "Cool highlands; reliable rainfall supports dense settlement and cultivation."], ["Woina Dega", "1,500–2,300 m", "Moderate conditions, important agricultural zone with a range of crops."], ["Kolla", "500–1,500 m", "Warm lowlands; rainfall can be erratic."], ["Bereha", "Below 500 m", "Hot, arid lowlands with very short or absent growing periods."]] } },
+            { "heading": "Climate change: causes, impacts and responses", "table": { "headers": ["Area", "Key points"], "rows": [["Causes", "Natural factors include orbital and solar variation and volcanic activity; human causes include greenhouse-gas emissions and land-cover change."], ["Impacts", "Changing heat and rainfall patterns can increase drought, flood, health, water, ecosystem and agricultural risks."], ["Mitigation", "Reduces greenhouse-gas sources or increases sinks, for example energy efficiency, renewable energy and forest protection."], ["Adaptation", "Adjusts practices and infrastructure to reduce vulnerability, for example water storage, flood preparation and resilient farming."], ["Resilience", "Capacity of people and systems to withstand, recover from and adapt to climate stresses."]] } },
+            { "heading": "Exam quick check", "bullets": ["Do not confuse weather with climate. Explain the difference using time scale.", "Distinguish mitigation (addressing causes) from adaptation (adjusting to impacts).", "Climate statistics and trends here are the module's published values, not current updates."] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gees-ch6-soils-ecosystems",
+      "title": "Chapter 6 - Soils, Vegetation and Wildlife",
+      "topics": [
+        {
+          "id": "gees-ch6-soils",
+          "title": "6.1 Soil formation, types and conservation",
+          "sections": [
+            { "heading": "Soil formation and properties", "bullets": ["Soil is a dynamic mixture of mineral particles, organic matter, air, water and organisms. Formation depends on parent material, climate, topography, organisms and time.", "Weathering may be physical, biological or chemical. Soil physical properties include texture, structure and porosity; chemical properties include pH, mineral availability and salinity.", "Soil degradation reduces the ability of an ecosystem to provide goods and services. It may be physical (including compaction and erosion), biological (loss of organic matter and soil organisms) or chemical (nutrient depletion, acidity or toxic buildup)."] },
+            { "heading": "Major Ethiopian soil groups", "table": { "headers": ["Soil group", "Characteristics and general distribution"], "rows": [["Nitosols", "Deeply weathered, often reddish highland soils; found in wetter western, southwestern, central and eastern highlands."], ["Acrisols", "Strongly leached and low in nutrients; occur in some wetter southwestern highland areas."], ["Vertisols", "Heavy swelling clays: sticky when wet and cracked when dry; naturally fertile but difficult to manage; common in parts of the central, northwestern and southeastern highlands."], ["Lithosols, Cambisols, Regosols", "Generally shallow or young soils associated with steep and rugged terrain; often limited for cultivation."], ["Xerosols, Yermosols, Solonchaks", "Dry-region soils with low organic matter; Solonchaks are saline and common in Afar."], ["Fluvisols", "Recent river, lake or marine deposits on plains and valleys; often valuable for irrigation and intensive agriculture."], ["Luvisols", "Relatively nutrient-rich soils in areas with alternating wet and dry seasons; cultivated in several highland and lowland areas."]] } },
+            { "heading": "Erosion control", "bullets": ["Biological measures include maintaining vegetation, planting and reforestation; they protect the soil surface and slow runoff.", "Physical measures include terraces, contour ploughing, soil bunds, trenches, check dams and gabions.", "Effective conservation matches the method to slope, rainfall, soil and land use; preventing all erosion is unrealistic, but losses can be reduced."] }
+          ]
+        },
+        {
+          "id": "gees-ch6-biodiversity",
+          "title": "6.2 Natural vegetation, wildlife and conservation",
+          "sections": [
+            { "heading": "Vegetation zones", "table": { "headers": ["Zone", "Setting and characteristic vegetation"], "rows": [["Afro-alpine / sub-Afro-alpine", "About 3,200–4,620 m; cold high mountains, tussock grassland, scrub, mosses and specialized plants such as giant lobelia."], ["Forest", "About 450–3,500 m in humid areas; includes highland, lowland and riverine forests. Species vary with elevation and moisture."], ["Woodland savannah", "About 250–2,300 m; trees, shrubs and grasses adapted to seasonal dryness, including acacia woodland."], ["Steppe", "Dry environments with sparse, drought-resistant shrubs and grasses."], ["Semi-desert", "Very arid areas with sparse xerophytic vegetation; trees are mostly near watercourses."]] } },
+            { "heading": "Vegetation and wildlife", "bullets": ["Natural vegetation develops with little human interference. Climate, altitude, soil and drainage influence its distribution; elevation and rainfall are especially important controls.", "Vegetation provides food, fuel, shelter, grazing and industrial raw materials; it protects soil and supports wildlife habitats.", "The module reports about 6,000 higher-plant species, with roughly 10% endemic. Its faunal inventory lists about 860 bird species, 279 mammals, 201 reptiles, 23 amphibians and 150 freshwater fish; use these as the module's published figures.", "Examples of endemic or characteristic wildlife include Walia ibex and gelada baboon in the northern highlands, Ethiopian wolf and mountain nyala in highland habitats, and diverse birds around Rift Valley lakes."] },
+            { "heading": "Threats and conservation", "bullets": ["Vegetation loss is associated with agricultural expansion, fuelwood and charcoal, timber extraction, overgrazing and settlement growth.", "Wildlife conservation faces habitat encroachment, resource conflict, illegal trade and hunting, overgrazing, fire and development pressures.", "Conservation approaches include protected areas, sustainable forest management and restoration or rehabilitation of degraded ecosystems.", "Biodiversity has ecological, scientific, educational, recreational and tourism value; conservation supports both ecosystems and livelihoods."] },
+            { "heading": "Exam quick check", "bullets": ["Compare soil groups by their properties, location and agricultural suitability.", "Classify degradation as physical, biological or chemical and give a relevant control measure.", "Refer to the soil map, vegetation zones and protected-area examples."] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gees-ch7-population",
+      "title": "Chapter 7 - Population of Ethiopia and the Horn",
+      "topics": [
+        {
+          "id": "gees-ch7-data-dynamics",
+          "title": "7.1 Population data and population dynamics",
+          "sections": [
+            { "heading": "Population data", "bullets": ["Population data support planning for schools, health services, housing, roads, water, administration and economic development.", "The conventional sources are census (a count of all people in a defined territory at a specified time), sample surveys and vital registration of events such as births and deaths.", "Each source has strengths and limitations: a census aims for broad coverage but is costly and periodic; surveys provide detail from a sample; vital registration can provide continuous records when coverage is complete."] },
+            { "heading": "Population dynamics and key measures", "table": { "headers": ["Measure", "Definition / formula"], "rows": [["Crude birth rate (CBR)", "Live births in one year ÷ mid-year population × 1,000."], ["Crude death rate (CDR)", "Deaths in one year ÷ mid-year population × 1,000."], ["General fertility rate (GFR)", "Live births ÷ women aged 15–49 × 1,000."], ["Infant mortality rate (IMR)", "Deaths under age one ÷ live births × 1,000."], ["Natural increase", "Births minus deaths; rate is commonly expressed as CBR minus CDR."], ["Total population change", "Natural increase plus net migration."]] } },
+            { "heading": "Other measures and interpretation", "bullets": ["Total fertility rate estimates the average number of children a woman would have if current age-specific fertility rates continued through her reproductive years.", "Maternal mortality is expressed per 100,000 live births; life expectancy at birth estimates the average years a newborn is expected to live under current mortality conditions.", "Always state the period, population base and multiplier when calculating a rate. A rate is not the same as a count.", "Population data come from censuses, sample surveys and vital registration. Incomplete coverage, age misreporting, access problems and collection errors can reduce accuracy."] },
+            { "heading": "Migration", "bullets": ["Migration changes the size and composition of origin and destination populations. It may be internal or international, voluntary or forced, temporary or permanent.", "Push factors encourage departure; pull factors attract people to a destination. Economic, social, political and environmental conditions can influence movement.", "Migration can affect labor supply, family structure, urban growth, skills and pressure on services."] }
+          ]
+        },
+        {
+          "id": "gees-ch7-distribution-settlement",
+          "title": "7.2 Population distribution, characteristics and settlement",
+          "sections": [
+            { "heading": "Age, sex and population distribution", "bullets": ["Age structure is often grouped as 0–14 (young), 15–64 (working age) and 65+ (older). Dependency ratio = (population 0–14 + population 65+) ÷ population 15–64 × 100.", "A broad-based population pyramid indicates a large young population; its shape can suggest fertility, mortality and age-sex imbalances.", "Sex ratio is usually males ÷ females × 100. Migration and differences in mortality can create variation by age and between rural and urban areas.", "Population distribution is uneven. Climate, soils, water, slope, disease environment, historical migration, economic activity and services all influence settlement."] },
+            { "heading": "Population density", "table": { "headers": ["Measure", "Formula", "What it shows"], "rows": [["Crude / arithmetic", "Total population ÷ total land area", "Average pressure across the whole area; hides local variation."], ["Physiological", "Total population ÷ arable land area", "Population pressure relative to potentially cultivable land."], ["Agricultural", "Agricultural population ÷ cultivated land", "Pressure of the farming population on cultivated land."]] } },
+            { "heading": "Age and sex structure", "bullets": ["The module uses broad age groups: 0–14 (young), 15–64 (working age) and 65+ (older). A high share of young dependents increases demand for schools and health care and can limit household saving.", "Age dependency ratio = (population aged 0–14 + population aged 65+) ÷ population aged 15–64 × 100.", "A population pyramid plots age groups vertically and males and females on opposite sides. A broad base usually indicates high fertility and a youthful population; a narrow top reflects fewer people surviving to older ages.", "Sex ratio = males ÷ females × 100. The module notes that rural and urban sex ratios can differ because migration patterns differ."] },
+            { "heading": "Socio-cultural characteristics and settlements", "bullets": ["The module covers education and health alongside language diversity. Ethiopian languages belong mainly to Afro-Asiatic (including Semitic, Cushitic and Omotic) and Nilo-Saharan families.", "Settlements are rural or urban; rural livelihoods are mainly agricultural, while urban settlements concentrate non-agricultural work and services. Rural settlements may be permanent or temporary.", "Settlement patterns may be dispersed, nucleated or linear and reflect physical conditions, livelihood, transport and social organization.", "Urbanization increases the number and share of urban residents. It can expand access to employment and services but also raises demand for housing, infrastructure and utilities."] },
+            { "heading": "Exam quick check", "bullets": ["Be able to state the three main population data sources and explain one use of each.", "Practice demographic calculations and label the numerator, denominator, time period and multiplier.", "Explain an uneven population pattern by linking physical and human factors rather than listing them without explanation.", "Use the chapter's tables and maps for the exact course figures."] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gees-ch8-economy",
+      "title": "Chapter 8 - Economic Activities in Ethiopia",
+      "topics": [
+        {
+          "id": "gees-ch8-primary-sectors",
+          "title": "8.1 Primary activities: mining, forestry, fisheries and agriculture",
+          "sections": [
+            { "heading": "Mining, forestry and fisheries", "bullets": ["Primary activities obtain resources from the environment. The chapter covers mining, forestry, fisheries and agriculture; mining supplies minerals and construction materials, while forests and fisheries support livelihoods and other industries.", "The module reports mineral examples including gold at Lega Dembi/Adola, tantalum at Kenticha, potash in Afar and natural gas in the Ogaden Basin. Mining also provides construction minerals and industrial inputs.", "Forestry provides timber, fuel, non-timber products and ecosystem services, but agricultural expansion, fuelwood collection and overgrazing contribute to forest loss.", "Most commercial fishing described in the module occurs in lakes. Low fish consumption is linked to dietary habits, seasonal religious fasting patterns, price, perishability and distance from markets.", "All primary activities require resource management: pollution, overfishing, forest clearing and poorly managed extraction can damage the resource base."] },
+            { "heading": "Agriculture: contribution and constraints", "bullets": ["Agriculture supplies food, employment, export earnings and raw materials for industry. The module describes it as dominated by smallholder, mixed, rain-fed farming using largely traditional methods and low external inputs.", "The module's historical figures attribute more than 80% of livelihoods and over 90% of export earnings to agriculture; it cites a contribution of roughly 30–42% of GDP. Treat these as figures reported in the 2019 course material.", "Meher is the principal crop season (harvested roughly September–February) and, in the module's cited data, produced about 90–95% of cereal output. Belg is a shorter season (harvested roughly March–August) and contributes the smaller share.", "Potential comes from varied agro-ecological zones, soils, grazing land, livestock and river basins. Constraints include rainfall variability, erosion, small and fragmented holdings, limited inputs, technology, capital, irrigation and market access."] },
+            { "heading": "Major farming systems", "table": { "headers": ["System", "Typical features"], "rows": [["Highland mixed", "Crop and livestock production together; grain-plough complex in central/northern highlands and horticulture-hoe complex in wetter south and southwest."], ["Lowland mixed", "Crops and livestock adapted to warmer, drier conditions; often constrained by moisture and access."], ["Pastoral", "Livelihood depends mainly on livestock and seasonal movement to use grazing and water."], ["Shifting cultivation", "Cultivation moves between plots as soil fertility and land conditions change."], ["Commercial agriculture", "Production is oriented toward markets and may use larger holdings, investment and wage labor."]] } }
+          ]
+        },
+        {
+          "id": "gees-ch8-industry-services",
+          "title": "8.2 Manufacturing, services and development",
+          "sections": [
+            { "heading": "Manufacturing", "bullets": ["Manufacturing transforms raw materials into finished or semi-finished goods, adds value, creates non-farm employment and links agriculture with industry.", "Industries tend to cluster where they can access transport, energy, labor, markets, capital, infrastructure and raw materials. The module describes a concentration around Addis Ababa and nearby towns.", "Agro-processing, textiles and garments, and leather products have strong links to local agricultural inputs and export potential.", "Constraints include high logistics costs, limited technology and capital, low productivity, weak supply chains, infrastructure gaps and competition. Industrial parks seek to cluster firms, support exports and strengthen supplier links."] },
+            { "heading": "Transport, communication and tourism", "bullets": ["The module identifies traditional transport, road, railway, waterways and air transport. Roads carry most passengers and goods; rugged relief raises construction cost and leaves some areas less accessible.", "Railways move bulky goods and connect inland production to ports; waterways are limited by steep, rough river courses, with some local lake transport.", "Communication services include radio, television, print, postal, telephone and internet services; they support social integration and economic activity.", "Tourism uses natural, historical and cultural attractions. It can create jobs and foreign exchange, but depends on access, accommodation, conservation, safety and service quality."] },
+            { "heading": "Globalization and exam review", "bullets": ["Analyze globalization by considering both opportunities (markets, investment, technology and exchange) and risks (unequal benefits, external pressures and environmental or cultural costs).", "When comparing sectors, identify the activity, its resource or input base, its location factors, its contribution and its constraints.", "Use examples and evidence from the module; distinguish a sector's potential from its current level of development.", "This chapter has multiple subsections, so revise the agriculture, manufacturing and service-sector tables and examples separately."] }
+          ]
+        }
+      ]
+    }
+  ]
+}

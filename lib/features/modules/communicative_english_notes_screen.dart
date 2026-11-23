@@ -94,33 +94,6 @@ class _CommunicativeEnglishNotesScreenState
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                if (_content!['guideDescription'] is String) ...[
-                  const SizedBox(height: 12),
-                  Container(
-                    padding: const EdgeInsets.all(14),
-                    decoration: BoxDecoration(
-                      color: colorScheme.primaryContainer.withValues(alpha: 0.45),
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: colorScheme.outlineVariant),
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(Icons.auto_stories_rounded, color: colorScheme.primary),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: Text(
-                            _content!['guideDescription'] as String,
-                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              height: 1.4,
-                              color: colorScheme.onSurface,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
                 const SizedBox(height: 18),
                 for (final unitValue in _content!['units'] as List<dynamic>)
                   _UnitCard(unit: Map<String, dynamic>.from(unitValue as Map)),
@@ -161,9 +134,7 @@ class _UnitCard extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          unit['sourcePages'] is String
-              ? '${topics.length} topics  •  Module pp. ${unit['sourcePages']}'
-              : '${topics.length} topics',
+          '${topics.length} topics',
           style: TextStyle(color: colorScheme.onSurfaceVariant),
         ),
         children: [

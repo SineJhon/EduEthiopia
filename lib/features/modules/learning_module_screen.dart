@@ -134,6 +134,10 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
         ];
       case 'General Psychology':
         return ['Integrated Study Notes'];
+      case 'Geography':
+        return ['Integrated Study Notes'];
+      case 'Logic and Critical Thinking':
+        return ['Integrated Study Notes'];
       default:
         return [];
     }
@@ -347,18 +351,31 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                   (_selectedNoteSubject ==
                                           'Communicative English Language Skills' ||
                                       _selectedNoteSubject ==
-                                          'General Psychology')) {
+                                          'General Psychology' ||
+                                      _selectedNoteSubject == 'Geography' ||
+                                      _selectedNoteSubject ==
+                                          'Logic and Critical Thinking')) {
                                 slideFadePush<void>(
                                   context,
                                   (_) => CommunicativeEnglishNotesScreen(
                                     assetPath: _selectedNoteSubject ==
                                             'General Psychology'
                                         ? 'assets/content/general_psychology/notes.json'
+                                        : _selectedNoteSubject == 'Geography'
+                                        ? 'assets/content/geography/notes.json'
+                                        : _selectedNoteSubject ==
+                                                'Logic and Critical Thinking'
+                                        ? 'assets/content/logic_critical_thinking/notes.json'
                                         : 'assets/content/communicative_english_1/notes.json',
                                     appBarTitle: _selectedNoteSubject!,
                                     courseCode: _selectedNoteSubject ==
                                             'General Psychology'
                                         ? 'PsyL 1011'
+                                        : _selectedNoteSubject == 'Geography'
+                                        ? 'GeES 1011'
+                                        : _selectedNoteSubject ==
+                                                'Logic and Critical Thinking'
+                                        ? 'PHIL 1011'
                                         : 'FLEn 1011',
                                   ),
                                 );

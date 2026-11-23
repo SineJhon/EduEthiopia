@@ -1,12 +1,10 @@
 {
   "subjectId": "PsyL1011",
   "subjectTitle": "General Psychology and Life Skills",
-  "guideDescription": "Chapter-by-chapter review from the module PDF. Compare the key theories, learn the terms and stages, then use the matching Practice unit to check your recall.",
   "units": [
     {
       "id": "psych-ch1-essence",
       "title": "Chapter 1 - Essence of Psychology",
-      "sourcePages": "7–19",
       "topics": [
         {
           "id": "psych-ch1-foundations",
@@ -33,7 +31,6 @@
     {
       "id": "psych-ch2-development",
       "title": "Chapter 2 - Human Development",
-      "sourcePages": "20–35",
       "topics": [
         {
           "id": "psych-ch2-basics",
@@ -62,7 +59,6 @@
     {
       "id": "psych-ch3-learning",
       "title": "Chapter 3 - Learning and Theories of Learning",
-      "sourcePages": "36–52",
       "topics": [
         {
           "id": "psych-ch3-learning-basics",
@@ -89,7 +85,6 @@
     {
       "id": "psych-ch4-memory",
       "title": "Chapter 4 - Memory and Forgetting",
-      "sourcePages": "53–65",
       "topics": [
         {
           "id": "psych-ch4-memory-process",
@@ -113,7 +108,6 @@
     {
       "id": "psych-ch5-motivation-emotion",
       "title": "Chapter 5 - Motivation and Emotions",
-      "sourcePages": "66–76",
       "topics": [
         {
           "id": "psych-ch5-motivation",
@@ -138,7 +132,6 @@
     {
       "id": "psych-ch6-personality",
       "title": "Chapter 6 - Personality",
-      "sourcePages": "77–85",
       "topics": [
         {
           "id": "psych-ch6-meaning",
@@ -163,7 +156,6 @@
     {
       "id": "psych-ch7-disorders",
       "title": "Chapter 7 - Psychological Disorders and Treatment Techniques",
-      "sourcePages": "86–96",
       "topics": [
         {
           "id": "psych-ch7-disorders-nature",
@@ -185,7 +177,6 @@
     {
       "id": "psych-ch8-life-skills",
       "title": "Chapter 8 - Introduction to Life Skills",
-      "sourcePages": "97–103",
       "topics": [
         {
           "id": "psych-ch8-foundations",
@@ -200,7 +191,6 @@
     {
       "id": "psych-ch9-intrapersonal",
       "title": "Chapter 9 - Intrapersonal and Personal Skills",
-      "sourcePages": "104–119",
       "topics": [
         {
           "id": "psych-ch9-self-emotion",
@@ -224,7 +214,6 @@
     {
       "id": "psych-ch10-academic",
       "title": "Chapter 10 - Academic Skills",
-      "sourcePages": "120–131",
       "topics": [
         {
           "id": "psych-ch10-study",
@@ -248,7 +237,6 @@
     {
       "id": "psych-ch11-social",
       "title": "Chapter 11 - Social Skills",
-      "sourcePages": "132–145",
       "topics": [
         {
           "id": "psych-ch11-inclusion-communication",
