@@ -122,6 +122,10 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
   }
 
   List<String> _noteFiles() {
+    if (_categoryName == 'Pre-Engineering' &&
+        _selectedNoteSubject == 'Anthropology') {
+      return ['Integrated Study Notes'];
+    }
     if (_categoryName != 'Freshman') return [];
     switch (_selectedNoteSubject) {
       case 'Communicative English Language Skills':
@@ -364,7 +368,9 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                       _selectedNoteSubject ==
                                           'Mathematics for Natural Science' ||
                                       _selectedNoteSubject == 'Physics' ||
-                                      _selectedNoteSubject == 'Physical Fitness')) {
+                                      _selectedNoteSubject == 'Physical Fitness' ||
+                                      (_categoryName == 'Pre-Engineering' &&
+                                          _selectedNoteSubject == 'Anthropology'))) {
                                 slideFadePush<void>(
                                   context,
                                   (_) => CommunicativeEnglishNotesScreen(
@@ -383,6 +389,9 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                         ? 'assets/content/physics/notes.json'
                                         : _selectedNoteSubject == 'Physical Fitness'
                                         ? 'assets/content/physical_fitness/notes.json'
+                                        : _categoryName == 'Pre-Engineering' &&
+                                                _selectedNoteSubject == 'Anthropology'
+                                        ? 'assets/content/anthropology_preengineering/notes.json'
                                         : 'assets/content/communicative_english_1/notes.json',
                                     appBarTitle: _selectedNoteSubject!,
                                     courseCode: _selectedNoteSubject ==
@@ -400,6 +409,9 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                         ? 'Physics'
                                         : _selectedNoteSubject == 'Physical Fitness'
                                         ? 'SpSc 1011'
+                                        : _categoryName == 'Pre-Engineering' &&
+                                                _selectedNoteSubject == 'Anthropology'
+                                        ? 'Anth 1012'
                                         : 'FLEn 1011',
                                   ),
                                 );
