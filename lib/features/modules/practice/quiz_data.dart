@@ -16,6 +16,28 @@ import 'quiz_unit_4_wildlife.dart';
 export 'quiz_unit_4_wildlife.dart';
 import 'quiz_unit_5_population.dart';
 export 'quiz_unit_5_population.dart';
+import 'quiz_unit_psych_ch1.dart';
+export 'quiz_unit_psych_ch1.dart';
+import 'quiz_unit_psych_ch2.dart';
+export 'quiz_unit_psych_ch2.dart';
+import 'quiz_unit_psych_ch3.dart';
+export 'quiz_unit_psych_ch3.dart';
+import 'quiz_unit_psych_ch4.dart';
+export 'quiz_unit_psych_ch4.dart';
+import 'quiz_unit_psych_ch5.dart';
+export 'quiz_unit_psych_ch5.dart';
+import 'quiz_unit_psych_ch6.dart';
+export 'quiz_unit_psych_ch6.dart';
+import 'quiz_unit_psych_ch7.dart';
+export 'quiz_unit_psych_ch7.dart';
+import 'quiz_unit_psych_ch8.dart';
+export 'quiz_unit_psych_ch8.dart';
+import 'quiz_unit_psych_ch9.dart';
+export 'quiz_unit_psych_ch9.dart';
+import 'quiz_unit_psych_ch10.dart';
+export 'quiz_unit_psych_ch10.dart';
+import 'quiz_unit_psych_ch11.dart';
+export 'quiz_unit_psych_ch11.dart';
 
 /// All available units, keyed by subject then unit id.
 ///
@@ -28,6 +50,19 @@ final Map<String, List<QuizUnit>> quizUnitsBySubject = {
     unit3CulturalValues,
     unit4Wildlife,
     unit5Population,
+  ],
+  'General Psychology': [
+    psychCh1EssenceOfPsychology,
+    psychCh2HumanDevelopment,
+    psychCh3LearningAndTheories,
+    psychCh4MemoryAndForgetting,
+    psychCh5MotivationAndEmotions,
+    psychCh6Personality,
+    psychCh7DisordersAndTreatment,
+    psychCh8IntroductionToLifeSkills,
+    psychCh9IntrapersonalAndPersonalSkills,
+    psychCh10AcademicSkills,
+    psychCh11SocialSkills,
   ],
 };
 
