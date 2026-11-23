@@ -127,7 +127,8 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
             _selectedNoteSubject == 'Applied Mathematics I' ||
             _selectedNoteSubject == 'C++ Programming' ||
             _selectedNoteSubject == 'Communicative English II' ||
-            _selectedNoteSubject == 'Entrepreneurship')) {
+            _selectedNoteSubject == 'Entrepreneurship' ||
+            _selectedNoteSubject == 'History of Ethiopia')) {
       return ['Integrated Study Notes'];
     }
     if (_categoryName != 'Freshman') return [];
@@ -384,7 +385,9 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                               _selectedNoteSubject ==
                                                   'Communicative English II' ||
                                               _selectedNoteSubject ==
-                                                  'Entrepreneurship')))) {
+                                                  'Entrepreneurship' ||
+                                              _selectedNoteSubject ==
+                                                  'History of Ethiopia')))) {
                                 slideFadePush<void>(
                                   context,
                                   (_) => CommunicativeEnglishNotesScreen(
@@ -425,6 +428,10 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                               _selectedNoteSubject ==
                                                   'Entrepreneurship'
                                         ? 'assets/content/entrepreneurship_preengineering/notes.json'
+                                        : _categoryName == 'Pre-Engineering' &&
+                                              _selectedNoteSubject ==
+                                                  'History of Ethiopia'
+                                        ? 'assets/content/history_ethiopia_preengineering/notes.json'
                                         : 'assets/content/communicative_english_1/notes.json',
                                     appBarTitle: _selectedNoteSubject!,
                                     courseCode:
@@ -464,6 +471,10 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                               _selectedNoteSubject ==
                                                   'Entrepreneurship'
                                         ? 'Entrepreneurship'
+                                        : _categoryName == 'Pre-Engineering' &&
+                                              _selectedNoteSubject ==
+                                                  'History of Ethiopia'
+                                        ? 'History of Ethiopia and the Horn'
                                         : 'FLEn 1011',
                                   ),
                                 );
