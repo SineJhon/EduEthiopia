@@ -132,6 +132,8 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
           'English Tenses In Context',
           'Passive Voice Excercise and Grammar Drills',
         ];
+      case 'General Psychology':
+        return ['Integrated Study Notes'];
       default:
         return [];
     }
@@ -341,13 +343,24 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                             }
                             if (widget.module == LearningModule.notes &&
                                 _selectedNoteSubject != null) {
-                              if (_selectedNoteSubject ==
-                                      'Communicative English Language Skills' &&
-                                  item == 'Integrated Study Notes') {
+                              if (item == 'Integrated Study Notes' &&
+                                  (_selectedNoteSubject ==
+                                          'Communicative English Language Skills' ||
+                                      _selectedNoteSubject ==
+                                          'General Psychology')) {
                                 slideFadePush<void>(
                                   context,
-                                  (_) =>
-                                      const CommunicativeEnglishNotesScreen(),
+                                  (_) => CommunicativeEnglishNotesScreen(
+                                    assetPath: _selectedNoteSubject ==
+                                            'General Psychology'
+                                        ? 'assets/content/general_psychology/notes.json'
+                                        : 'assets/content/communicative_english_1/notes.json',
+                                    appBarTitle: _selectedNoteSubject!,
+                                    courseCode: _selectedNoteSubject ==
+                                            'General Psychology'
+                                        ? 'PsyL 1011'
+                                        : 'FLEn 1011',
+                                  ),
                                 );
                                 return;
                               }

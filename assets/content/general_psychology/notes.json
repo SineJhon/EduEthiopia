@@ -1,0 +1,272 @@
+{
+  "subjectId": "PsyL1011",
+  "subjectTitle": "General Psychology and Life Skills",
+  "guideDescription": "Chapter-by-chapter review from the module PDF. Compare the key theories, learn the terms and stages, then use the matching Practice unit to check your recall.",
+  "units": [
+    {
+      "id": "psych-ch1-essence",
+      "title": "Chapter 1 - Essence of Psychology",
+      "sourcePages": "7–19",
+      "topics": [
+        {
+          "id": "psych-ch1-foundations",
+          "title": "1.1 Psychology and its goals",
+          "sections": [
+            { "heading": "Definition", "paragraphs": ["Psychology is the scientific study of behavior and mental processes. Behavior includes observable actions; mental processes include thinking, feeling, remembering and perceiving."] },
+            { "heading": "Four goals", "bullets": ["Description asks what is happening, where, to whom and under what circumstances.", "Explanation asks why it is happening and develops theories to account for observations.", "Prediction estimates what may happen in the future, based on evidence and similar cases.", "Control means modifying behavior toward a desired outcome, such as using learning strategies to improve academic performance."] },
+            { "heading": "Historical milestone", "paragraphs": ["Psychology became an independent experimental science in 1879, when Wilhelm Wundt established a psychology laboratory in Leipzig, Germany. Wundt is often called the father of modern psychology."] }
+          ]
+        },
+        {
+          "id": "psych-ch1-perspectives-methods",
+          "title": "1.2 Perspectives, branches and research",
+          "sections": [
+            { "heading": "Early schools of psychology", "table": { "headers": ["School", "Main focus", "Key figure / method"], "rows": [["Structuralism", "Elements of conscious experience", "Titchener; introspection"], ["Functionalism", "How mental processes help people adapt", "William James; varied methods"], ["Gestalt", "Organized patterns and the whole experience", "Wertheimer and colleagues"], ["Behaviorism", "Observable, measurable behavior", "Watson; observation and conditioning"], ["Psychoanalysis", "Unconscious processes and conflict", "Freud; clinical cases and dream analysis"]] } },
+            { "heading": "Modern perspectives", "bullets": ["Psychodynamic: unconscious motives, early experience and inner conflict.", "Behavioral: how learning and environmental consequences shape behavior.", "Humanistic: personal meaning, free choice, values and growth.", "Cognitive: attention, memory, reasoning, language and problem solving.", "Biological: how the brain, nervous system, body and genetic inheritance relate to behavior.", "Sociocultural: how social relationships and cultural rules shape behavior. Different perspectives ask different questions and may complement one another."] },
+            { "heading": "Branches and applications", "bullets": ["Developmental psychology studies change across the lifespan; personality psychology studies enduring individual differences; social psychology studies interactions, relationships and attitudes.", "Educational psychology applies psychology to teaching and learning; industrial psychology applies it to organizations and productivity; forensic psychology applies it to legal settings.", "Clinical psychology focuses on prevention, assessment and treatment of psychological disorders. Counseling psychology helps people address personal and adjustment difficulties; psychiatry is a medical specialty that can use medical and psychological treatments.", "Health psychology applies psychology to physical health and illness; cross-cultural psychology examines how culture relates to behavior and mental processes."] },
+            { "heading": "Research methods: compare", "table": { "headers": ["Method", "What it does", "Main strength / limit"], "rows": [["Descriptive", "Records behavior using observation, case study or survey", "Shows what occurs; does not establish cause"], ["Correlational", "Measures direction and strength of a relationship (from -1.00 to +1.00)", "Can support prediction; cannot by itself show causation"], ["Experimental", "Manipulates an independent variable and measures a dependent variable, comparing groups", "Can test cause and effect when other factors are controlled"]] } },
+            { "heading": "Scientific method: five steps", "bullets": ["1. Notice a problem or observation.", "2. Form a testable hypothesis about variables.", "3. Test it using a suitable method and collect data.", "4. Draw a conclusion: the evidence supports or does not support the hypothesis.", "5. Report the methods and results so others can evaluate or repeat the work.", "A theory is an organized explanation of observations; a hypothesis is a testable proposed relationship."] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "psych-ch2-development",
+      "title": "Chapter 2 - Human Development",
+      "sourcePages": "20–35",
+      "topics": [
+        {
+          "id": "psych-ch2-basics",
+          "title": "2.1 Development across the lifespan",
+          "sections": [
+            { "heading": "Core terms", "table": { "headers": ["Term", "Meaning"], "rows": [["Development", "Lifelong, orderly changes in physical, cognitive, emotional, social and language abilities through nature and nurture"], ["Growth", "Quantitative changes in size, complexity or proportion"], ["Maturation", "Genetically programmed, naturally occurring changes"], ["Learning", "Relatively lasting behavioral change through practice or experience"]] } },
+            { "heading": "Principles of development", "bullets": ["Cephalocaudal: development proceeds from head toward the lower body.", "Proximodistal: development proceeds from the body's center outward.", "Development depends on maturation and learning; neither alone explains every change.", "Development proceeds from simple to complex and from general actions to more specific, controlled actions.", "Development is continuous: earlier abilities support later ones.", "The general sequence is predictable, but individuals reach milestones at different rates."] },
+            { "heading": "Areas of development", "bullets": ["Physical: body growth, health and motor abilities.", "Cognitive: perception, language, memory, reasoning and problem solving.", "Socioemotional: relationships, identity, emotion and personality."] }
+          ]
+        },
+        {
+          "id": "psych-ch2-theories",
+          "title": "2.2 Major developmental theories",
+          "sections": [
+            { "heading": "Piaget: four cognitive stages", "table": { "headers": ["Stage / approximate age", "Main features"], "rows": [["Sensorimotor / birth–2", "Learns through senses and actions; object permanence develops."], ["Preoperational / 2–7", "Uses language and symbols; egocentrism, animism and difficulty with conservation and reversible logic are common."], ["Concrete operational / 7–11", "Uses logical operations with concrete objects; can classify, order and understand conservation."], ["Formal operational / 11 onward", "Can reason abstractly and systematically, form hypotheses and consider possibilities."]] } },
+            { "heading": "Schemas and adaptation", "paragraphs": ["A schema is an organized way of understanding experience. Assimilation interprets a new event using an existing schema; accommodation modifies a schema when it no longer fits. These processes help a child adapt to the environment."] },
+            { "heading": "Freud: psychosexual stages", "table": { "headers": ["Stage / approximate age", "Focus"], "rows": [["Oral / birth–1", "Pleasure centers on sucking, eating and biting; weaning is an important conflict."], ["Anal / 1–3", "Pleasure centers on elimination and control; toilet training is a key conflict."], ["Phallic / 3–6", "Attention centers on the genitals; Freud described Oedipus/Electra conflicts and identification with the same-sex parent."], ["Latency / 6–puberty", "Sexual impulses are relatively quiet; energy goes toward social and cultural skills."], ["Genital / puberty onward", "Mature sexual interests develop."]] } },
+            { "heading": "Freud: fixation", "paragraphs": ["Freud proposed that unresolved conflict at a psychosexual stage can lead to fixation: some patterns of feeling or behavior remain tied to that earlier stage. These are Freud's theoretical claims, not a modern diagnostic test."] },
+            { "heading": "Erikson: eight psychosocial conflicts", "table": { "headers": ["Approximate age", "Conflict", "Strength if resolved"], "rows": [["Birth–1", "Trust vs. mistrust", "Hope"], ["1–3", "Autonomy vs. shame/doubt", "Will"], ["3–6", "Initiative vs. guilt", "Purpose"], ["7–11", "Industry vs. inferiority", "Competence"], ["12–18", "Identity vs. role confusion", "Fidelity"], ["Early adulthood", "Intimacy vs. isolation", "Love"], ["Middle adulthood", "Generativity vs. stagnation", "Care"], ["Later adulthood", "Integrity vs. despair", "Wisdom"]] } },
+            { "heading": "Kohlberg: three levels and six stages", "table": { "headers": ["Level", "Stage", "Basis of moral judgment"], "rows": [["Preconventional", "1. Obedience and punishment", "Right is what avoids punishment."], ["Preconventional", "2. Instrumental exchange", "Right serves one's needs or involves fair exchange."], ["Conventional", "3. Good person", "Right wins approval and meets close others' expectations."], ["Conventional", "4. Law and order", "Right follows laws and maintains social order."], ["Postconventional", "5. Social contract", "Rules are agreements that should protect rights and can be changed."], ["Postconventional", "6. Universal ethical principles", "Judgment follows principles such as justice, equality and human dignity."]] } },
+            { "heading": "Exam comparison", "bullets": ["Piaget explains changes in how children think; Freud emphasizes psychosexual conflicts, especially early childhood; Erikson explains social and identity challenges throughout life; Kohlberg focuses on how moral reasoning develops.", "When applying a theory to a case, identify the concept, state its defining feature and link the evidence in the example to that feature."] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "psych-ch3-learning",
+      "title": "Chapter 3 - Learning and Theories of Learning",
+      "sourcePages": "36–52",
+      "topics": [
+        {
+          "id": "psych-ch3-learning-basics",
+          "title": "3.1 Meaning, principles and influences",
+          "sections": [
+            { "heading": "Definition and characteristics", "paragraphs": ["Learning is a relatively permanent change in behavior occurring as a result of experience or practice. It is inferred from performance rather than directly observed; a change caused only by illness, fatigue, maturation or intoxicants is not usually considered learning."], "bullets": ["Learning is continuous, pervasive and involves the whole person: social, emotional and intellectual dimensions.", "It is active, purposeful, responsive to incentives and influenced by maturation and motivation.", "Readiness, meaningful practice, feedback and a satisfying learning experience can strengthen learning."] },
+            { "heading": "Factors that influence learning", "bullets": ["Motivation and interest affect effort; intelligence and prior experience affect how new material is understood.", "Maturation and physical health affect readiness and ability to learn a task.", "A supportive psychological state and suitable working conditions help; worry, fatigue, poor lighting and distractions can interfere.", "Learning sessions should be long enough for practice but include breaks to reduce fatigue."] },
+            { "heading": "Principles to remember", "bullets": ["Readiness matters: learners benefit when physically, mentally and emotionally prepared.", "Meaningful practice and exercise strengthen learning and retention.", "Satisfying outcomes can strengthen learning; unpleasant outcomes can weaken it.", "The first and most recently learned material can be especially memorable.", "Intense, direct experience can make a stronger impression than a substitute experience."] }
+          ]
+        },
+        {
+          "id": "psych-ch3-theories",
+          "title": "3.2 Learning theories and applications",
+          "sections": [
+            { "heading": "Classical conditioning: learn by association", "table": { "headers": ["Term", "Meaning / Pavlov example"], "rows": [["Neutral stimulus", "Bell before pairing; initially does not cause salivation"], ["Unconditioned stimulus (UCS)", "Food; naturally causes salivation"], ["Unconditioned response (UCR)", "Salivation to food"], ["Conditioned stimulus (CS)", "Bell after repeated pairing with food"], ["Conditioned response (CR)", "Learned salivation to the bell"]] } },
+            { "heading": "Classical conditioning processes", "bullets": ["Generalization: stimuli similar to the conditioned stimulus also produce the response.", "Discrimination: the learner responds to a specific stimulus and distinguishes it from others.", "Extinction: the conditioned response weakens when the conditioned stimulus is repeatedly presented without the unconditioned stimulus.", "Spontaneous recovery: an extinguished response may briefly reappear after a pause."] },
+            { "heading": "Operant conditioning: learn from consequences", "bullets": ["A voluntary response becomes more or less likely depending on its consequences; B. F. Skinner is a leading figure.", "Reinforcement increases behavior. Positive reinforcement adds a desirable consequence; negative reinforcement removes an unpleasant condition. Both strengthen behavior.", "Punishment decreases behavior. Positive punishment adds an aversive consequence; negative punishment removes something desirable.", "Primary reinforcers satisfy biological needs; secondary reinforcers (such as praise, grades or money) gain value through association.", "Shaping reinforces successive approximations of a target behavior. Continuous reinforcement helps establish a response; partial reinforcement can make it more resistant to extinction."] },
+            { "heading": "Reinforcement schedules", "table": { "headers": ["Schedule", "Reinforcement occurs...", "Typical pattern"], "rows": [["Fixed ratio", "After a set number of responses", "High response rate, sometimes followed by a pause"], ["Variable ratio", "After a changing number of responses", "High, steady rate; resistant to extinction"], ["Fixed interval", "After a set time has passed", "Responses increase as the expected time approaches"], ["Variable interval", "After changing time intervals", "Steady responding"]] } },
+            { "heading": "Social and cognitive learning", "bullets": ["Bandura's observational learning occurs by watching a model and its consequences. Learning requires attention, retention, motor reproduction and motivation.", "Reinforcement may be direct, vicarious (seeing another person rewarded) or self-administered.", "Latent learning occurs but is not immediately shown in behavior; insight learning involves reorganizing how a problem is understood.", "In exam answers, distinguish classical conditioning (stimulus association) from operant conditioning (behavior and consequence) and observational learning (modeling)."] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "psych-ch4-memory",
+      "title": "Chapter 4 - Memory and Forgetting",
+      "sourcePages": "53–65",
+      "topics": [
+        {
+          "id": "psych-ch4-memory-process",
+          "title": "4.1 Memory processes and systems",
+          "sections": [
+            { "heading": "Three processes", "bullets": ["Encoding changes information into a form that can be stored.", "Storage maintains information over time.", "Retrieval brings stored information back into awareness."] },
+            { "heading": "Atkinson–Shiffrin stage model", "table": { "headers": ["System", "What it does", "Capacity / duration"], "rows": [["Sensory register", "Briefly holds a sensory trace; attention selects information for further processing", "Large capacity; very brief (visual about 1 second, auditory about 2 seconds)"], ["Short-term / working memory", "Holds and actively works with attended information", "Limited capacity (often described as about 7 ± 2 chunks); around 30 seconds without rehearsal"], ["Long-term memory", "Stores meaningful information for later use", "Very large capacity; can last days to a lifetime"]] } },
+            { "heading": "Long-term memory types", "bullets": ["Explicit/declarative memory is consciously recalled: semantic memory stores facts and meanings; episodic memory stores personally experienced events.", "Implicit/non-declarative memory affects behavior without conscious recollection; procedural memory is knowledge of how to perform skills.", "Chunking groups separate items into meaningful units and helps working memory handle information.", "Serial-position effect: items at the beginning (primacy) and end (recency) of a list are often recalled better than items in the middle."] }
+          ]
+        },
+        {
+          "id": "psych-ch4-forgetting",
+          "title": "4.2 Forgetting and improving memory",
+          "sections": [
+            { "heading": "Forgetting: major explanations", "table": { "headers": ["Explanation", "How forgetting occurs"], "rows": [["Decay", "A memory trace weakens over time when it is not accessed."], ["Interference", "Similar information competes: proactive interference is old learning disrupting new learning; retroactive interference is new learning disrupting old learning."], ["Displacement", "New information replaces older information in limited-capacity short-term memory."], ["Motivated forgetting", "A person may keep distressing material from awareness; Freud called this repression."], ["Cue-dependent failure", "Information may be stored but hard to retrieve without a useful cue or matching context."]] } },
+            { "heading": "Improve memory: practical checklist", "bullets": ["Pay attention at the time of learning so the information is encoded.", "Encode in more than one way and connect new material to meaningful prior knowledge.", "Use retrieval cues, organize information and allow time for practice.", "Overlearn important material, test yourself regularly and review it periodically.", "Rest and sleep help; breaks can reduce interference and fatigue.", "Ebbinghaus found that forgetting is fastest soon after learning and then slows; relearning is generally faster than learning from scratch."] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "psych-ch5-motivation-emotion",
+      "title": "Chapter 5 - Motivation and Emotions",
+      "sourcePages": "66–76",
+      "topics": [
+        {
+          "id": "psych-ch5-motivation",
+          "title": "5.1 Motivation",
+          "sections": [
+            { "heading": "Meaning and types", "paragraphs": ["Motivation is the process by which activities are started, directed and continued to meet physical or psychological needs and wants."], "bullets": ["Intrinsic motivation leads a person to act for interest or enjoyment in the activity itself.", "Extrinsic motivation leads a person to act for an external outcome such as money, a grade or approval.", "Motivation affects initiation, direction, intensity and persistence of behavior."] },
+            { "heading": "Major approaches to motivation", "table": { "headers": ["Approach", "Main explanation"], "rows": [["Instinct", "Some behavior is explained as biologically based; simply naming an instinct does not fully explain it."], ["Drive reduction / homeostasis", "A need creates tension or drive; behavior reduces the tension and restores balance."], ["Arousal", "People seek a preferred level of stimulation; too little or too much can prompt behavior to change."], ["Incentive", "External rewards or attractive outcomes pull behavior; incentives can work together with internal drives."], ["Cognitive / expectancy", "Goals, beliefs and expectations about outcomes influence choices and effort."], ["Humanistic / Maslow", "Needs progress from physiological and safety needs through belonging and esteem to self-actualization."]] } },
+            { "heading": "Approaches and conflict", "bullets": ["Drive approaches link behavior to needs and the reduction of internal tension.", "Incentive approaches emphasize attractive or aversive external outcomes.", "Arousal approaches consider a person's preferred level of stimulation; humanistic approaches emphasize growth and needs.", "Approach-approach conflict involves choosing between desirable goals; avoidance-avoidance between undesirable options; approach-avoidance combines positive and negative features in one option.", "Frustration may occur when a goal is blocked; coping and problem solving can help address it."] }
+          ]
+        },
+        {
+          "id": "psych-ch5-emotion",
+          "title": "5.2 Emotion",
+          "sections": [
+            { "heading": "Conflict of motives", "bullets": ["Approach–approach: choose between two attractive goals.", "Avoidance–avoidance: choose between two unattractive options.", "Approach–avoidance: one option has both positive and negative features.", "Multiple approach–avoidance: choose among options that each have advantages and disadvantages."] },
+            { "heading": "Emotion: components and theories", "table": { "headers": ["Theory", "Relationship between arousal and feeling"], "rows": [["James–Lange", "A stimulus produces bodily arousal; perception of those bodily changes contributes to the emotion."], ["Cannon–Bard", "Emotional experience and physiological arousal occur at about the same time."], ["Schachter–Singer / two-factor", "Emotion involves physiological arousal interpreted in light of the situation."]] } },
+            { "heading": "Three elements of emotion", "bullets": ["Physiology: arousal such as changes in heart rate, breathing and sweating.", "Behavior: facial expressions, body movements, actions and words that reveal feeling.", "Subjective experience: the person's conscious feeling and label, such as fear, anger or happiness; interpretation is influenced by context and learning."] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "psych-ch6-personality",
+      "title": "Chapter 6 - Personality",
+      "sourcePages": "77–85",
+      "topics": [
+        {
+          "id": "psych-ch6-meaning",
+          "title": "6.1 Meaning of personality",
+          "sections": [
+            { "heading": "Definition", "paragraphs": ["Personality refers to relatively enduring patterns of thinking, feeling and behaving that make a person distinctive. It develops through the interaction of personal characteristics and experience."] }
+          ]
+        },
+        {
+          "id": "psych-ch6-theories",
+          "title": "6.2 Major theories of personality",
+          "sections": [
+            { "heading": "Freud's psychoanalytic theory", "bullets": ["Personality is shaped by unconscious processes and early experience. The id contains basic drives and follows the pleasure principle; the ego follows the reality principle; the superego represents internalized moral standards.", "Defense mechanisms are unconscious tactics that prevent threatening material from surfacing or disguise it. The module's examples include repression, denial, regression, rationalization, displacement, projection, reaction formation and sublimation.", "A defense mechanism is not automatically unhealthy; relying on it excessively may create additional difficulties."] },
+            { "heading": "Defense mechanisms: distinguish them", "table": { "headers": ["Mechanism", "Meaning"], "rows": [["Repression", "Pushes threatening thoughts or memories out of awareness"], ["Denial", "Refuses to acknowledge a threatening reality"], ["Regression", "Returns to an earlier, less mature response"], ["Rationalization", "Offers an acceptable-sounding reason for behavior"], ["Displacement", "Directs feelings toward a safer target"], ["Projection", "Attributes one's own unwanted feelings to another"], ["Reaction formation", "Acts opposite to one's true feeling"], ["Sublimation", "Channels an unacceptable impulse into a socially acceptable activity"]] } },
+            { "heading": "Trait theory: assumptions and Big Five", "paragraphs": ["Trait theorists treat traits as relatively stable over time and across situations, while recognizing that people differ in how strongly they show each trait."], "table": { "headers": ["OCEAN trait", "Higher end generally describes"], "rows": [["Openness", "Curious, imaginative and receptive to new experiences"], ["Conscientiousness", "Organized, dependable and persistent"], ["Extraversion", "Sociable, energetic and outgoing"], ["Agreeableness", "Friendly, cooperative and considerate"], ["Neuroticism", "More emotionally reactive or prone to worry"]] } },
+            { "heading": "Humanistic theory", "bullets": ["Humanistic theorists emphasize conscious experience, free choice and the capacity for personal growth.", "Rogers highlighted self-concept, including the real self and ideal self. A large gap between them can contribute to incongruence.", "Unconditional positive regard accepts a person without making acceptance depend on meeting conditions; conditional regard makes approval dependent on specified behavior.", "A fully functioning person is open to experience and actively develops personal potential."] },
+            { "heading": "Compare the theories", "bullets": ["Psychoanalytic: explains personality through unconscious conflict and early experience.", "Trait: describes stable dimensions that differ among individuals.", "Humanistic: focuses on subjective experience, self-concept, choice and growth.", "Temperament refers to early appearing, biologically influenced differences in emotional and behavioral style; personality also develops through experience."] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "psych-ch7-disorders",
+      "title": "Chapter 7 - Psychological Disorders and Treatment Techniques",
+      "sourcePages": "86–96",
+      "topics": [
+        {
+          "id": "psych-ch7-disorders-nature",
+          "title": "7.1 Understanding psychological disorders",
+          "sections": [
+            { "heading": "Nature and causes", "paragraphs": ["The module uses three indicators when considering psychological disorder: abnormality (deviation from a norm), maladaptiveness (disruption to everyday functioning) and personal distress. No single indicator is sufficient on its own; context must be considered."], "bullets": ["Biological perspectives examine brain processes and neurotransmitters; the module links dopamine activity with schizophrenia symptoms.", "Psychoanalytic perspectives emphasize conflict among the id, ego and superego, especially unresolved early conflict.", "Learning perspectives explain disorders through inadequate or inappropriate learning.", "Cognitive perspectives focus on self-defeating thought patterns that can contribute to negative emotion and behavior.", "Psychopathology is the study of psychological disorders, including symptoms, causes and treatment."] },
+            { "heading": "Types emphasized in the chapter", "bullets": ["Mood disorders: major depression involves persistent low mood and reduced interest; dysthymia is described as a less severe but more persistent depression; bipolar disorder involves episodes of mania and depression; cyclothymia is a less severe bipolar-like pattern.", "Anxiety disorders: panic disorder involves intense panic attacks; agoraphobia involves fear or avoidance of situations where escape or help may be difficult; phobias involve disruptive, intense fear of a specific object or situation.", "Obsessive-compulsive disorder involves obsessions (intrusive, hard-to-control thoughts) and compulsions (repeated acts intended to reduce distress). PTSD follows trauma and may include flashbacks, nightmares, avoidance and heightened anxiety. Generalized anxiety involves excessive anxiety across many areas of life.", "Personality disorders involve longstanding, inflexible patterns of thinking, feeling and behaving that differ from cultural expectations and cause distress or negative consequences.", "For exam comparison, identify the defining pattern and its effect on daily functioning; avoid diagnosing from one isolated behavior."] }
+          ]
+        },
+        {
+          "id": "psych-ch7-treatment",
+          "title": "7.2 Treatment approaches",
+          "sections": [
+            { "heading": "Treatment techniques", "bullets": ["Psychotherapy depends on a healthy relationship with a trained therapist, agreed treatment goals and working together toward those goals.", "Cognitive approaches address faulty or irrational thinking; behavioral approaches work with learned behavior; dynamic approaches explore unconscious patterns and early experience.", "Individual, group, couples and family therapy are different treatment modalities. The chapter notes that modalities can be combined to meet a person's needs.", "Empathy, a nonjudgmental relationship and a clear shared goal support therapy. Medication may also be combined with psychotherapy when appropriate.", "Exam comparison: an approach describes the theory or method of change; a modality describes who takes part and how therapy is organized."] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "psych-ch8-life-skills",
+      "title": "Chapter 8 - Introduction to Life Skills",
+      "sourcePages": "97–103",
+      "topics": [
+        {
+          "id": "psych-ch8-foundations",
+          "title": "8.1 Nature, goals and components",
+          "sections": [
+            { "heading": "Meaning", "paragraphs": ["Life skills are abilities for adaptive and positive behavior that help people meet the demands of everyday life. They can be learned and strengthened through practice."] },
+            { "heading": "Ten core components", "bullets": ["The chapter identifies critical thinking, self-confidence, self-awareness, self-esteem, decision making, interpersonal relationships, reflective communication, peer-pressure resistance, knowing rights and duties, and problem solving.", "Decision making combines information to choose, implement and evaluate a course of action. Problem solving identifies a gap between the current and desired situation and takes action to address it.", "Additional helpful competencies include empathy, coping with emotions and stress, creative thinking, active listening, time management and learning how to learn.", "Life skills support effective communication, constructive relationships, planning and adaptive responses to everyday challenges."] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "psych-ch9-intrapersonal",
+      "title": "Chapter 9 - Intrapersonal and Personal Skills",
+      "sourcePages": "104–119",
+      "topics": [
+        {
+          "id": "psych-ch9-self-emotion",
+          "title": "9.1 Self-understanding and emotional skills",
+          "sections": [
+            { "heading": "Self-concept, awareness and confidence", "bullets": ["Self-concept is a person's subjective view of who they are. It is multidimensional, can include past and future selves, and guides expectations, motivation and goals.", "Self-awareness is recognizing one's own thoughts, feelings, strengths, limits and behavior; it helps a person assess self-concept realistically.", "Self-esteem is an evaluation of personal worth. Self-confidence is trust in one's ability to handle a task or situation; confidence can differ across areas.", "Self-control means resisting an immediate response or reward in order to pursue a longer-term goal."] },
+            { "heading": "Emotional intelligence and anger management", "bullets": ["Emotional intelligence involves self-awareness, self-regulation, self-evaluation, awareness of others and social skills.", "Anger can escalate when a person dwells on it. Notice its early signs, pause, calm the body, examine the trigger and choose an assertive response rather than an impulsive one.", "Self-control and anger management are related: both involve noticing an impulse and regulating behavior toward a longer-term goal."] },
+            { "heading": "Stress, coping and resilience", "bullets": ["Stress arises when demands are appraised as challenging or threatening; everyday hassles as well as major events can contribute.", "Problem-focused coping acts on the source of stress; emotion-focused coping manages the feelings associated with it.", "Resilience is adapting well and recovering in the face of adversity, trauma or significant stress.", "Supportive relationships, flexible thinking and practical coping responses can support resilience."] }
+          ]
+        },
+        {
+          "id": "psych-ch9-thinking",
+          "title": "9.2 Thinking, problem solving and decisions",
+          "sections": [
+            { "heading": "Critical and creative thinking", "table": { "headers": ["Critical thinking", "Creative thinking"], "rows": [["Analytical; evaluates evidence and reasoning", "Generative; imagines and develops new possibilities"], ["Assesses whether a conclusion is justified", "Produces alternatives that may lead to a useful solution"], ["Checks assumptions and considers evidence", "Uses flexibility and originality to explore options"]] } },
+            { "heading": "A practical problem-solving cycle", "bullets": ["Define the problem and the outcome you want.", "Gather relevant information and identify constraints.", "Generate alternatives, compare likely consequences and choose an option.", "Act, review the result and adjust if needed."] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "psych-ch10-academic",
+      "title": "Chapter 10 - Academic Skills",
+      "sourcePages": "120–131",
+      "topics": [
+        {
+          "id": "psych-ch10-study",
+          "title": "10.1 Time management, study and note-taking",
+          "sections": [
+            { "heading": "Time management", "bullets": ["List tasks and deadlines, rank priorities, estimate how long each task will take and put focused work into a realistic schedule.", "Break large assignments into smaller steps and begin before the deadline; include breaks and time for review.", "Good time management can improve productivity, reduce stress and leave time for important personal activities."] },
+            { "heading": "Note-taking and study skills", "bullets": ["Keep the lecture objective in mind, listen for main ideas and supporting details, and write notes in your own words.", "Keep notes brief and organized. If you fall behind, mark the gap and return to listening; clarify missing points after class.", "Review soon after class, complete unclear details and use headings as questions for active self-testing.", "Study in focused sessions, space review over time and practice retrieving information rather than only rereading."] }
+          ]
+        },
+        {
+          "id": "psych-ch10-assessment-career",
+          "title": "10.2 Tests, goals and career development",
+          "sections": [
+            { "heading": "Test-taking sequence", "bullets": ["Before the exam: prepare steadily, review likely content, learn the format and gather required materials.", "The night before: stop intensive studying, get adequate sleep and plan to arrive without rushing.", "During the exam: read directions, scan the paper, budget time, answer what you can and return to difficult questions.", "After the exam: review what worked and use mistakes to guide the next study plan."] },
+            { "heading": "Test anxiety", "bullets": ["Anxiety may have physical, emotional and cognitive symptoms and can interfere with showing what one knows.", "Notice the thoughts that increase anxiety, question catastrophic predictions and replace them with realistic self-talk.", "Preparation, practice under exam-like conditions, slow breathing, sleep and arriving early can help manage anxiety."] },
+            { "heading": "Goal setting and career development", "bullets": ["Goals guide behavior, provide clarity and a standard for evaluating progress, and express what matters to the person.", "Translate a goal into actions, deadlines and measures of progress; review and adjust as needed.", "Career management includes identifying existing skills, exploring options, setting career-learning goals and taking action to develop a chosen direction."] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "psych-ch11-social",
+      "title": "Chapter 11 - Social Skills",
+      "sourcePages": "132–145",
+      "topics": [
+        {
+          "id": "psych-ch11-inclusion-communication",
+          "title": "11.1 Diversity, inclusion and communication",
+          "sections": [
+            { "heading": "Diversity, inclusion and communication", "bullets": ["Cultural diversity includes differences in language, values, beliefs, customs and experience. Understanding diversity supports cooperation and learning across groups.", "Gender and social inclusion concern equal participation, rights and access to education, economic, social and political opportunities.", "Interpersonal communication involves sending and receiving messages effectively. Listening, clear language, nonverbal cues and checking understanding reduce miscommunication.", "Effective communication and interpersonal relationships are connected but distinct: communication is the exchange of messages; relationships describe the connection between people."] }
+          ]
+        },
+        {
+          "id": "psych-ch11-groups-conflict",
+          "title": "11.2 Social influence, assertiveness and teamwork",
+          "sections": [
+            { "heading": "Social influence and peer pressure", "bullets": ["Social influence is the effect of other people or groups on attitudes and actions. Peer pressure can be direct or indirect, positive or negative.", "Negative pressure may use threats, teasing, bribes or name-calling. Recognize coercive behavior, state a decision clearly, leave if needed and seek support.", "Choosing peers who respect boundaries and planning a refusal can help a person resist risky behavior."] },
+            { "heading": "Assertiveness", "table": { "headers": ["Style", "Typical response"], "rows": [["Passive", "Does not express needs or boundaries; may give in despite disagreement."], ["Aggressive", "Pushes own needs while disregarding other people's rights."], ["Assertive", "States needs, opinions and limits clearly while respecting others."]] } },
+            { "heading": "Conflict resolution and teamwork", "bullets": ["Conflict is not automatically harmful; it can arise from different goals, needs, values, power or misunderstandings.", "Clarify facts and perceptions, listen to each side, identify the issue and interests, generate options and agree on a fair solution.", "Win–win solutions address the needs of both parties; win–lose benefits one side at the other's expense; lose–lose leaves all sides worse off.", "Teamwork needs a shared goal, participation, clear roles, communication, trust and accountability.", "Exam approach: define the social skill, distinguish it from related skills and show how it could be used in a realistic situation."] }
+          ]
+        }
+      ]
+    }
+  ]
+}
