@@ -138,6 +138,8 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
         return ['Integrated Study Notes'];
       case 'Logic and Critical Thinking':
         return ['Integrated Study Notes'];
+      case 'Mathematics for Natural Science':
+        return ['Integrated Study Notes'];
       default:
         return [];
     }
@@ -354,7 +356,9 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                           'General Psychology' ||
                                       _selectedNoteSubject == 'Geography' ||
                                       _selectedNoteSubject ==
-                                          'Logic and Critical Thinking')) {
+                                          'Logic and Critical Thinking' ||
+                                      _selectedNoteSubject ==
+                                          'Mathematics for Natural Science')) {
                                 slideFadePush<void>(
                                   context,
                                   (_) => CommunicativeEnglishNotesScreen(
@@ -366,6 +370,9 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                         : _selectedNoteSubject ==
                                                 'Logic and Critical Thinking'
                                         ? 'assets/content/logic_critical_thinking/notes.json'
+                                        : _selectedNoteSubject ==
+                                                'Mathematics for Natural Science'
+                                        ? 'assets/content/mathematics_natural_science/notes.json'
                                         : 'assets/content/communicative_english_1/notes.json',
                                     appBarTitle: _selectedNoteSubject!,
                                     courseCode: _selectedNoteSubject ==
@@ -376,6 +383,9 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                         : _selectedNoteSubject ==
                                                 'Logic and Critical Thinking'
                                         ? 'PHIL 1011'
+                                        : _selectedNoteSubject ==
+                                                'Mathematics for Natural Science'
+                                        ? 'Mathematics'
                                         : 'FLEn 1011',
                                   ),
                                 );
