@@ -66,6 +66,7 @@ flutter:
     - assets/content/geography/notes.json
     - assets/content/logic_critical_thinking/notes.json
     - assets/content/mathematics_natural_science/notes.json
+    - assets/content/physics/notes.json
     - assets/modules/freshman/Communicative English Language Skills.pdf
     - assets/modules/freshman/General Psychology.pdf
     - assets/modules/freshman/Geography.pdf

@@ -140,6 +140,8 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
         return ['Integrated Study Notes'];
       case 'Mathematics for Natural Science':
         return ['Integrated Study Notes'];
+      case 'Physics':
+        return ['Integrated Study Notes'];
       default:
         return [];
     }
@@ -358,7 +360,8 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                       _selectedNoteSubject ==
                                           'Logic and Critical Thinking' ||
                                       _selectedNoteSubject ==
-                                          'Mathematics for Natural Science')) {
+                                          'Mathematics for Natural Science' ||
+                                      _selectedNoteSubject == 'Physics')) {
                                 slideFadePush<void>(
                                   context,
                                   (_) => CommunicativeEnglishNotesScreen(
@@ -373,6 +376,8 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                         : _selectedNoteSubject ==
                                                 'Mathematics for Natural Science'
                                         ? 'assets/content/mathematics_natural_science/notes.json'
+                                        : _selectedNoteSubject == 'Physics'
+                                        ? 'assets/content/physics/notes.json'
                                         : 'assets/content/communicative_english_1/notes.json',
                                     appBarTitle: _selectedNoteSubject!,
                                     courseCode: _selectedNoteSubject ==
@@ -386,6 +391,8 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                         : _selectedNoteSubject ==
                                                 'Mathematics for Natural Science'
                                         ? 'Mathematics'
+                                        : _selectedNoteSubject == 'Physics'
+                                        ? 'Physics'
                                         : 'FLEn 1011',
                                   ),
                                 );
