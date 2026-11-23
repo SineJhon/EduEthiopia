@@ -142,6 +142,8 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
         return ['Integrated Study Notes'];
       case 'Physics':
         return ['Integrated Study Notes'];
+      case 'Physical Fitness':
+        return ['Integrated Study Notes'];
       default:
         return [];
     }
@@ -361,7 +363,8 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                           'Logic and Critical Thinking' ||
                                       _selectedNoteSubject ==
                                           'Mathematics for Natural Science' ||
-                                      _selectedNoteSubject == 'Physics')) {
+                                      _selectedNoteSubject == 'Physics' ||
+                                      _selectedNoteSubject == 'Physical Fitness')) {
                                 slideFadePush<void>(
                                   context,
                                   (_) => CommunicativeEnglishNotesScreen(
@@ -378,6 +381,8 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                         ? 'assets/content/mathematics_natural_science/notes.json'
                                         : _selectedNoteSubject == 'Physics'
                                         ? 'assets/content/physics/notes.json'
+                                        : _selectedNoteSubject == 'Physical Fitness'
+                                        ? 'assets/content/physical_fitness/notes.json'
                                         : 'assets/content/communicative_english_1/notes.json',
                                     appBarTitle: _selectedNoteSubject!,
                                     courseCode: _selectedNoteSubject ==
@@ -393,6 +398,8 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                         ? 'Mathematics'
                                         : _selectedNoteSubject == 'Physics'
                                         ? 'Physics'
+                                        : _selectedNoteSubject == 'Physical Fitness'
+                                        ? 'SpSc 1011'
                                         : 'FLEn 1011',
                                   ),
                                 );
