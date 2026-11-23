@@ -124,7 +124,8 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
   List<String> _noteFiles() {
     if (_categoryName == 'Pre-Engineering' &&
         (_selectedNoteSubject == 'Anthropology' ||
-            _selectedNoteSubject == 'Applied Mathematics I')) {
+            _selectedNoteSubject == 'Applied Mathematics I' ||
+            _selectedNoteSubject == 'C++ Programming')) {
       return ['Integrated Study Notes'];
     }
     if (_categoryName != 'Freshman') return [];
@@ -375,7 +376,9 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                           (_selectedNoteSubject ==
                                                   'Anthropology' ||
                                               _selectedNoteSubject ==
-                                                  'Applied Mathematics I')))) {
+                                                  'Applied Mathematics I' ||
+                                              _selectedNoteSubject ==
+                                                  'C++ Programming')))) {
                                 slideFadePush<void>(
                                   context,
                                   (_) => CommunicativeEnglishNotesScreen(
@@ -404,6 +407,10 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                               _selectedNoteSubject ==
                                                   'Applied Mathematics I'
                                         ? 'assets/content/applied_mathematics_i/notes.json'
+                                        : _categoryName == 'Pre-Engineering' &&
+                                              _selectedNoteSubject ==
+                                                  'C++ Programming'
+                                        ? 'assets/content/cpp_programming/notes.json'
                                         : 'assets/content/communicative_english_1/notes.json',
                                     appBarTitle: _selectedNoteSubject!,
                                     courseCode:
@@ -431,6 +438,10 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                               _selectedNoteSubject ==
                                                   'Applied Mathematics I'
                                         ? 'Math-1051'
+                                        : _categoryName == 'Pre-Engineering' &&
+                                              _selectedNoteSubject ==
+                                                  'C++ Programming'
+                                        ? 'Introduction to Programming'
                                         : 'FLEn 1011',
                                   ),
                                 );

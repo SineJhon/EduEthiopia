@@ -70,6 +70,7 @@ flutter:
     - assets/content/physical_fitness/notes.json
     - assets/content/anthropology_preengineering/notes.json
     - assets/content/applied_mathematics_i/notes.json
+    - assets/content/cpp_programming/notes.json
     - assets/modules/freshman/Communicative English Language Skills.pdf
     - assets/modules/freshman/General Psychology.pdf
     - assets/modules/freshman/Geography.pdf
