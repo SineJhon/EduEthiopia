@@ -34,10 +34,8 @@ class _QuizScreenState extends State<QuizScreen> {
   bool get _isLastQuestion => _questionIndex == widget.unit.questions.length - 1;
   QuizQuestion get _currentQuestion => widget.unit.questions[_questionIndex];
 
-  /// Whether any remaining question uses the reading passage (keeps it visible).
-  bool get _passageStillRelevant {
-    return widget.unit.questions.any((q) => q.passageId != null);
-  }
+  /// Whether the current question uses the reading passage.
+  bool get _passageVisible => _currentQuestion.passageId != null;
 
   String? _selectedAnswerText() {
     if (_selectedOptionId == null) return null;
@@ -145,7 +143,7 @@ class _QuizScreenState extends State<QuizScreen> {
               ),
             ),
             const SizedBox(height: AppDimensions.sm),
-            if (_passageStillRelevant && widget.unit.readingPassage != null)
+            if (_passageVisible && widget.unit.readingPassage != null)
               _PassageCard(passage: widget.unit.readingPassage!),
             Expanded(child: _submitted ? _feedbackView() : _questionView()),
             Padding(
@@ -154,8 +152,8 @@ class _QuizScreenState extends State<QuizScreen> {
                 AppDimensions.lg,
               ),
               child: _submitted
-                  ? (_isLastQuestion
-                      ? const SizedBox.shrink()
+                   ? (_isLastQuestion
+                      ? FilledButton(onPressed: _finishQuiz, child: const Text('View Results'))
                       : FilledButton(onPressed: _nextQuestion, child: const Text('Next Question')))
                   : FilledButton(
                       onPressed: _selectedOptionId == null ? null : _submitAnswer,
@@ -221,6 +219,25 @@ class _QuizScreenState extends State<QuizScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Question text (always visible)
+          Text(
+            _currentQuestion.question,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              fontWeight: FontWeight.w800,
+              color: colorScheme.onSurface,
+            ),
+          ),
+          const SizedBox(height: AppDimensions.md),
+          // Options with right/wrong highlighting
+          ..._currentQuestion.options.map((option) => _OptionTile(
+            option: option,
+            selected: _selectedOptionId == option.id,
+            submitted: true,
+            isCorrect: option.id == _currentQuestion.correctOptionId,
+            onTap: null,
+          )),
+          const SizedBox(height: AppDimensions.md),
+          // Correct/Incorrect banner
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
@@ -243,14 +260,17 @@ class _QuizScreenState extends State<QuizScreen> {
             ),
           ),
           const SizedBox(height: AppDimensions.md),
+          // Your answer (only if wrong)
           if (selectedText != null && !correct) ...[
             Text('Your answer: $selectedText',
                 style: TextStyle(color: Colors.red.shade800, fontWeight: FontWeight.w700)),
             const SizedBox(height: 8),
           ],
+          // Correct answer
           Text('Correct answer: ${correctOption.text}',
               style: TextStyle(color: Colors.green.shade800, fontWeight: FontWeight.w800)),
           const SizedBox(height: AppDimensions.md),
+          // Explanation
           Container(
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
@@ -324,7 +344,7 @@ class _OptionTile extends StatelessWidget {
   final bool selected;
   final bool submitted;
   final bool isCorrect;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   Color _borderColor(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     if (!submitted) return scheme.outlineVariant;

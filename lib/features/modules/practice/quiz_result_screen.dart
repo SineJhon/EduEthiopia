@@ -20,57 +20,122 @@ class QuizResultScreen extends StatelessWidget {
         actions: [ThemeToggle(), const SizedBox(width: 8)],
       ),
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(AppDimensions.md, AppDimensions.sm, AppDimensions.md, AppDimensions.md),
-              child: Column(
-                children: [
-                  Text(result.unitTitle,
-                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w900, color: colorScheme.onSurface),
-                      textAlign: TextAlign.center),
-                  const SizedBox(height: 6),
-                  Text('${result.correct} / ${result.totalQuestions} correct',
-                      style: TextStyle(color: colorScheme.primary, fontWeight: FontWeight.w800, fontSize: 16)),
-                  const SizedBox(height: AppDimensions.md),
-                  Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: passed ? Colors.green.withValues(alpha: 0.1) : Colors.red.withValues(alpha: 0.1),
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: passed ? Colors.green : Colors.red),
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          padding: const EdgeInsets.fromLTRB(
+            AppDimensions.md,
+            AppDimensions.sm,
+            AppDimensions.md,
+            AppDimensions.lg,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                result.unitTitle,
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  fontWeight: FontWeight.w900,
+                  color: colorScheme.onSurface,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 6),
+              Text(
+                '${result.correct} / ${result.totalQuestions} correct',
+                style: TextStyle(
+                  color: colorScheme.primary,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 16,
+                ),
+              ),
+              const SizedBox(height: AppDimensions.md),
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: passed
+                      ? Colors.green.withValues(alpha: 0.1)
+                      : Colors.red.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    color: passed ? Colors.green : Colors.red,
+                  ),
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      '${result.percentage.toStringAsFixed(0)}%',
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.w900,
+                        color: passed
+                            ? Colors.green.shade800
+                            : Colors.red.shade800,
+                      ),
                     ),
-                    child: Column(
-                      children: [
-                        Text('${result.percentage.toStringAsFixed(0)}%',
-                            style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900, color: passed ? Colors.green.shade800 : Colors.red.shade800)),
-                        const SizedBox(height: 6),
-                        Text(passed ? 'Passed' : 'Not passed',
-                            style: TextStyle(fontWeight: FontWeight.w800, color: passed ? Colors.green.shade800 : Colors.red.shade800, fontSize: 14)),
-                      ],
+                    const SizedBox(height: 6),
+                    Text(
+                      passed ? 'Passed' : 'Not passed',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w800,
+                        color: passed
+                            ? Colors.green.shade800
+                            : Colors.red.shade800,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: AppDimensions.md),
+              _StatRow(label: 'Correct', value: '${result.correct}', color: Colors.green),
+              _StatRow(label: 'Incorrect', value: '${result.incorrect}', color: Colors.red),
+              _StatRow(
+                  label: 'Total', value: '${result.totalQuestions}',
+                  color: colorScheme.onSurfaceVariant),
+              const SizedBox(height: AppDimensions.lg),
+              if (result.incorrectReviews.isNotEmpty) ...[
+                Text(
+                  'Review Incorrect Answers',
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.w800,
+                    color: colorScheme.onSurface,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: result.incorrectReviews.length,
+                  itemBuilder: (context, i) =>
+                      _ReviewItem(item: result.incorrectReviews[i]),
+                ),
+                const SizedBox(height: AppDimensions.md),
+              ],
+              Row(
+                children: [
+                  Expanded(
+                    child: OutlinedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop(); // leave result screen
+                        Navigator.of(context).pop(); // leave quiz screen -> back to units
+                      },
+                      child: const Text('Back to Units'),
                     ),
                   ),
-                  const SizedBox(height: AppDimensions.md),
-                  _StatRow(label: 'Correct', value: '${result.correct}', color: Colors.green),
-                  _StatRow(label: 'Incorrect', value: '${result.incorrect}', color: Colors.red),
-                  _StatRow(label: 'Total', value: '${result.totalQuestions}', color: colorScheme.onSurfaceVariant),
-                  const SizedBox(height: AppDimensions.lg),
-                  if (result.incorrectReviews.isNotEmpty) ...[
-                    Row(children: [Expanded(child: Text('Review Incorrect Answers', style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800, color: colorScheme.onSurface)))]),
-                    const SizedBox(height: 8),
-                    Expanded(child: ListView.builder(shrinkWrap: true, physics: const NeverScrollableScrollPhysics(), itemCount: result.incorrectReviews.length, itemBuilder: (context, i) => _ReviewItem(item: result.incorrectReviews[i]))),
-                    const SizedBox(height: AppDimensions.md),
-                  ],
-                  Row(children: [
-                    Expanded(child: OutlinedButton(onPressed: () => Navigator.of(context).popUntil((route) => route.isFirst), child: const Text('Back to Units'))),
-                    const SizedBox(width: 12),
-                    Expanded(child: FilledButton(onPressed: () => Navigator.of(context).pop(), child: const Text('Retry Unit'))),
-                  ]),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: FilledButton(
+                      onPressed: () {
+                        Navigator.of(context).pop(); // leave result screen
+                        Navigator.of(context).pop(); // leave quiz screen -> back to units
+                      },
+                      child: const Text('Retry Unit'),
+                    ),
+                  ),
                 ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
