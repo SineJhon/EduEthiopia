@@ -10,6 +10,7 @@ import '../../core/widgets/language_toggle.dart';
 import '../../core/widgets/theme_toggle.dart';
 import 'communicative_english_notes_screen.dart';
 import 'pdf_reader_screen.dart';
+import 'practice/unit_selection_screen.dart';
 
 enum LearningModule {
   modules,
@@ -371,6 +372,16 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                 (_) => PdfReaderScreen(
                                   title: item,
                                   assetPath: pdfAsset,
+                                ),
+                              );
+                              return;
+                            }
+                            if (widget.module == LearningModule.practice) {
+                              slideFadePush<void>(
+                                context,
+                                (_) => UnitSelectionScreen(
+                                  subject: item,
+                                  isAmharic: _isAmharic,
                                 ),
                               );
                               return;
