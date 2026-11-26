@@ -2,6 +2,7 @@
 ///
 /// Educational content is kept here, separate from UI code.
 /// All content works offline (compiled into the app).
+library;
 
 class QuizUnit {
   final String unitId;
@@ -23,6 +24,7 @@ class QuizReadingPassage {
   final String id;
   final String title;
   final String text;
+
   /// True when the passage is an original practice item inspired by the unit,
   /// not a verbatim textbook passage.
   final bool isPracticePassage;
@@ -39,16 +41,20 @@ class QuizQuestion {
   final String id;
   final String unitId;
   final String topicId;
+
   /// 'multiple_choice' or 'true_false'
   final String type;
+
   /// 'easy', 'medium', or 'hard'
   final String difficulty;
   final String question;
+
   /// When non-null, the question is tied to a reading passage.
   final String? passageId;
   final List<QuizOption> options;
   final String correctOptionId;
   final String explanation;
+
   /// Printed source-page reference where available.
   final int? sourcePage;
 
@@ -77,10 +83,7 @@ class QuizOption {
   final String id;
   final String text;
 
-  const QuizOption({
-    required this.id,
-    required this.text,
-  });
+  const QuizOption({required this.id, required this.text});
 }
 
 /// Result of a completed quiz attempt.

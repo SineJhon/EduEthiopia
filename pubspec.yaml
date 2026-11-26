@@ -73,7 +73,11 @@ flutter:
     - assets/content/cpp_programming/notes.json
     - assets/content/communicative_english_ii/notes.json
     - assets/content/entrepreneurship_preengineering/notes.json
+    - assets/content/general_biology_others/notes.json
+    - assets/content/general_chemistry_others/notes.json
     - assets/content/history_ethiopia_preengineering/notes.json
+    - assets/content/emerging_technologies/notes.json
+    - assets/content/moral_civics_preengineering/notes.json
     - assets/modules/freshman/Communicative English Language Skills.pdf
     - assets/modules/freshman/General Psychology.pdf
     - assets/modules/freshman/Geography.pdf

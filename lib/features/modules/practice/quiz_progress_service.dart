@@ -1,6 +1,7 @@
 /// Persists quiz attempt results and unit progress locally for offline access.
 ///
 /// Uses path_provider to write a JSON file in the app's documents directory.
+library;
 
 import 'dart:convert';
 import 'dart:io';
@@ -23,7 +24,8 @@ class QuizProgressService {
     return _docDir!;
   }
 
-  Future<File> get _file async => File('${(await _documents).path}/$_progressFileName');
+  Future<File> get _file async =>
+      File('${(await _documents).path}/$_progressFileName');
 
   /// Load all unit progress from disk. Returns empty map if none saved yet.
   Future<Map<String, UnitProgress>> loadProgress() async {
@@ -72,14 +74,20 @@ class QuizProgressService {
         lastCompletedAt: result.completedAt,
       );
       final file = await _file;
-      await file.writeAsString(jsonEncode(progress.map((k, v) => MapEntry(k, {
-        'unitId': v.unitId,
-        'bestScore': v.bestScore,
-        'totalQuestions': v.totalQuestions,
-        'bestPercentage': v.bestPercentage,
-        'attempts': v.attempts,
-        'lastCompletedAt': v.lastCompletedAt?.toIso8601String(),
-      }))));
+      await file.writeAsString(
+        jsonEncode(
+          progress.map(
+            (k, v) => MapEntry(k, {
+              'unitId': v.unitId,
+              'bestScore': v.bestScore,
+              'totalQuestions': v.totalQuestions,
+              'bestPercentage': v.bestPercentage,
+              'attempts': v.attempts,
+              'lastCompletedAt': v.lastCompletedAt?.toIso8601String(),
+            }),
+          ),
+        ),
+      );
     } catch (_) {
       // Silently ignore persistence failures so offline use still works.
     }
@@ -88,11 +96,7 @@ class QuizProgressService {
   /// Load progress for a single unit.
   Future<UnitProgress> getUnitProgress(String unitId) async {
     final progress = await loadProgress();
-    return progress[unitId] ??
-        UnitProgress(
-          unitId: unitId,
-          totalQuestions: 30,
-        );
+    return progress[unitId] ?? UnitProgress(unitId: unitId, totalQuestions: 30);
   }
 
   /// Clear all progress (for testing/reset).

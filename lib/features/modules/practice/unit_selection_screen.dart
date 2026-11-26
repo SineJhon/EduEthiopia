@@ -75,7 +75,7 @@ class _UnitSelectionScreenState extends State<UnitSelectionScreen> {
                   AppDimensions.lg,
                 ),
                 itemCount: _units.length,
-                separatorBuilder: (_, __) => const SizedBox(height: 8),
+                separatorBuilder: (_, _) => const SizedBox(height: 8),
                 itemBuilder: (context, index) {
                   final unit = _units[index];
                   return _UnitCard(
@@ -90,6 +90,7 @@ class _UnitSelectionScreenState extends State<UnitSelectionScreen> {
     );
   }
 }
+
 class _UnitCard extends StatelessWidget {
   const _UnitCard({
     required this.unit,
@@ -172,10 +173,11 @@ class _UnitCard extends StatelessWidget {
                       children: [
                         Text(
                           _unitTitle(unit.title),
-                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.w900,
-                            color: colorScheme.onSurface,
-                          ),
+                          style: Theme.of(context).textTheme.titleMedium
+                              ?.copyWith(
+                                fontWeight: FontWeight.w900,
+                                color: colorScheme.onSurface,
+                              ),
                         ),
                         const SizedBox(height: 4),
                         Text(
@@ -217,4 +219,3 @@ class _UnitCard extends StatelessWidget {
     );
   }
 }
-

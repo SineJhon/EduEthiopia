@@ -3,6 +3,7 @@
 /// Each unit contains exactly 30 questions, of which 5 are linked to a
 /// reading passage. Content is based on the Communicative English FLEn 1011
 /// module notes (assets/content/communicative_english_1/notes.json).
+library;
 
 import 'quiz_models.dart';
 export 'quiz_models.dart';

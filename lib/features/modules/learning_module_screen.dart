@@ -122,13 +122,27 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
   }
 
   List<String> _noteFiles() {
-    if (_categoryName == 'Pre-Engineering' &&
-        (_selectedNoteSubject == 'Anthropology' ||
+    if (_categoryName == 'Others' && _selectedNoteSubject == 'Anthropology') {
+      return ['Integrated Study Notes'];
+    }
+    if (_categoryName == 'Others' &&
+        (_selectedNoteSubject == 'Entrepreneurship' ||
+            _selectedNoteSubject == 'General Biology' ||
+            _selectedNoteSubject == 'General Chemistry')) {
+      return ['Integrated Study Notes'];
+    }
+    if ((_categoryName == 'Pre-Engineering' || _categoryName == 'Others') &&
+        (_selectedNoteSubject == 'Anthropology' &&
+                _categoryName == 'Pre-Engineering' ||
+            (_categoryName == 'Others' &&
+                _selectedNoteSubject == 'Anthropology') ||
             _selectedNoteSubject == 'Applied Mathematics I' ||
             _selectedNoteSubject == 'C++ Programming' ||
             _selectedNoteSubject == 'Communicative English II' ||
             _selectedNoteSubject == 'Entrepreneurship' ||
-            _selectedNoteSubject == 'History of Ethiopia')) {
+            _selectedNoteSubject == 'History of Ethiopia' ||
+            _selectedNoteSubject == 'Introduction to Emerging Technologies' ||
+            _selectedNoteSubject == 'Moral and Civics')) {
       return ['Integrated Study Notes'];
     }
     if (_categoryName != 'Freshman') return [];
@@ -387,7 +401,28 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                               _selectedNoteSubject ==
                                                   'Entrepreneurship' ||
                                               _selectedNoteSubject ==
-                                                  'History of Ethiopia')))) {
+                                                  'History of Ethiopia' ||
+                                              _selectedNoteSubject ==
+                                                  'Introduction to Emerging Technologies' ||
+                                              _selectedNoteSubject ==
+                                                  'Moral and Civics')) ||
+                                      (_categoryName == 'Others' &&
+                                          (_selectedNoteSubject ==
+                                                  'Anthropology' ||
+                                              _selectedNoteSubject ==
+                                                  'Communicative English II' ||
+                                              _selectedNoteSubject ==
+                                                  'Entrepreneurship' ||
+                                              _selectedNoteSubject ==
+                                                  'General Biology' ||
+                                              _selectedNoteSubject ==
+                                                  'General Chemistry' ||
+                                              _selectedNoteSubject ==
+                                                  'History of Ethiopia' ||
+                                              _selectedNoteSubject ==
+                                                  'Introduction to Emerging Technologies' ||
+                                              _selectedNoteSubject ==
+                                                  'Moral and Civics')))) {
                                 slideFadePush<void>(
                                   context,
                                   (_) => CommunicativeEnglishNotesScreen(
@@ -412,6 +447,10 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                               _selectedNoteSubject ==
                                                   'Anthropology'
                                         ? 'assets/content/anthropology_preengineering/notes.json'
+                                        : _categoryName == 'Others' &&
+                                              _selectedNoteSubject ==
+                                                  'Anthropology'
+                                        ? 'assets/content/anthropology_preengineering/notes.json'
                                         : _categoryName == 'Pre-Engineering' &&
                                               _selectedNoteSubject ==
                                                   'Applied Mathematics I'
@@ -424,6 +463,33 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                               _selectedNoteSubject ==
                                                   'Communicative English II'
                                         ? 'assets/content/communicative_english_ii/notes.json'
+                                        : _categoryName == 'Others' &&
+                                              _selectedNoteSubject ==
+                                                  'Communicative English II'
+                                        ? 'assets/content/communicative_english_ii/notes.json'
+                                        : _categoryName == 'Others' &&
+                                              _selectedNoteSubject ==
+                                                  'Entrepreneurship'
+                                        ? 'assets/content/entrepreneurship_preengineering/notes.json'
+                                        : _categoryName == 'Others' &&
+                                              _selectedNoteSubject ==
+                                                  'General Biology'
+                                        ? 'assets/content/general_biology_others/notes.json'
+                                        : _categoryName == 'Others' &&
+                                              _selectedNoteSubject ==
+                                                  'General Chemistry'
+                                        ? 'assets/content/general_chemistry_others/notes.json'
+                                        : _categoryName == 'Others' &&
+                                              _selectedNoteSubject ==
+                                                  'History of Ethiopia'
+                                        ? 'assets/content/history_ethiopia_preengineering/notes.json'
+                                        : _categoryName == 'Others' &&
+                                              _selectedNoteSubject == 'Introduction to Emerging Technologies'
+                                        ? 'assets/content/emerging_technologies/notes.json'
+                                        : _categoryName == 'Others' &&
+                                              _selectedNoteSubject ==
+                                                  'Moral and Civics'
+                                        ? 'assets/content/moral_civics_preengineering/notes.json'
                                         : _categoryName == 'Pre-Engineering' &&
                                               _selectedNoteSubject ==
                                                   'Entrepreneurship'
@@ -432,6 +498,13 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                               _selectedNoteSubject ==
                                                   'History of Ethiopia'
                                         ? 'assets/content/history_ethiopia_preengineering/notes.json'
+                                        : _categoryName == 'Pre-Engineering' &&
+                                              _selectedNoteSubject == 'Introduction to Emerging Technologies'
+                                        ? 'assets/content/emerging_technologies/notes.json'
+                                        : _categoryName == 'Pre-Engineering' &&
+                                              _selectedNoteSubject ==
+                                                  'Moral and Civics'
+                                        ? 'assets/content/moral_civics_preengineering/notes.json'
                                         : 'assets/content/communicative_english_1/notes.json',
                                     appBarTitle: _selectedNoteSubject!,
                                     courseCode:
@@ -471,10 +544,36 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
                                               _selectedNoteSubject ==
                                                   'Entrepreneurship'
                                         ? 'Entrepreneurship'
+                                        : _categoryName == 'Others' &&
+                                              _selectedNoteSubject ==
+                                                  'General Biology'
+                                        ? 'Biol. 1012'
+                                        : _categoryName == 'Others' &&
+                                              _selectedNoteSubject ==
+                                                  'General Chemistry'
+                                        ? 'CHEM.1012'
+                                        : _categoryName == 'Others' &&
+                                              _selectedNoteSubject ==
+                                                  'History of Ethiopia'
+                                        ? 'History of Ethiopia and the Horn'
+                                        : _categoryName == 'Others' &&
+                                              _selectedNoteSubject == 'Introduction to Emerging Technologies'
+                                        ? 'EMTE1011/1012'
+                                        : _categoryName == 'Others' &&
+                                              _selectedNoteSubject ==
+                                                  'Moral and Civics'
+                                        ? 'MCED 1011'
                                         : _categoryName == 'Pre-Engineering' &&
                                               _selectedNoteSubject ==
                                                   'History of Ethiopia'
                                         ? 'History of Ethiopia and the Horn'
+                                        : _categoryName == 'Pre-Engineering' &&
+                                              _selectedNoteSubject == 'Introduction to Emerging Technologies'
+                                        ? 'EMTE1011/1012'
+                                        : _categoryName == 'Pre-Engineering' &&
+                                              _selectedNoteSubject ==
+                                                  'Moral and Civics'
+                                        ? 'MCED 1011'
                                         : 'FLEn 1011',
                                   ),
                                 );
