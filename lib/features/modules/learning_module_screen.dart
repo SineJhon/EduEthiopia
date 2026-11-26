@@ -153,18 +153,66 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
           'Active and Passive Voice',
           'Brief Notes for First Year Students',
           'English Tenses In Context',
+          'Fundamentals of English Grammar',
           'Passive Voice Excercise and Grammar Drills',
         ];
       case 'General Psychology':
-        return ['Integrated Study Notes'];
+        return [
+          'Integrated Study Notes',
+          'Chapter 1',
+          'Chapter 2',
+          'Chapter 3',
+          'Chapter 4',
+          'Chapter 5',
+          'Chapter 6',
+          'Chapter 7',
+          'Chapter 8',
+          'Chapter 9',
+          'Chapter 10',
+          'Chapter 11',
+        ];
       case 'Geography':
-        return ['Integrated Study Notes'];
+        return [
+          'Integrated Study Notes',
+          'Chapter 1',
+          'Chapter 2',
+          'Chapter 3',
+          'Chapter 4',
+          'Chapter 5',
+          'Chapter 6',
+        ];
       case 'Logic and Critical Thinking':
-        return ['Integrated Study Notes'];
+        return [
+          'Integrated Study Notes',
+          'Chapter 1 - Part 1',
+          'Chapter 1 - Part 2',
+          'Chapter 2 - Part 1',
+          'Chapter 2 - Part 2',
+          'Chapter 2 - Part 3',
+          'Chapter 3',
+          'Chapter 4',
+          'Chapter 5 - Part 1',
+          'Chapter 5 - Part 2',
+          'Chapter 5 - Part 3',
+        ];
       case 'Mathematics for Natural Science':
-        return ['Integrated Study Notes'];
+        return [
+          'Integrated Study Notes',
+          'Mathematical Induction',
+          'Propositional Logic and Set Theory',
+          'Quantifiers and Quantified Arguments',
+          'Set Theory',
+        ];
       case 'Physics':
-        return ['Integrated Study Notes'];
+        return [
+          'Integrated Study Notes',
+          'Chapter 1',
+          'Fluid Mechanics Freshman Study Material',
+          'Freshman Physics Study Material',
+          'Heat and Thermodynamics Study Guide',
+          'Kinematics and Dynamics Study Guide',
+          'Physics Freshman Module Study Guide',
+        ];
       case 'Physical Fitness':
         return ['Integrated Study Notes'];
       default:
@@ -635,17 +683,66 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
 
   String? _noteAsset(String note) {
     if (_categoryName != 'Freshman') return null;
-    if (_selectedNoteSubject != 'Communicative English Language Skills') {
-      return null;
-    }
-
-    const assets = {
-      'Active and Passive Voice': 'assets/notes/Freshman/Communicative English Language Skills/Active and Passive Voice.pdf',
-      'Brief Notes for First Year Students': 'assets/notes/Freshman/Communicative English Language Skills/Brief Notes for First Year Students.pdf',
-      'English Tenses In Context': 'assets/notes/Freshman/Communicative English Language Skills/English Tenses In Context.pdf',
-      'Passive Voice Excercise and Grammar Drills': 'assets/notes/Freshman/Communicative English Language Skills/Passive Voice Excercise and Grammar Drills.pdf',
+    const assetsBySubject = {
+      'Communicative English Language Skills': {
+        'Active and Passive Voice': 'assets/notes/Freshman/Communicative English Language Skills/Active and Passive Voice.pdf',
+        'Brief Notes for First Year Students': 'assets/notes/Freshman/Communicative English Language Skills/Brief Notes for First Year Students.pdf',
+        'English Tenses In Context': 'assets/notes/Freshman/Communicative English Language Skills/English Tenses In Context.pdf',
+        'Fundamentals of English Grammar': 'assets/notes/Freshman/Communicative English Language Skills/Fundamentals-of-English-Grammar.pdf',
+        'Passive Voice Excercise and Grammar Drills': 'assets/notes/Freshman/Communicative English Language Skills/Passive Voice Excercise and Grammar Drills.pdf',
+      },
+      'General Psychology': {
+        'Chapter 1': 'assets/notes/Freshman/General Psychology/Chapter_1.pdf',
+        'Chapter 2': 'assets/notes/Freshman/General Psychology/Chapter_2.pdf',
+        'Chapter 3': 'assets/notes/Freshman/General Psychology/Chapter_3.pdf',
+        'Chapter 4': 'assets/notes/Freshman/General Psychology/Chapter_4.pdf',
+        'Chapter 5': 'assets/notes/Freshman/General Psychology/Chapter_5.pdf',
+        'Chapter 6': 'assets/notes/Freshman/General Psychology/Chapter_6.pdf',
+        'Chapter 7': 'assets/notes/Freshman/General Psychology/Chapter_7.pdf',
+        'Chapter 8': 'assets/notes/Freshman/General Psychology/Chapter_8.pdf',
+        'Chapter 9': 'assets/notes/Freshman/General Psychology/Chapter_9.pdf',
+        'Chapter 10': 'assets/notes/Freshman/General Psychology/Chapter_10.pdf',
+        'Chapter 11': 'assets/notes/Freshman/General Psychology/chapter_11.pdf',
+      },
+      'Geography': {
+        'Chapter 1': 'assets/notes/Freshman/Geography/Chapter 1.pdf',
+        'Chapter 2': 'assets/notes/Freshman/Geography/Chapter 2.pdf',
+        'Chapter 3': 'assets/notes/Freshman/Geography/Chapter 3.pdf',
+        'Chapter 4': 'assets/notes/Freshman/Geography/Chapter 4.pdf',
+        'Chapter 5': 'assets/notes/Freshman/Geography/Chapter 5.pdf',
+        'Chapter 6': 'assets/notes/Freshman/Geography/Chapter 6.pdf',
+      },
+      'Logic and Critical Thinking': {
+        'Chapter 1 - Part 1': 'assets/notes/Freshman/Logic and Critical Thinking/Chapter 1 - Part 1.pdf',
+        'Chapter 1 - Part 2': 'assets/notes/Freshman/Logic and Critical Thinking/Chapter 1 - Part 2.pdf',
+        'Chapter 2 - Part 1': 'assets/notes/Freshman/Logic and Critical Thinking/Chapter 2 - Part 1.pdf',
+        'Chapter 2 - Part 2': 'assets/notes/Freshman/Logic and Critical Thinking/Chapter 2 - Part 2.pdf',
+        'Chapter 2 - Part 3': 'assets/notes/Freshman/Logic and Critical Thinking/Chapter 2 - Part 3.pdf',
+        'Chapter 3':
+            'assets/notes/Freshman/Logic and Critical Thinking/Chapter 3.pdf',
+        'Chapter 4':
+            'assets/notes/Freshman/Logic and Critical Thinking/Chapter 4 .pdf',
+        'Chapter 5 - Part 1': 'assets/notes/Freshman/Logic and Critical Thinking/Chapter 5 - Part 1.pdf',
+        'Chapter 5 - Part 2': 'assets/notes/Freshman/Logic and Critical Thinking/Chapter 5 - Part 2.pdf',
+        'Chapter 5 - Part 3': 'assets/notes/Freshman/Logic and Critical Thinking/Chapter 5 - Part 3.pdf',
+      },
+      'Mathematics for Natural Science': {
+        'Mathematical Induction': 'assets/notes/Freshman/Mathematics for Natural Science/Mathematical Induction.pdf',
+        'Propositional Logic and Set Theory': 'assets/notes/Freshman/Mathematics for Natural Science/Propositional Logic and Set Theory.pdf',
+        'Quantifiers and Quantified Arguments': 'assets/notes/Freshman/Mathematics for Natural Science/Quantifiers and Quantified Arguments.pdf',
+        'Set Theory': 'assets/notes/Freshman/Mathematics for Natural Science/Set Theory.pdf',
+      },
+      'Physics': {
+        'Chapter 1': 'assets/notes/Freshman/Physics/Chapter_1.pdf',
+        'Fluid Mechanics Freshman Study Material': 'assets/notes/Freshman/Physics/Fluid_Mechanics_Freshman_Study_Material.pdf',
+        'Freshman Physics Study Material':
+            'assets/notes/Freshman/Physics/Freshman_Physics_Study_Material.pdf',
+        'Heat and Thermodynamics Study Guide': 'assets/notes/Freshman/Physics/Heat_and_Thermodynamics_Study_Guide.pdf',
+        'Kinematics and Dynamics Study Guide': 'assets/notes/Freshman/Physics/Kinematics_and_Dynamics_Study_Guide.pdf',
+        'Physics Freshman Module Study Guide': 'assets/notes/Freshman/Physics/Physics_Freshman_Module_Study_Guide.pdf',
+      },
     };
-    return assets[note];
+    return assetsBySubject[_selectedNoteSubject]?[note];
   }
 
   String? _modulePdfAsset(String course) {

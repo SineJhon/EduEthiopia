@@ -101,10 +101,12 @@ flutter:
     - assets/modules/others/History of Ethiopia.pdf
     - assets/modules/others/Introduction to Emerging Technologies.pdf
     - assets/modules/others/Moral and Civics.pdf
-    - assets/notes/Freshman/Communicative English Language Skills/Active and Passive Voice.pdf
-    - assets/notes/Freshman/Communicative English Language Skills/Brief Notes for First Year Students.pdf
-    - assets/notes/Freshman/Communicative English Language Skills/English Tenses In Context.pdf
-    - assets/notes/Freshman/Communicative English Language Skills/Passive Voice Excercise and Grammar Drills.pdf
+    - assets/notes/Freshman/Communicative English Language Skills/
+    - assets/notes/Freshman/General Psychology/
+    - assets/notes/Freshman/Geography/
+    - assets/notes/Freshman/Logic and Critical Thinking/
+    - assets/notes/Freshman/Mathematics for Natural Science/
+    - assets/notes/Freshman/Physics/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
