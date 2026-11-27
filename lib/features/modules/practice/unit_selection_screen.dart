@@ -34,7 +34,7 @@ class _UnitSelectionScreenState extends State<UnitSelectionScreen> {
   }
 
   Future<void> _load() async {
-    final units = quizUnitsBySubject[widget.subject] ?? <QuizUnit>[];
+    final units = quizUnitsForSubject(widget.subject);
     if (!mounted) return;
     setState(() {
       _units = units;
