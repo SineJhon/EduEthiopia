@@ -83,6 +83,8 @@ class _UnitSelectionScreenState extends State<UnitSelectionScreen> {
                     subject: widget.subject,
                     position: index + 1,
                     isAmharic: _isAmharic,
+                    showProgress: widget.subject !=
+                        'Communicative English Language Skills',
                   );
                 },
               ),
@@ -97,12 +99,14 @@ class _UnitCard extends StatelessWidget {
     required this.subject,
     required this.position,
     required this.isAmharic,
+    required this.showProgress,
   });
 
   final QuizUnit unit;
   final String subject;
   final int position;
   final bool isAmharic;
+  final bool showProgress;
 
   String _unitTitle(String title) {
     if (!isAmharic) return title;
@@ -125,8 +129,10 @@ class _UnitCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    return FutureBuilder<UnitProgress>(
-      future: QuizProgressService.instance.getUnitProgress(unit.unitId),
+    return FutureBuilder<UnitProgress?>(
+      future: showProgress
+          ? QuizProgressService.instance.getUnitProgress(unit.unitId)
+          : Future<UnitProgress?>.value(null),
       builder: (context, snapshot) {
         final progress = snapshot.data;
         final hasAttempted = (progress?.attempts ?? 0) > 0;
@@ -187,7 +193,7 @@ class _UnitCard extends StatelessWidget {
                             fontSize: 12,
                           ),
                         ),
-                        if (hasAttempted && progress != null) ...[
+                        if (showProgress && hasAttempted && progress != null) ...[
                           const SizedBox(height: 8),
                           LinearProgressIndicator(
                             value: progress.bestPercentage / 100,
