@@ -40,249 +40,331 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final width = MediaQuery.of(context).size.width;
-    final horizontalPadding = width < 360 ? 16.0 : 22.0;
+    final horizontalPadding = width < 360 ? 18.0 : 24.0;
 
     return Scaffold(
       backgroundColor: colorScheme.surface,
       body: SafeArea(
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 420),
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(
-                    horizontalPadding,
-                    18,
-                    horizontalPadding,
-                    0,
+        child: LayoutBuilder(
+          builder: (context, viewport) => SingleChildScrollView(
+            padding: EdgeInsets.fromLTRB(
+              horizontalPadding,
+              12,
+              horizontalPadding,
+              28,
+            ),
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 480),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minHeight: viewport.maxHeight - 40,
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const ThemeToggle(),
-                      const SizedBox(width: 4),
-                      OutlinedButton(
-                        onPressed: () =>
-                            widget.onLanguageChanged(!widget.isAmharic),
-                        style: OutlinedButton.styleFrom(
-                          foregroundColor: colorScheme.onSurface,
-                          side: BorderSide(color: colorScheme.outlineVariant),
-                          backgroundColor: colorScheme.surface,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 8,
-                          ),
-                          minimumSize: const Size(92, 40),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
+                      Align(
+                        alignment: Alignment.centerRight,
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Icon(
-                              Icons.language_rounded,
-                              size: 16,
-                              color: colorScheme.primary,
-                            ),
-                            const SizedBox(width: 6),
-                            Text(
-                              strings.languageLabel,
-                              style: GoogleFonts.inter(
-                                fontSize: 11,
-                                fontWeight: FontWeight.w700,
+                            const ThemeToggle(),
+                            const SizedBox(width: 8),
+                            OutlinedButton(
+                              onPressed: () =>
+                                  widget.onLanguageChanged(!widget.isAmharic),
+                              style: OutlinedButton.styleFrom(
+                                foregroundColor: colorScheme.onSurface,
+                                side: BorderSide(
+                                  color: colorScheme.outlineVariant,
+                                ),
+                                backgroundColor: colorScheme.surface,
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 10,
+                                ),
+                                minimumSize: const Size(104, 44),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(14),
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    Icons.language_rounded,
+                                    size: 18,
+                                    color: colorScheme.primary,
+                                  ),
+                                  const SizedBox(width: 7),
+                                  Text(
+                                    strings.languageLabel,
+                                    style: GoogleFonts.inter(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
                         ),
                       ),
-                    ],
-                  ),
-                ),
-                const Spacer(flex: 5),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-                  child: Column(
-                    children: [
+                      const SizedBox(height: 28),
                       Container(
-                        width: 96,
-                        height: 96,
-                        padding: const EdgeInsets.all(4),
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.white,
-                        ),
-                        child: ClipOval(
-                          child: Image.asset(
-                            'assets/images/edu_ethiopia_logo.jpg',
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      Text(
-                        strings.welcomeEyebrow,
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.inter(
-                          fontSize: 9,
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: 1.05,
-                          color: colorScheme.tertiary,
-                        ),
-                      ),
-                      const SizedBox(height: 7),
-                      Text(
-                        strings.welcomeTitle,
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.plusJakartaSans(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w800,
-                          height: 1.12,
-                          letterSpacing: -0.45,
-                          color: colorScheme.onSurface,
-                        ),
-                      ),
-                      const SizedBox(height: 9),
-                      Text(
-                        strings.welcomeSubtitle,
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.inter(
-                          fontSize: 11,
-                          height: 1.45,
-                          color: colorScheme.onSurfaceVariant,
-                        ),
-                      ),
-                      const SizedBox(height: 15),
-                      LayoutBuilder(
-                        builder: (context, constraints) {
-                          final availableWidth = constraints.maxWidth.isFinite
-                              ? constraints.maxWidth
-                              : 0.0;
-                          final tileWidth = ((availableWidth - 12) / 3)
-                              .clamp(0.0, double.infinity)
-                              .toDouble();
-                          final tiles = <(String, IconData, Color)>[
-                            (
-                              strings.modules,
-                              Icons.apps_rounded,
-                              const Color(0xFF176246),
+                            padding: const EdgeInsets.fromLTRB(20, 26, 20, 22),
+                            decoration: BoxDecoration(
+                              color: colorScheme.surfaceContainerLowest,
+                              borderRadius: BorderRadius.circular(28),
+                              border: Border.all(
+                                color: colorScheme.outlineVariant.withValues(
+                                  alpha: 0.65,
+                                ),
+                              ),
                             ),
-                            (
-                              strings.notes,
-                              Icons.menu_book_rounded,
-                              const Color(0xFF8E2437),
-                            ),
-                            (
-                              strings.videos,
-                              Icons.play_circle_rounded,
-                              const Color(0xFF176246),
-                            ),
-                            (
-                              widget.isAmharic ? 'ሚድ እና ፍጻሜ' : 'Mid and Finals',
-                              Icons.fact_check_rounded,
-                              const Color(0xFF8E2437),
-                            ),
-                            (
-                              widget.isAmharic ? 'የCOC ፈተናዎች' : 'COC',
-                              Icons.assignment_turned_in_rounded,
-                              const Color(0xFF176246),
-                            ),
-                            (
-                              widget.isAmharic ? 'AI እገዛ' : 'AI Assistant',
-                              Icons.auto_awesome_rounded,
-                              const Color(0xFFE3AF16),
-                            ),
-                          ];
-                          return Wrap(
-                            spacing: 6,
-                            runSpacing: 6,
-                            children: tiles
-                                .map(
-                                  (tile) => SizedBox(
-                                    width: tileWidth,
-                                    height: 56,
-                                    child: OutlinedButton(
-                                      onPressed: _openLearning,
-                                      style: OutlinedButton.styleFrom(
-                                        foregroundColor: colorScheme.onSurface,
-                                        backgroundColor: colorScheme.surface,
-                                        side: BorderSide(
-                                          color: tile.$3.withValues(
-                                            alpha: 0.18,
-                                          ),
-                                        ),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(
-                                            14,
-                                          ),
-                                        ),
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 4,
-                                          vertical: 5,
+                            child: Column(
+                              children: [
+                                Container(
+                                      width: 116,
+                                      height: 116,
+                                      padding: const EdgeInsets.all(4),
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Colors.white,
+                                      ),
+                                      child: ClipOval(
+                                        child: Image.asset(
+                                          'assets/images/edu_ethiopia_logo.jpg',
+                                          fit: BoxFit.cover,
                                         ),
                                       ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            tile.$2,
-                                            size: 16,
-                                            color: tile.$3,
-                                          ),
-                                          const SizedBox(height: 2),
-                                          Text(
-                                            tile.$1,
-                                            maxLines: 2,
-                                            overflow: TextOverflow.ellipsis,
-                                            textAlign: TextAlign.center,
-                                            style: GoogleFonts.inter(
-                                              fontSize: 9,
-                                              height: 1.1,
-                                              fontWeight: FontWeight.w700,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                                    )
+                                    .animate()
+                                    .fadeIn(duration: 500.ms)
+                                    .scale(
+                                      begin: const Offset(0.88, 0.88),
+                                      curve: Curves.easeOutBack,
+                                    ),
+                                const SizedBox(height: 22),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 14,
+                                    vertical: 8,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: colorScheme.tertiaryContainer,
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                  child: Text(
+                                    strings.welcomeEyebrow,
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.inter(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w900,
+                                      letterSpacing: 1.05,
+                                      height: 1.25,
+                                      color: colorScheme.onTertiaryContainer,
                                     ),
                                   ),
-                                )
-                                .toList(),
-                          );
-                        },
-                      ),
-                      const SizedBox(height: 16),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 48,
-                        child: FilledButton.icon(
-                          onPressed: _openLearning,
-                          icon: const Icon(
-                            Icons.arrow_forward_rounded,
-                            size: 17,
-                          ),
-                          label: Text(
-                            strings.continueLabel,
-                            style: GoogleFonts.inter(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700,
+                                ),
+                                const SizedBox(height: 14),
+                                Text(
+                                  strings.welcomeTitle,
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.plusJakartaSans(
+                                    fontSize: width < 360 ? 27 : 30,
+                                    fontWeight: FontWeight.w800,
+                                    height: 1.14,
+                                    letterSpacing: -0.6,
+                                    color: colorScheme.onSurface,
+                                  ),
+                                ),
+                                const SizedBox(height: 12),
+                                Text(
+                                  strings.welcomeSubtitle,
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.inter(
+                                    fontSize: 14,
+                                    height: 1.55,
+                                    color: colorScheme.onSurfaceVariant,
+                                  ),
+                                ),
+                                const SizedBox(height: 24),
+                                LayoutBuilder(
+                                  builder: (context, constraints) {
+                                    const spacing = 10.0;
+                                    final tileWidth =
+                                        (constraints.maxWidth - spacing * 2) /
+                                        3;
+                                    final tiles = <(String, IconData, Color)>[
+                                      (
+                                        strings.modules,
+                                        Icons.apps_rounded,
+                                        const Color(0xFF176246),
+                                      ),
+                                      (
+                                        strings.notes,
+                                        Icons.menu_book_rounded,
+                                        const Color(0xFF8E2437),
+                                      ),
+                                      (
+                                        strings.videos,
+                                        Icons.play_circle_rounded,
+                                        const Color(0xFF176246),
+                                      ),
+                                      (
+                                        widget.isAmharic
+                                            ? '?? ?? ???'
+                                            : 'Mid and Finals',
+                                        Icons.fact_check_rounded,
+                                        const Color(0xFF8E2437),
+                                      ),
+                                      (
+                                        widget.isAmharic ? '?COC ?????' : 'COC',
+                                        Icons.assignment_turned_in_rounded,
+                                        const Color(0xFF176246),
+                                      ),
+                                      (
+                                        widget.isAmharic
+                                            ? 'AI ???'
+                                            : 'AI Assistant',
+                                        Icons.auto_awesome_rounded,
+                                        const Color(0xFFE3AF16),
+                                      ),
+                                    ];
+                                    return Wrap(
+                                      spacing: spacing,
+                                      runSpacing: spacing,
+                                      children: tiles.asMap().entries.map((
+                                        entry,
+                                      ) {
+                                        final tile = entry.value;
+                                        return SizedBox(
+                                          width: tileWidth,
+                                          height: 96,
+                                          child:
+                                              OutlinedButton(
+                                                    onPressed: _openLearning,
+                                                    style: OutlinedButton.styleFrom(
+                                                      foregroundColor:
+                                                          colorScheme.onSurface,
+                                                      backgroundColor:
+                                                          colorScheme.surface,
+                                                      side: BorderSide(
+                                                        color: tile.$3
+                                                            .withValues(
+                                                              alpha: 0.30,
+                                                            ),
+                                                      ),
+                                                      shape: RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius.circular(
+                                                              18,
+                                                            ),
+                                                      ),
+                                                      padding:
+                                                          const EdgeInsets.symmetric(
+                                                            horizontal: 6,
+                                                            vertical: 10,
+                                                          ),
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Icon(
+                                                          tile.$2,
+                                                          size: 24,
+                                                          color: tile.$3,
+                                                        ),
+                                                        const SizedBox(
+                                                          height: 8,
+                                                        ),
+                                                        Text(
+                                                          tile.$1,
+                                                          maxLines: 2,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style:
+                                                              GoogleFonts.inter(
+                                                                fontSize: 11,
+                                                                height: 1.2,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                              ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  )
+                                                  .animate()
+                                                  .fadeIn(
+                                                    duration: 420.ms,
+                                                    delay: (entry.key * 70).ms,
+                                                  )
+                                                  .slideY(
+                                                    begin: 0.08,
+                                                    end: 0,
+                                                    curve: Curves.easeOutCubic,
+                                                  ),
+                                        );
+                                      }).toList(),
+                                    );
+                                  },
+                                ),
+                                const SizedBox(height: 22),
+                                SizedBox(
+                                  width: double.infinity,
+                                  height: 58,
+                                  child:
+                                      FilledButton.icon(
+                                            onPressed: _openLearning,
+                                            icon: const Icon(
+                                              Icons.arrow_forward_rounded,
+                                              size: 20,
+                                            ),
+                                            label: Text(
+                                              strings.continueLabel,
+                                              style: GoogleFonts.inter(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w800,
+                                              ),
+                                            ),
+                                            style: FilledButton.styleFrom(
+                                              backgroundColor:
+                                                  colorScheme.primary,
+                                              foregroundColor:
+                                                  colorScheme.onPrimary,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(16),
+                                              ),
+                                            ),
+                                          )
+                                          .animate()
+                                          .fadeIn(
+                                            duration: 500.ms,
+                                            delay: 360.ms,
+                                          )
+                                          .slideY(begin: 0.08, end: 0),
+                                ),
+                              ],
                             ),
+                          )
+                          .animate()
+                          .fadeIn(duration: 600.ms, delay: 100.ms)
+                          .slideY(
+                            begin: 0.04,
+                            end: 0,
+                            curve: Curves.easeOutCubic,
                           ),
-                          style: FilledButton.styleFrom(
-                            backgroundColor: colorScheme.primary,
-                            foregroundColor: colorScheme.onPrimary,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                        ),
-                      ),
                     ],
                   ),
                 ),
-                const Spacer(flex: 7),
-              ],
+              ),
             ),
           ),
         ),
