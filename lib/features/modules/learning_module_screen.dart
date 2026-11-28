@@ -47,6 +47,43 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
 
   static const _categories = ['Freshman', 'Pre-Engineering', 'Others'];
 
+  static const _additionalNoteFiles = <String, List<String>>{
+    'Anthropology': [
+      'Social Anthropology',
+      'Unit 2',
+      'Unit 3',
+      'Unit 4',
+      'Unit 5',
+      'Unit 6',
+      'Unit 7',
+    ],
+    'Entrepreneurship': [
+      'Chapter 1 - The Nature of Entrepreneurship Study Notes',
+      'Chapter 1 ( Part 2 ) - Entrepreneurship Study Notes',
+      'Chapter 2 - Business Planning Study Notes',
+      'Chapter 2 ( Part 2 ) - Business Planning Study Notes',
+      'Chapter 3 - Business Formation Study Notes',
+      'Chapter 3 ( Part 2 ) - Business Formation Study Notes',
+      'Chapter 4 - Product_Service Development Study Notes',
+      'Chapter 5 - Marketing Study Notes',
+      'Chapter 5 ( Part 2 ) - Marketing Study Notes (1)',
+      'Chapter 6 - Business Financing Study Notes',
+      'Chapter 7 - Managing Growth and Transition',
+    ],
+    'History of Ethiopia': [
+      'Unit 1',
+      'Unit 2',
+      'Unit 3',
+      'Unit 4',
+      'Unit 5 ( Part One )',
+      'Unit 5 ( Part Two )',
+      'Unit 6 ( Part One )',
+      'Unit 6 ( Part Two )',
+      'Unit 7 ( Part One )',
+      'Unit 7 ( Part Two )',
+    ],
+  };
+
   LearningCategory get _category {
     switch (widget.module) {
       case LearningModule.modules:
@@ -122,6 +159,14 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
   }
 
   List<String> _noteFiles() {
+    if ((_categoryName == 'Pre-Engineering' || _categoryName == 'Others') &&
+        _selectedNoteSubject != null &&
+        _additionalNoteFiles.containsKey(_selectedNoteSubject)) {
+      return [
+        'Integrated Study Notes',
+        ..._additionalNoteFiles[_selectedNoteSubject]!,
+      ];
+    }
     if (_categoryName == 'Others' && _selectedNoteSubject == 'Anthropology') {
       return ['Integrated Study Notes'];
     }
@@ -682,6 +727,14 @@ class _LearningModuleScreenState extends State<LearningModuleScreen> {
   }
 
   String? _noteAsset(String note) {
+    if (_categoryName == 'Pre-Engineering' || _categoryName == 'Others') {
+      final files = _additionalNoteFiles[_selectedNoteSubject];
+      if (files == null || !files.contains(note)) return null;
+      final folder = _categoryName == 'Pre-Engineering'
+          ? 'PreEngineering'
+          : 'Others';
+      return 'assets/notes/$folder/$_selectedNoteSubject/$note.pdf';
+    }
     if (_categoryName != 'Freshman') return null;
     const assetsBySubject = {
       'Communicative English Language Skills': {

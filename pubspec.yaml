@@ -107,6 +107,8 @@ flutter:
     - assets/notes/Freshman/Logic and Critical Thinking/
     - assets/notes/Freshman/Mathematics for Natural Science/
     - assets/notes/Freshman/Physics/
+    - assets/notes/PreEngineering/
+    - assets/notes/Others/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
